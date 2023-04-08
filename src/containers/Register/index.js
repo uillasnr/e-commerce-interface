@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { Link } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from "react-toastify";
 import api from "../../services/api"
@@ -98,7 +99,9 @@ function Register() {
                 </form>
 
                 <SignInLink>
-                    já possui conta ? <a>Sign In</a>
+                    já possui conta ? {''}
+                    
+                    <Link to='/login'>Sign In</Link>
                 </SignInLink>
             </ContainerItens>
         </Container>

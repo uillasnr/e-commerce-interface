@@ -1,20 +1,26 @@
-import React, { useEffect } from "react";
-import api from "../../services/api";
+import React from "react";
+//import api from "../../services/api";
+import OfferProducts from "../../components/OfferProducts";
+import {Container } from './styles'
 
 
 function Home() {
 
-    useEffect(() => {
-        async function loadCategories() {
-            const response = await api.get('categories')
-
-            console.log(response)
-        }
-        loadCategories()
-    }, [])
+    /*     useEffect(() => {
+            async function loadCategories() {
+                const response = await api.get('products')
+    
+                console.log(response)
+            }
+            loadCategories()
+        }, []) */
 
     return (
-        <h1>uillas</h1>
+        <Container>
+            <h1>Ofertas em destaque</h1>
+            <OfferProducts />
+        </Container>
+
     )
 }
 export default Home
