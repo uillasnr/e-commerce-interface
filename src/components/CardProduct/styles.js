@@ -4,8 +4,10 @@ import styled from "styled-components";
 export const Container = styled.div`
 display: grid;
 grid-template-columns: repeat(5,1fr);
-gap: 10px;
-padding: 40px; 
+gap: 0px;
+padding: 10px; 
+/* width: max-content; */
+
 `
 
 export const Img = styled.img`
@@ -14,7 +16,7 @@ background: none;
 
 
 `
-export const ButtonOffers = styled.button`
+export const Button = styled.button`
 width: 150px;
 height: 30px;
 background: #36E73D;;
@@ -44,19 +46,7 @@ export const ContainerItems = styled.h1`
     border-radius: 10.6557px;
     width: 200px;
     height: 290px;
-    position: relative;
 
- ::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 40px solid transparent;
-    border-top: 40px solid #44D62C;
-    border-right: 40px solid #44D62C;
-    border-radius: 0px 10px 0px 10px;
-    
-}
 
 
    

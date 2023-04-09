@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import api from '../../services/api'
+import formatCurrency from '../../utils/formarCurrency'
 
-import { Container,Card,  Img ,ButtonOffers,ContainerItems, Uillas } from './styles'
+import { Container, Img, ButtonOffers, ContainerItems } from './styles'
 
 function OfferProducts() {
     const [offers, setOffers] = useState([])
@@ -18,28 +19,26 @@ function OfferProducts() {
     }, [])
 
     return (
-        
+
         <Container>
-             
-             {offers &&
-           
-            offers.map(product => (
+            {offers &&
+                offers.map(product => (
 
-                <ContainerItems key={product.id}>
-                    {/* <Card>offer</Card> */}
-                    <div> 
-                    <Img src={product.url} alt="foto do Produto" />
-                    </div>
-                    <h2>{product.name}</h2>
-                    <h3>{product.description}</h3>
-                    <p>{product.price}</p>
+                    <ContainerItems key={product.id}>
+                        <h6>offer</h6>
+                        <div>
+                            <Img src={product.url} alt="foto do Produto" />
+                        </div>
+                        <h2>{product.name}</h2>
+                        <h3>{product.description}</h3>
+                        <p>{formatCurrency(product.price)}</p>
 
-                    <ButtonOffers onClick={() => {
-                     
-                    }}>Peça agora</ButtonOffers>
-                   
-                </ContainerItems>
-            ))}
+                        <ButtonOffers onClick={() => {
+
+                        }}>Peça agora</ButtonOffers>
+
+                    </ContainerItems>
+                ))}
         </Container>
     )
 }
