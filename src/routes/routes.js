@@ -18,7 +18,7 @@ function Routes() {
                 <Route component={Register} path="/cadastro" />
                 <PrivateRoute exact component={Home} path="/" />
                 <PrivateRoute exact component={Products} path="/produtos" />
-                <PrivateRoute exact component={ProductsId} path="/detalhes/:id" />
+                <Route component={ProductsId} path="/detalhes/:id" />
             </Switch>
         </Router>
     )

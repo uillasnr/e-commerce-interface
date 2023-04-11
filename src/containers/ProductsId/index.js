@@ -9,28 +9,28 @@ import { useParams } from "react-router-dom";
 
 function ProductsId() {
     const { id } = useParams();
-    
-     const [product, setProduct] = useState([]);
-
+    const [product, setProduct] = useState({});
+  
     useEffect(() => {
-        async function fetchProduct() {
-            const { data } = await api.get(`products/${id}`);
-            console.log(data);
-            setProduct(data);
-        }
-        fetchProduct();
-    }, [id])
+      async function fetchProduct() {
+        const { data } = await api.get(`products`);
+        console.log(data.product.id)
+        setProduct(data);
+      }
+      fetchProduct();
+    }, [id]);
+  
 
     return (
         <Container>
 
             <h1> Produto</h1>
 
-            <div>{id}</div>
+            <div>{product.id}</div>
             <div>{product.name}</div>
            
         </Container>
 
     )
-}
+} 
 export default ProductsId
