@@ -1,4 +1,4 @@
-/* import React, { useEffect, useState } from "react";
+ import React, { useEffect, useState } from "react";
 
 import api from '../../services/api'
 import Products from "../../containers/Products";
@@ -49,4 +49,4 @@ function Category() {
     )
 
 }
-export default Category */
+export default Category 

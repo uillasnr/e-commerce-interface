@@ -1,3 +1,5 @@
+//tela de todos produtos
+
 import React from "react";
 import PropTypes from 'prop-types'
 import formatCurrency from '../../utils/formarCurrency'
