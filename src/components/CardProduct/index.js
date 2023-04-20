@@ -13,7 +13,7 @@ function CardProduct({ product }) {
 
                 <Link to={`/detalhes/${product.id}`}>
                     <div>
-                        <Img src={product.url} alt="foto do Produto" />
+                        <Img src={product.url_img1} alt="foto do Produto" />
                     </div>
                     <h2>{product.name}</h2>
                     <h3>{product.description}</h3>
