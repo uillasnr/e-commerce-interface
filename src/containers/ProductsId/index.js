@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 //import OfferProducts from "../../components/OfferProducts";
 import formatCurrency from '../../utils/formarCurrency'
-import { Button } from "../../components/Button";
+//import { Button } from "../../components/Button";
 
-import { Container, Image, Img, ContainerImg, ImgOptions, Uillas, ContainerTex, Description } from './styles'
+import { Container, Image, Img, ContainerImg, ImgOptions, Uillas, ButtonProduct, ContainerTex, Description } from './styles'
 import { useParams } from "react-router-dom";
 
 
@@ -57,10 +57,12 @@ function ProductsId() {
             <button onClick={() => (product.id)}>+</button>
           </div>
 
-          <Button style={{ width: '530', marginTop: 36, marginLeft: 530 }}>COMPRAR</Button>
-          <Button style={{ width: '530', marginTop: 36, fontSize: 12 }}>ADICIONAR AO CARINHO</Button>
-
-
+          <ButtonProduct>
+            <div className="ButtonProduct">
+              <button>COMPRAR</button>
+              <button style={{ width: '530', marginTop: 36, fontSize: 12 }}>ADICIONAR AO CARINHO</button>
+            </div>
+          </ButtonProduct>
         </ContainerTex>
 
 
