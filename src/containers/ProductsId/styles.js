@@ -90,6 +90,7 @@ h6{
 
 
 
+
 }
 @media (max-width: 1090px){
 h2{
@@ -206,12 +207,51 @@ h6{
 
 }
 
-
+}
+@media (max-width: 850px){
+    h2{
+    font-size: 1.5em;
+    margin-left: 455px;
+    width: 325px
+}
+}
+@media (max-width: 800px){
+h2 {
+    font-size: 1.5em;
+    margin-left: 410px;
+    width: 325px;
+}
+ h3 {
+    margin-left: 410px;
+    width: 150px;
+}
+p {
+    margin-left: 410px;
+    width: 225px;
+}
+.quantity-container {
+    display: flex;
+    gap: 20px;
+    width: 110px;
+    height: 40px;
+    margin-left: 410px;
+}
+}
+@media (max-width: 750px){
+    h2 {
+    font-size: 1.5em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 
 }
-
-
-
+    h3 {
+    margin-left: 290px;
+    margin-top: 330px;
+    width: 150px;
+}
+}
 
 `
 
@@ -223,6 +263,9 @@ display: flex;
 
 @media (max-width: 950px){
 height: 290px;
+}
+@media (max-width: 850px){
+height: 265px;
 }
 `
 export const ImgOptions = styled.div`
@@ -259,10 +302,16 @@ margin-left: -1020px;
     width: 417px;
     height: 306px;
     }
-    @media (max-width: 800px){
-        display: flex;
+    @media (max-width: 850px){
+     margin-left: -755px;
+    width: 380px;
+    height: 306px;
     }
-
+    @media (max-width: 800px){
+    margin-left: -740px;
+    width: 380px;
+    height: 306px;
+    }
 `
 export const Img = styled.img`
 
@@ -281,7 +330,7 @@ align-items: center;
 font-size: 2rem;
 margin-top: 30px;
 `
-export const ButtonProduct = styled.button`
+export const Button = styled.button`
 
 width: 150px;
 height: 30px;
@@ -296,7 +345,7 @@ line-height: 24px;
 text-align: center;
 color: #2c2b2b;
 margin-top: 0px;
-margin-left: 25px;
+margin-left: 530px;
 margin-bottom: 0px; 
 &:hover {
     opacity:  0.8;
@@ -306,28 +355,76 @@ opacity: 0.6;
 }
 
 
+
 @media (max-width: 1040px){
-    margin-left: -940px;
+    margin-left: 530px;
 
 }
 
 @media (max-width: 1000px){
-    margin-left: -850px;
+    margin-left: 500px;
    
     }
 @media (max-width: 950px){
-    margin-left: -865px;
+    margin-left: 500px;
   
     }
     @media (max-width: 910px){
-    margin-left: -840px;
+        margin-left: 450px;
+
+    }
+    @media (max-width: 800px){
+        margin-left: 400px;
+    }
+
+`  
+export const Uillas = styled.div`
+display: flex;
+`
+
+export const ButtonCart = styled.button`
+width: 150px;
+height: 30px;
+background: #36E73D;;
+border-radius: 20px;
+border: none;
+cursor: pointer;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+text-align: center;
+color: #2c2b2b;
+margin-top: 0px;
+margin-left: 20px;
+margin-bottom: 0px; 
+&:hover {
+    opacity:  0.8;
+}
+&:active {
+opacity: 0.6;
+}
+
+@media (max-width: 1040px){
+    margin-left: 25px;
+
+}
+
+/* @media (max-width: 1000px){
+    margin-left: 450px;
+   
+    }
+@media (max-width: 950px){
+    margin-left: 450px;
+  
+    }
+    @media (max-width: 910px){
+        margin-left: 450px;
 
     }
     @media (max-width: 800px){
         display: flex;
-    }
+    } */
 
-`
-export const Uillas = styled.div`
-display: flex;
+
 `

@@ -5,17 +5,18 @@ import api from "../../services/api";
 //import OfferProducts from "../../components/OfferProducts";
 import formatCurrency from '../../utils/formarCurrency'
 //import { Button } from "../../components/Button";
-
-import { Container, Image, Img, ContainerImg, ImgOptions, Uillas, ButtonProduct, ContainerTex, Description } from './styles'
+//import PropTypes from 'prop-types'
+import { Container, Image, Img, ContainerImg, ImgOptions, Uillas, Button, ButtonCart, ContainerTex, Description } from './styles'
 import { useParams } from "react-router-dom";
 
 
+import { useCart } from "../../hooks/CartContext";
 
-
-function ProductsId() {
+function ProductsId(/*  { product } */ ) {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [currentImg, setCurrentImg] = useState(product.url_img1);
+  const { putProductInCart } = useCart() //função do carrinho de compras
 
 
 
@@ -54,15 +55,17 @@ function ProductsId() {
           <div className="quantity-container">
             <button onClick={() => (product.id)}>-</button>
             <h1><h6>{product.quantity}</h6></h1>
-            <button onClick={() => (product.id)}>+</button>
+            <button onClick={() => (product)}>+</button>
           </div>
 
-          <ButtonProduct>
-            <div className="ButtonProduct">
-              <button>COMPRAR</button>
-              <button style={{ width: '530', marginTop: 36, fontSize: 12 }}>ADICIONAR AO CARINHO</button>
-            </div>
-          </ButtonProduct>
+
+
+          <Button style={{ width: '530', marginTop: 36, fontSize: 12 }}
+            onClick={() => putProductInCart(product)}>COMPRAR</Button>
+
+          <ButtonCart style={{ width: '530', marginTop: 36, fontSize: 12 }}>ADICIONAR AO CARINHO</ButtonCart>
+
+
         </ContainerTex>
 
 
@@ -95,5 +98,8 @@ function ProductsId() {
     </Container>
   );
 }
+/* ProductsId.propTypes = {
+  product: PropTypes.object
+} */
 
 export default ProductsId;
