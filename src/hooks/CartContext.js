@@ -7,30 +7,30 @@ import PropTypes from 'prop-types'
 const CartContext = createContext({})
 //grava os dados
 export const CartProvider = ({ children }) => {
-    const [cartProduts, setCartProduts] = useState([])
+    const [cartProducts, setCartProducts] = useState([])
 
 
 
     //função do carrinho de compras
     const putProductInCart = async product => {
-        const cartIndex = cartProduts.findIndex(prd => prd.id === product.id)
+        const cartIndex = cartProducts.findIndex(prd => prd.id === product.id)
 
-        let newCartProduts = []
+        let newCartProducts = []
         if (cartIndex > 0) {
-            newCartProduts = cartProduts
+            newCartProducts = cartProducts
 
-            newCartProduts[cartIndex].quantity =
-            newCartProduts[cartIndex].quantity + 1
+            newCartProducts[cartIndex].quantity =
+            newCartProducts[cartIndex].quantity + 1
 
-            setCartProduts(newCartProduts)
+            setCartProducts(newCartProducts)
         }
         else {
             product.quantity = 1
-            newCartProduts = [...cartProduts, product]
-            setCartProduts(newCartProduts)
+            newCartProducts = [...cartProducts, product]
+            setCartProducts(newCartProducts)
         }
 
-        await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCartProduts)
+        await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCartProducts)
         )
     }
 
@@ -43,7 +43,7 @@ export const CartProvider = ({ children }) => {
             const clientCartData = await localStorage.getItem('e-commerce:cartInfo')
 
             if (clientCartData) {
-                setCartProduts(JSON.parse(clientCartData))
+                setCartProducts(JSON.parse(clientCartData))
             }
         }
 
@@ -51,7 +51,7 @@ export const CartProvider = ({ children }) => {
     }, [])
 
     return (
-        <CartContext.Provider value={{ putProductInCart, cartProduts }}>
+        <CartContext.Provider value={{ putProductInCart, cartProducts }}>
             {children}
         </CartContext.Provider>
     )
