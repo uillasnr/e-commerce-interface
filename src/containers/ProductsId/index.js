@@ -12,11 +12,11 @@ import { useParams } from "react-router-dom";
 
 import { useCart } from "../../hooks/CartContext";
 
-function ProductsId(/*  { product } */ ) {
+function ProductsId(/*  { product } */) {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [currentImg, setCurrentImg] = useState(product.url_img1);
-  const { putProductInCart } = useCart() //função do carrinho de compras
+  const { putProductInCart, increaseProducts, decreaseProducts } = useCart() //função do carrinho de compras
 
 
 
@@ -53,9 +53,9 @@ function ProductsId(/*  { product } */ ) {
           <p>À vista no PIX com até 5% OFF</p>
 
           <div className="quantity-container">
-            <button onClick={() => (product.id)}>-</button>
+            <button onClick={() => decreaseProducts(product.id)}>-</button>
             <h1><h6>{product.quantity}</h6></h1>
-            <button onClick={() => (product)}>+</button>
+            <button onClick={() => increaseProducts(product)}>+</button>
           </div>
 
 

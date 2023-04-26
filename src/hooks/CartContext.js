@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
             newCartProducts = cartProducts
 
             newCartProducts[cartIndex].quantity =
-            newCartProducts[cartIndex].quantity + 1
+                newCartProducts[cartIndex].quantity + 1
 
             setCartProducts(newCartProducts)
         }
@@ -33,6 +33,50 @@ export const CartProvider = ({ children }) => {
         await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCartProducts)
         )
     }
+
+
+
+    //função de deletar o produto do carrinho quando a quantidade for menor que 1 
+    const deleteProducts = async productId => {
+        const newCart = cartProducts.filter(product => product.id !== productId)
+
+        setCartProducts(newCart)
+
+        await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCart))
+    }
+
+
+    //função de aumentar a quantidade do item no carrinho
+    const increaseProducts = async productId => {
+        const newCart = cartProducts.map(product => {
+            return product.id === productId
+                ? { ...product, quantity: product.quantity + 1 }
+                : product
+        })
+        setCartProducts(newCart)
+
+        await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCart))
+    }
+
+
+    //função de diminuir a quantidade do item no carrinho
+    const decreaseProducts = async productId => {
+        const cartIndex = cartProducts.findIndex(product => product.id === productId)
+
+        if (cartProducts[cartIndex].quantity > 1) {
+            const newCart = cartProducts.map(product => {
+                return product.id === productId
+                    ? { ...product, quantity: product.quantity - 1 }
+                    : product
+            })
+            setCartProducts(newCart)
+
+            await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCart))
+        } else {
+            deleteProducts(productId)
+        }
+    }
+
 
 
 
@@ -51,7 +95,7 @@ export const CartProvider = ({ children }) => {
     }, [])
 
     return (
-        <CartContext.Provider value={{ putProductInCart, cartProducts }}>
+        <CartContext.Provider value={{ putProductInCart, cartProducts, increaseProducts, decreaseProducts }}>
             {children}
         </CartContext.Provider>
     )
