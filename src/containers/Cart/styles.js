@@ -4,13 +4,12 @@ import styled from "styled-components";
 export const Container = styled.div`
 background: #222222;
 min-height: 100vh;
-background: red;
-`
-
-export const H1 = styled.h1`
 
 `
-export const Image = styled.img`
 
-
+export const Wrapper = styled.div`
+display: flex;
+justify-content: space-evenly;
+margin-top: 30px;
+padding-bottom: 30px;
 `

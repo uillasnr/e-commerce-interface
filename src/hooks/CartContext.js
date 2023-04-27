@@ -11,6 +11,12 @@ export const CartProvider = ({ children }) => {
 
 
 
+  // Função para atualizar o localStorage
+  const updateLocalStorage = async products => {
+    await localStorage.setItem('e-commerce:cartInfo',JSON.stringify(products)
+    )
+}
+
     //função do carrinho de compras
     const putProductInCart = async product => {
         const cartIndex = cartProducts.findIndex(prd => prd.id === product.id)
@@ -30,8 +36,9 @@ export const CartProvider = ({ children }) => {
             setCartProducts(newCartProducts)
         }
 
-        await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCartProducts)
-        )
+        // Gravando os itens do carrinho no localStorage
+        await updateLocalStorage(newCartProducts)
+        
     }
 
 
@@ -42,7 +49,8 @@ export const CartProvider = ({ children }) => {
 
         setCartProducts(newCart)
 
-        await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCart))
+              // Gravando os itens do carrinho no localStorage
+              await updateLocalStorage(newCart)
     }
 
 
@@ -55,7 +63,8 @@ export const CartProvider = ({ children }) => {
         })
         setCartProducts(newCart)
 
-        await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCart))
+              // Gravando os itens do carrinho no localStorage
+              await updateLocalStorage(newCart)
     }
 
 
@@ -71,7 +80,8 @@ export const CartProvider = ({ children }) => {
             })
             setCartProducts(newCart)
 
-            await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(newCart))
+                  // Gravando os itens do carrinho no localStorage
+        await updateLocalStorage(newCart)
         } else {
             deleteProducts(productId)
         }

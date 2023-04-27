@@ -2,8 +2,10 @@
 
 import React from "react"
 
-import { Container } from "../../components/CardProduct/styles"
-import CartItems from "../../components/CartItems"
+import { Container, Wrapper } from "./styles"
+
+import  CartItems  from "../../components/CartItems";
+import CartResume from "../../components/CartResume";
 
 function Cart() {
 
@@ -11,8 +13,10 @@ function Cart() {
     return (
         <Container>
 
-            <CartItems />
-         
+            <Wrapper>
+                <CartItems />
+                <CartResume />
+            </Wrapper>
         </Container>
 
     )
