@@ -8,7 +8,7 @@ background: #222222;
 export const H1 = styled.h1`
 color: #fff;
 margin-left: 50px;
-margin-top: 100px;
+margin-top: 0px;
 
 `
 export const Image = styled.img`

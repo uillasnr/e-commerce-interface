@@ -13,7 +13,7 @@ function Home() {
     return (
         <Container>
             <Header />
-          {/*   <Image src={banner} alt='banner'></Image> */}
+             <Image src={banner} alt='banner'></Image> 
            {/*  <Category /> */}
             <H1>Ofertas em destaque</H1>
 

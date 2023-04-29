@@ -11,7 +11,8 @@ import Person from "../../assets/user.png"
 import Cart from "../../assets/carrinho.png"
 import Logo from "../../assets/DEV.png"
 
-import { Container, ContainerLeft, ContainerRight, Imput, PageLink, PageLinkExit, ContainerText, ContainerOptions } from "./styles"
+import { Container, ContainerLeft, ContainerRight,ContainerItems,ContainerButton, Imput, PageLink, PageLinkExit, ContainerText, ContainerOptions } from "./styles"
+
 
 
 
@@ -43,6 +44,7 @@ function Header() {
 
     return (
         <Container>
+        <ContainerItems> 
             <ContainerLeft >
                 <img src={Logo} alt="logo" />
             </ContainerLeft>
@@ -64,23 +66,25 @@ function Header() {
                     <PageLinkExit>Sair</PageLinkExit>
                 </ContainerText>
             </ContainerRight>
-
+            
+            </ContainerItems>
+ 
             <ContainerOptions>
             <categoriMenu>
                 {categories &&
                     categories.map(categories => (
 
-                        <containerButton type='button' key={categories.id}
+                        <ContainerButton type='button' key={categories.id}
                             isActiveCategory={activeCategory === categories.id} //trocar de cor
                             onClick={() => {
                                 setActiveCategory(categories.id)
                             }}>
                             {categories.name}
 
-                        </containerButton>
+                        </ContainerButton>
                     ))}
             </categoriMenu>
-            </ContainerOptions>
+            </ContainerOptions> 
         </Container>
 
     )

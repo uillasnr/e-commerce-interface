@@ -18,6 +18,13 @@ function OfferProducts() {
         loadOffers()
     }, [])
 
+    const LimitDescription = (description, maxLength) => {
+        if (description.length > maxLength) {
+            return `${description.slice(0, maxLength)}...`;
+        }
+        return description;
+    }
+
     return (
 
         <Container>
@@ -30,7 +37,7 @@ function OfferProducts() {
                             <Img src={product.url_img1} alt="foto do Produto" />
                         </div>
                         <h2>{product.name}</h2>
-                        <h3>{product.description}</h3>
+                        <h3>{LimitDescription(product.description, 50)}</h3>
                         <p>{formatCurrency(product.price)}</p>
 
                         <ButtonOffers onClick={() => {
@@ -43,3 +50,6 @@ function OfferProducts() {
     )
 }
 export default OfferProducts
+
+
+
