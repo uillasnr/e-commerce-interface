@@ -6,6 +6,7 @@ background: rgb(119 122 143 / 53%);
 filter: drop-shadow(5px 5px 5px rgba(0,0,0,1.9));
 padding: 10px;
 border-radius: 20px;
+margin: 50px 25px;
 width: max-content;
 `
 

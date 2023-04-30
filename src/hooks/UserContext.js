@@ -11,7 +11,14 @@ export const UserProvider = ({ children }) => {
 
         await localStorage.setItem('e-commerce:userData', JSON.stringify(userInfo))
     }
-//recomperar os dados
+
+    //função de Deslogar o usuario
+    const logout = async () => {
+        await localStorage.removeItem('e-commerce:userData')
+    }
+
+
+    //recomperar os dados
     useEffect(() => {
         const loadUserData = async () => {
             const clientInfo = await localStorage.getItem('e-commerce:userData')
@@ -25,7 +32,7 @@ export const UserProvider = ({ children }) => {
     }, [])
 
     return (
-        <UserContext.Provider value={{ putUserData, userData }}>
+        <UserContext.Provider value={{ putUserData, userData, logout }}>
             {children}
         </UserContext.Provider>
     )

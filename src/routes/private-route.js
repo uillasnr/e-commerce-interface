@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-//import { Header } from "../components/Header";
+import  Header  from "../components/Header";
 
 function PrivateRouter({ component, isAdmin, ...rest }) {
     // Verificando se o usuário está logado
@@ -19,10 +19,10 @@ function PrivateRouter({ component, isAdmin, ...rest }) {
     //todas as rotas que estão logados
     return (
         <>
-          {/*   {!isAdmin && <Header />} */}
+             <Header /> {/*  Header em todas as Telas de navegação */}
             <Route {...rest} component={component} />
         </>
-    )
+    )   /* {!isAdmin && <Header />} */ 
 }
 
 export default PrivateRouter

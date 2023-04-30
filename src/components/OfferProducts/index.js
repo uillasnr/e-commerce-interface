@@ -1,11 +1,15 @@
+//produtos em offer
 import React, { useEffect, useState } from "react"
 import api from '../../services/api'
 import formatCurrency from '../../utils/formarCurrency'
 
 import { Container, Img, ButtonOffers, ContainerItems } from './styles'
+import { useCart } from "../../hooks/CartContext"
 
 function OfferProducts() {
     const [offers, setOffers] = useState([])
+    const { putProductInCart } = useCart() //função do carrinho de compras
+   
 
     useEffect(() => {
         async function loadOffers() {
@@ -40,9 +44,7 @@ function OfferProducts() {
                         <h3>{LimitDescription(product.description, 50)}</h3>
                         <p>{formatCurrency(product.price)}</p>
 
-                        <ButtonOffers onClick={() => {
-
-                        }}>Peça agora</ButtonOffers>
+                        <ButtonOffers  onClick={() => putProductInCart(product)}>ADICIONAR AO CARINHO</ButtonOffers>
 
                     </ContainerItems>
                 ))}

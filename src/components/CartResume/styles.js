@@ -7,6 +7,7 @@ padding: 15px;
 box-shadow: 0px 10px 40px rgba(0,0,0.03);
 border-radius: 10px;
 display: flex;
+margin: 50px 25px 20px;
 flex-direction: column;
 justify-content: space-between;
 .container-top{

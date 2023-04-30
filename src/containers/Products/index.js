@@ -10,10 +10,17 @@ import CardProduct from "../../components/CardProduct";
 import formatCurrency from "../../utils/formarCurrency";
 
 
-function Products() {
+function Products({ location: { state } }) {
+    // Verificado se o state existe.
+    // ? ELVES OPERATOR é um operador que verifica se uma informação existe pra continuar navegando no objeto.
+    // Se state.categoryId não existir o ELVES OPERATOR vai considerar undefined e seguir com o fluxo da aplicação sem quebrar
+    let categoryId = 0
+    if (state?.categoryId) {
+        categoryId = state.categoryId
+    }
     const [products, setProducts] = useState([])
     const [categories, setCategories] = useState([])
-    const [activeCategory, setActiveCategory] = useState(0)
+    const [activeCategory, setActiveCategory] = useState(categoryId)
     const [filteredProducts, setFilteredProducts] = useState([])
 
 
@@ -26,20 +33,20 @@ function Products() {
 
             setCategories(newCategories)
         }
-      // Carregando os produtos
-      async function loadProducts() {
-        const { data: allProducts } = await api.get('products')
-console.log(allProducts)
-        // Formatando o preço dos cards de produtos
-        const newProducts = allProducts.map(product => {
-            return { ...product, formatedPrice: formatCurrency(product.price) }
-        })
+        // Carregando os produtos
+        async function loadProducts() {
+            const { data: allProducts } = await api.get('products')
 
-        setProducts(newProducts)
-    }
+            // Formatando o preço dos cards de produtos
+            const newProducts = allProducts.map(product => {
+                return { ...product, formatedPrice: formatCurrency(product.price) }
+            })
 
-    loadProducts()
-    loadCategories()
+            setProducts(newProducts)
+        }
+
+        loadProducts()
+        loadCategories()
     }, [])
 
     useEffect(() => {

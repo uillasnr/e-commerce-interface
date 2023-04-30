@@ -7,6 +7,14 @@ import { Container, Img, ContainerItems, Button } from './styles'
 import { Link } from "react-router-dom";
 
 function CardProduct({ product }) {
+
+    const LimitDescription = (description, maxLength) => {
+        if (description.length > maxLength) {
+            return `${description.slice(0, maxLength)}...`;
+        }
+        return description;
+    }
+
     return (
         <Container>
             <ContainerItems key={product.id}>
@@ -16,13 +24,11 @@ function CardProduct({ product }) {
                         <Img src={product.url_img1} alt="foto do Produto" />
                     </div>
                     <h2>{product.name}</h2>
-                    <h3>{product.description}</h3>
+                    <h3>{LimitDescription(product.description, 50)}</h3>
                     <p>{formatCurrency(product.price)}</p>
                 </Link>
 
-                <Button onClick={() => {
-
-                }}>Adicionar</Button>
+                <Button>Adicionar</Button>
 
             </ContainerItems>
 

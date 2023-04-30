@@ -6,6 +6,19 @@ display: grid;
 grid-template-columns: repeat(5,1fr);
 gap: 10px;
 padding: 40px; 
+
+@media  (max-width: 1120px) {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5px
+      }
+@media  (max-width: 972px) {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+      }
+      @media (max-width: 885px) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+      } 
 `
 
 export const Img = styled.img`
@@ -23,7 +36,7 @@ border: none;
 cursor: pointer;
 font-style: normal;
 font-weight: 500;
-font-size: 16px;
+font-size: 10px;
 line-height: 24px;
 text-align: center;
 color: #2c2b2b;

@@ -35,7 +35,7 @@ function CartResume() {
                     <p>{formatCurrency(finalPrice + deliveryTax)}</p>
                 </div>
             </Container>
-            <Button style={{ width: '100%', marginTop: 30, marginLeft: 0 }}>Finalizar Pedido</Button>
+            <Button style={{ width: '80%', marginTop: 30, marginLeft: 30 }}>Finalizar Pedido</Button>
         </div>
     )
 }
