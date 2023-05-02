@@ -22,6 +22,8 @@ display: flex;
     background: brown;
     z-index: 100;
     margin-top: 90px;
+    background: rgb(70 70 70);
+    border: 0.5px solid #d5d5d5;
 
 @media (max-width: 1215px) {
     display: flex;

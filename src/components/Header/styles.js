@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-background: red;
+  background: rgb(70 70 70);
+    border: 0.5px solid #d5d5d5;
 position: fixed;
     top: 0;
     width: 100%;

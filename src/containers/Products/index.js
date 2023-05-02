@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import PropTypes from "prop-types";
 
-import { Container, Image, ProductsContainer, CategoriMenu, ContainerButton } from './styles'
+import { Container, Card, ProductsContainer,Line, CategoriMenu, ContainerButton } from './styles'
 import banner from '../../assets/Banner.png'
 import CardProduct from "../../components/CardProduct";
 import formatCurrency from "../../utils/formarCurrency";
@@ -67,8 +67,12 @@ function Products({ location: { state } }) {
     return (
         <Container>
 
-            <Image src={banner} alt='banner' />
+          {/*   <Image src={banner} alt='banner' /> */}
+        
+          <h5>Categorias</h5>
+          <Line/>
             <CategoriMenu>
+            
                 {categories &&
                     categories.map(categories => (
 
@@ -81,14 +85,18 @@ function Products({ location: { state } }) {
 
                         </ContainerButton>
                     ))}
+         
+        
             </CategoriMenu>
-
+       
             <ProductsContainer>
+              
                 {filteredProducts && filteredProducts.map(product => (
 
                     <CardProduct kay={product.id} product={product} />
                 ))}
-            </ProductsContainer>
+            </ProductsContainer> 
+          
         </Container>
 
     )

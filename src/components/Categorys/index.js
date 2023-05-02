@@ -3,6 +3,11 @@ import React, { useEffect, useState } from 'react'
 import api from '../../services/api'
 import { Container, ContainerItems, Image, Button } from './styles'
 
+
+
+
+
+
 export function Category() {
   const [categories, setCategories] = useState([])
   const [marginTop, setMarginTop] = useState(90);
@@ -10,16 +15,19 @@ export function Category() {
   useEffect(() => {
     async function loadCategories() {
       const { data } = await api.get('categories')
-console.log(data)
+
       setCategories(data)
     }
 
     loadCategories()
   }, [])
 
+
+
+
   //scroll Header 
   function handleScroll() {
-    if (window.pageYOffset > 0) {
+    if (window.pageYOffset > -50) {
       setMarginTop(45);
     } else {
       setMarginTop(90);
@@ -32,7 +40,7 @@ console.log(data)
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
+ 
 
 
   return (
@@ -42,7 +50,7 @@ console.log(data)
           <ContainerItems key={category.id}>
             <Image src={category.url} alt="foto da categoria" />
 
-            <Button
+            <Button 
               to={{
                 pathname: '/produtos',
                 state: { categoryId: category.id }
