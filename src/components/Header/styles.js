@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 background: red;
-
+position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 
 `
 
@@ -57,27 +60,9 @@ align-items: center;
 cursor: pointer;
 color: #fff;
 `
-export const ContainerButton = styled.div`
-display: inline;
-align-items: center;
-font-weight: bold;
-margin: 10px;
-cursor: pointer;
-color: #fff;
 
 
-`
 
-export const ContainerOptions = styled.div`
-display: flex;
-align-items: center;
-background: rgb(141 141 141);
-width: 100%;
-height: 20px;
-justify-content: center;
-height: 40px;
-border: 0.5px solid #d5d5d5;
-`
 
 export const ContainerItems = styled.div`
 height: 90px;

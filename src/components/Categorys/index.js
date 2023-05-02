@@ -5,6 +5,7 @@ import { Container, ContainerItems, Image, Button } from './styles'
 
 export function Category() {
   const [categories, setCategories] = useState([])
+  const [marginTop, setMarginTop] = useState(90);
 
   useEffect(() => {
     async function loadCategories() {
@@ -16,10 +17,26 @@ console.log(data)
     loadCategories()
   }, [])
 
+  //scroll Header 
+  function handleScroll() {
+    if (window.pageYOffset > 0) {
+      setMarginTop(45);
+    } else {
+      setMarginTop(90);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
 
   return (
-    <Container>
+    <Container style={{ marginTop: `${marginTop}px` }}>
       {categories &&
         categories.map(category => (
           <ContainerItems key={category.id}>

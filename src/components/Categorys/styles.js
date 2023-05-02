@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 export const Container = styled.div`
-background: blue;
+/* background: blue;
 width: 100%;
 display: flex;
 flex-direction: column;
@@ -14,12 +14,23 @@ align-items: center;
 gap: 35px;
 margin-left: 337px;
 display: -webkit-box;
-@media (max-width: 1250px) {
+position: fixed;
+z-index: 100;  */
+display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: brown;
+    z-index: 100;
+    margin-top: 90px;
+
+@media (max-width: 1215px) {
     display: flex;
     flex-direction: inherit;
     align-items: center;
     justify-content: center;
     margin-left: 100px;
+    margin-top: 90px;
+    margin: 0;
 }
 @media (max-width: 972px) {
     display: flex;
