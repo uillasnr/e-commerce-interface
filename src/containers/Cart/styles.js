@@ -10,6 +10,6 @@ min-height: calc(100vh - 72px);
 export const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly;
-
+margin-top: 90px;
 padding-bottom: 30px;
 `

@@ -68,7 +68,7 @@ function Products({ location: { state } }) {
         <Container>
 
           {/*   <Image src={banner} alt='banner' /> */}
-        
+          <Line/>
           <h5>Categorias</h5>
           <Line/>
             <CategoriMenu>

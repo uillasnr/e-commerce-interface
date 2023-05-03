@@ -6,7 +6,7 @@ import api from "../../services/api";
 import formatCurrency from '../../utils/formarCurrency'
 //import { Button } from "../../components/Button";
 //import PropTypes from 'prop-types'
-import { Container, Image, Img, ContainerImg, ImgOptions, Uillas, Button, ButtonCart, ContainerTex, Description } from './styles'
+import { Container, Image, Img, ContainerImg, ImgOptions, ContainerItems, Button, ButtonCart, ContainerTex, Description } from './styles'
 import { useParams } from "react-router-dom";
 
 
@@ -45,17 +45,16 @@ function ProductsId(/*  { product } */) {
     <Container>
       <h1>Produto</h1>
 
-      <Uillas>
+      <ContainerItems>
         <ContainerTex>
           <h2>{product.name}</h2>
-          {/*  <h3>{product.description}</h3> */}
           <h3>{formatCurrency(product.price)}</h3>
           <p>À vista no PIX com até 5% OFF</p>
 
           <div className="quantity-container">
             <button onClick={() => decreaseProducts(product.id)}>-</button>
             <h1><h6>{product.quantity}</h6></h1>
-            <button onClick={() => increaseProducts(product)}>+</button>
+            <button onClick={() => increaseProducts(product.id)}>+</button>
           </div>
 
 
@@ -80,19 +79,18 @@ function ProductsId(/*  { product } */) {
           <Image src={currentImg} alt="Foto do produto" />
 
         </ContainerImg>
-      </Uillas>
+      </ContainerItems>
 
-      <line />
 
       <Description>Descrição do produto</Description>
-      {/*   <OfferProducts /> */}
 
-      <h5>{product.description}</h5>
-
+   {/*    <line />
+        <OfferProducts />
 
       <line />
+       */}
 
-
+      <h5>{product.description}</h5>
 
 
     </Container>

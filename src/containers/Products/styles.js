@@ -9,7 +9,7 @@ h5{
   color: #fff;
     margin-left: 45px;
     font-size: 25px;
-    margin-top: 92px;
+    margin-top: 155px;
 }
 `
 
@@ -17,9 +17,37 @@ h5{
 
 export const Line = styled.div`
 border: 0.5px solid #d5d5d5;
-    margin-top: 165px;
+    margin-top: 5px;
     width: 80%;
     margin-left: 235px;
+    @media  (max-width: 1188px) {
+      margin-left: 235px;
+      width: 79%;
+    }
+    @media  (max-width: 1132px) {
+      margin-left: 218px;
+    width: 79%;
+    }
+    @media  (max-width: 1100px) {
+      margin-left: 183px;
+    width: 82%;
+    }
+    @media  (max-width: 1030px) {
+      margin-left: 218px;
+    width: 77%
+    }
+    @media  (max-width: 961px) {
+      margin-left: 191px;
+    width: 77%
+    }
+    @media  (max-width: 844px) {
+      margin-left: 191px;
+    width: 73%
+    }
+    @media  (max-width: 722px) {
+      margin-left: 181px;
+    width: 70%;
+    }
 `
 export const ContainerButton = styled.div`
    border: none;
@@ -61,7 +89,7 @@ display: grid;
       }
 @media  (max-width: 1100px) {
   grid-template-columns: repeat(4, 1fr);
-    margin-top: -313px;
+    margin-top: -300px;
     margin-left: 165px;
 }
       

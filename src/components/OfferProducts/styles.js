@@ -9,15 +9,23 @@ padding: 40px;
 
 @media  (max-width: 1120px) {
     grid-template-columns: repeat(4, 1fr);
-    padding: 5px
+    gap: 10px;
+    padding: 40px;
       }
 @media  (max-width: 972px) {
     grid-template-columns: repeat(4, 1fr);
-    padding: 10px;
+    gap: 10px;
+    padding: 40px;
       }
       @media (max-width: 885px) {
     grid-template-columns: repeat(3, 1fr);
-    padding: 10px;
+    gap: 10px;
+    padding: 40px;
+      } 
+      @media (max-width: 680px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 40px;
       } 
 `
 

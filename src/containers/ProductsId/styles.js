@@ -378,7 +378,7 @@ opacity: 0.6;
     }
 
 `  
-export const Uillas = styled.div`
+export const ContainerItems = styled.div`
 display: flex;
 `
 
