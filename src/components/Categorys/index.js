@@ -11,6 +11,7 @@ import { Container, ContainerItems, Image, Button } from './styles'
 export function Category() {
   const [categories, setCategories] = useState([])
   const [marginTop, setMarginTop] = useState(90);
+  
 
   useEffect(() => {
     async function loadCategories() {
@@ -27,12 +28,14 @@ export function Category() {
 
   //scroll Header 
   function handleScroll() {
-    if (window.pageYOffset > -50) {
-      setMarginTop(45);
+    if (window.pageYOffset > -45) {
+      setMarginTop(45); //o tamanho que e para ficar fixo
     } else {
       setMarginTop(90);
     }
   }
+
+
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -40,7 +43,7 @@ export function Category() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
- 
+
 
 
   return (
@@ -50,7 +53,7 @@ export function Category() {
           <ContainerItems key={category.id}>
             <Image src={category.url} alt="foto da categoria" />
 
-            <Button 
+            <Button
               to={{
                 pathname: '/produtos',
                 state: { categoryId: category.id }
