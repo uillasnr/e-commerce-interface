@@ -10,23 +10,123 @@ padding: 40px;
 @media  (max-width: 1120px) {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    width: 996px;
+    margin-left: 52px;
     padding: 40px;
       }
-@media  (max-width: 972px) {
+@media  (max-width: 1065px) {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    width: 944px;
+    margin-left: 52px;
     padding: 40px;
       }
-      @media (max-width: 885px) {
+      @media (max-width: 1012px) {
+
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 910px;
+    margin-left: 52px;
+    padding: 40px;
+      } 
+      @media (max-width: 980px) {
+        grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 800px;
+    margin-left: 95px;
+    padding: 40px;
+      } 
+      @media (max-width: 910px) {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    width: 800px;
+    margin-left: 50px;
     padding: 40px;
+      } 
+      @media (max-width: 865px) {
+        grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 800px;
+    margin-left: 22px;
+    padding: 40px;
+      } 
+      @media (max-width: 837px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 757px;
+    margin-left: 31px;
+    padding: 40px;
+      } 
+      @media (max-width: 805px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 700px;
+    margin-left: 31px;
+    padding: 40px;
+      } 
+      @media (max-width: 750px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 700px;
+    margin-left: 10px;
+    padding: 40px;
+      } 
+      @media (max-width: 725px) {
+        grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 631px;
+    margin-left: 32px;
+    padding: 40px 10px;
       } 
       @media (max-width: 680px) {
+        grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 631px;
+    margin-left: 0px;
+    padding: 40px 10px;
+      }
+      @media (max-width: 650px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    width: 567px;
+    margin-left: 28px;
     padding: 40px;
-      } 
+      }
+      @media (max-width: 610px) {
+        grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 525px;
+    margin-left: 28px;
+    padding: 40px;
+      }
+      @media (max-width: 570px) {
+        grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 490px;
+    margin-left: 28px;
+    padding: 40px;
+      }
+      @media (max-width: 533px) {
+        grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 411px;
+    margin-left: 35px;
+    padding: 40px 0px;
+      }
+      @media (max-width: 570px) {
+        grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 411px;
+    margin-left: 35px;
+    padding: 40px 0px;
+      }
+      @media (max-width: 470px) {
+      grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 411px;
+    margin-left: 8px;
+    padding: 40px 0px;
+      }
 `
 
 export const Img = styled.img`

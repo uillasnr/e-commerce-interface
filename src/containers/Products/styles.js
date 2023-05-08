@@ -11,6 +11,11 @@ h5{
     font-size: 25px;
     margin-top: 155px;
 }
+@media  (max-width: 1100px) {
+     h5{
+      margin-left: 25px; 
+     }
+}
 `
 
 
@@ -48,6 +53,11 @@ border: 0.5px solid #d5d5d5;
       margin-left: 181px;
     width: 70%;
     }
+    @media  (max-width: 655px) {
+      margin-left: 181px;
+    width: 70%;
+    }
+  
 `
 export const ContainerButton = styled.div`
    border: none;
@@ -61,6 +71,15 @@ export const ContainerButton = styled.div`
     cursor: pointer;
     width: 80px;
     margin-left: 52px;
+
+    @media  (max-width: 1100px) {
+      margin-left: 35px;
+}
+@media  (max-width: 655px) {
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
 `
 
 
@@ -146,6 +165,10 @@ display: grid;
     margin-left: 272px;
    
       } 
+      @media (max-width: 655px) {
+      margin-left: 180px;
+    margin-top: 20px;
+      }
 `
 
 export const CategoriMenu = styled.div`
@@ -159,6 +182,10 @@ border: 0.5px solid rgb(213, 213, 213);
     @media  (max-width: 1100px) {
       width: 155px;
       }
+
+      @media  (max-width: 655px) {
+      display: inline;
+    }
 /* display: flex;
 gap: 20px;
 justify-content: center;

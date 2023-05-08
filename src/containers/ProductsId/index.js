@@ -6,6 +6,7 @@ import api from "../../services/api";
 import formatCurrency from '../../utils/formarCurrency'
 //import { Button } from "../../components/Button";
 //import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
 import { Container, Image, Img, ContainerImg, ImgOptions, ContainerItems, Button, ButtonCart, ContainerTex, Description } from './styles'
 import { useParams } from "react-router-dom";
 
@@ -14,7 +15,7 @@ import { useCart } from "../../hooks/CartContext";
 
 function ProductsId(/*  { product } */) {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState({ quantity: 1 }); // Inicia a quantidade como 1
   const [currentImg, setCurrentImg] = useState(product.url_img1);
   const { putProductInCart, increaseProducts, decreaseProducts } = useCart() //função do carrinho de compras
 
@@ -24,7 +25,7 @@ function ProductsId(/*  { product } */) {
     async function fetchProduct() {
       try {
         const { data } = await api.get(`products/${id}`);
-        setProduct(data);
+        setProduct({ ...data, quantity: 1 }); // Atualiza o produto recebido da API e define a quantidade como 1
         setCurrentImg(data.url_img1)
         console.log(data)
       } catch (error) {
@@ -41,6 +42,21 @@ function ProductsId(/*  { product } */) {
     setCurrentImg(imgUrl)
   }
 
+  function handleDecrease() {
+    if (product.quantity > 1) {
+      const newQuantity = product.quantity - 1;
+      setProduct({ ...product, quantity: newQuantity });
+      increaseProducts(product.id, -1); // diminui a quantidade do produto no carrinho
+    }
+  }
+  
+  function handleIncrease() {
+    const newQuantity = product.quantity + 1;
+    setProduct({ ...product, quantity: newQuantity });
+    increaseProducts(product.id, 1); // aumenta a quantidade do produto no carrinho
+  }
+  
+
   return (
     <Container>
       <h1>Produto</h1>
@@ -52,15 +68,16 @@ function ProductsId(/*  { product } */) {
           <p>À vista no PIX com até 5% OFF</p>
 
           <div className="quantity-container">
-            <button onClick={() => decreaseProducts(product.id)}>-</button>
+            <button onClick={() => handleDecrease(product.id)}>-</button>
             <h1><h6>{product.quantity}</h6></h1>
-            <button onClick={() => increaseProducts(product.id)}>+</button>
+            <button onClick={() => handleIncrease(product.id)}>+</button>
           </div>
 
 
-
-          <Button style={{ width: '530', marginTop: 36, fontSize: 12 }}
-            onClick={() => putProductInCart(product)}>COMPRAR</Button>
+          <Link style={{ textDecoration: 'none', }} to={`/carrinho`}>
+            <Button style={{ width: '530', marginTop: 36, fontSize: 12 }}
+              onClick={() => putProductInCart(product)} >COMPRAR</Button>
+          </Link>
 
           <ButtonCart style={{ width: '530', marginTop: 36, fontSize: 12 }}>ADICIONAR AO CARINHO</ButtonCart>
 
@@ -84,7 +101,7 @@ function ProductsId(/*  { product } */) {
 
       <Description>Descrição do produto</Description>
 
-   {/*    <line />
+      {/*    <line />
         <OfferProducts />
 
       <line />

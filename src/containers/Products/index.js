@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import PropTypes from "prop-types";
 
-import { Container, Card, ProductsContainer,Line, CategoriMenu, ContainerButton } from './styles'
-import banner from '../../assets/Banner.png'
+import { Container,  ProductsContainer,Line, CategoriMenu, ContainerButton } from './styles'
+
 import CardProduct from "../../components/CardProduct";
 import formatCurrency from "../../utils/formarCurrency";
 
@@ -67,7 +67,7 @@ function Products({ location: { state } }) {
     return (
         <Container>
 
-          {/*   <Image src={banner} alt='banner' /> */}
+        
           <Line/>
           <h5>Categorias</h5>
           <Line/>

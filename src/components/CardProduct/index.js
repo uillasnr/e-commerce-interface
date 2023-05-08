@@ -19,7 +19,7 @@ function CardProduct({ product }) {
         <Container>
             <ContainerItems key={product.id}>
 
-                <Link to={`/detalhes/${product.id}`}>
+                <Link style={{ textDecoration: 'none', }} to={`/detalhes/${product.id}`}>
                     <div>
                         <Img src={product.url_img1} alt="foto do Produto" />
                     </div>
