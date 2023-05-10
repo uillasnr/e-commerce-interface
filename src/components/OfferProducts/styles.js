@@ -221,4 +221,19 @@ p{
     text-align: center;
 }
 
+
 `
+
+ export const Stopwatch = styled.div`
+display: flex;
+background: rgb(68, 214, 44);
+border-radius: 10px;
+
+h4{
+  font-size: 20px;
+ color: #fff;
+margin: 5px;
+}
+
+`
+ 
