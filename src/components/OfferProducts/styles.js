@@ -136,7 +136,7 @@ background: none;
 
 `
 export const ButtonOffers = styled.button`
-width: 150px;
+/* width: 150px;
 height: 30px;
 background: #36E73D;;
 border-radius: 20px;
@@ -156,7 +156,18 @@ margin-bottom: 0px;
 }
 &:active {
 opacity: 0.6;
-}
+} */
+background: rgb(68, 214, 44);
+border: none;
+cursor: pointer;
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 24px;
+text-align: center;
+color: #fff;
+margin: 15px;
+height: 21px;
 `
 
 export const ContainerItems = styled.h1`
@@ -191,9 +202,9 @@ export const ContainerItems = styled.h1`
 
 
 div{
-    display: flex;
+    display: grid;
     justify-content: center;
-    margin: 20px;
+    margin: 15px;
 }
 h2{
     font-size: 15px;
@@ -225,15 +236,30 @@ p{
 `
 
  export const Stopwatch = styled.div`
-display: flex;
+display: grid;
 background: rgb(68, 214, 44);
 border-radius: 10px;
+cursor: pointer;
 
 h4{
-  font-size: 20px;
+  font-size: 15px;
  color: #fff;
 margin: 5px;
 }
+span{
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+  display: inherit;
+}
+ .time{
+  display: -webkit-box;
+    margin: 0;
+}  
+img{
+  width: 30px;
+  height: 30px;
 
+}
 `
  
