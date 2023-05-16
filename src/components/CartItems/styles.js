@@ -8,6 +8,26 @@ padding: 10px;
 border-radius: 20px;
 margin: 50px 25px;
 width: max-content;
+
+@media  (max-width: 1045px) {
+    width: 655px;
+}
+ @media  (max-width: 826px) {
+    margin: 50px 25px;
+} 
+@media  (max-width: 720px) {
+    width: 615px;
+} 
+@media  (max-width: 680px) {
+    width: 576px;
+} 
+@media  (max-width: 640px) {
+    width: 540px;
+} 
+@media  (max-width: 605px) {
+    width: 495px;
+} 
+
 `
 
 
@@ -72,6 +92,50 @@ h6{
     
     }
 }
+
+@media  (max-width: 1045px) {
+    width: 628px;
+}
+@media  (max-width: 1000px) {
+    width: 580px;
+}
+@media  (max-width: 950px) {
+    width: 560px;
+    grid-gap: 10px 15px;
+    img{
+    width: 80%;
+    margin-top: 35px;
+}
+p{
+    width: 75px;
+    margin-top: 50px;
+    
+}
+}
+
+@media  (max-width: 926px) {
+    width: 500px;
+}
+@media  (max-width: 852px) {
+    width: 475px
+}
+@media  (max-width: 826px) {
+  
+    width: 630px;
+}
+@media  (max-width: 720px) {
+    width: 615px;
+} 
+@media  (max-width: 680px) {
+    width: 576px;
+} 
+@media  (max-width: 640px) {
+    width: 540px;
+} 
+@media  (max-width: 605px) {
+    width: 465px;
+} 
+
 `
 export const EmptyCart = styled.p`
 padding: 20px;

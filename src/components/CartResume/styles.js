@@ -41,5 +41,13 @@ justify-content: space-between;
     justify-content: space-between;
     font-size: 24px;
 }
+
+@media  (max-width: 826px) {
+  
+    .title{
+        display: flex;
+        justify-content: center
+}
+}
 `
 
