@@ -9,6 +9,7 @@ import PrivateRoute from './private-route' //todas estas rotas são privadas
 import Products from "../containers/Products";
 import ProductsId from "../containers/ProductsId";
 import Cart from "../containers/Cart";
+import Admin from "../containers/Admin";
 
 
 function Routes() {
@@ -21,6 +22,9 @@ function Routes() {
                 <PrivateRoute exact component={Products} path="/produtos" />
                 <PrivateRoute exact component={ProductsId} path="/detalhes/:id" />
                 <PrivateRoute exact component={Cart} path="/carrinho" />
+
+
+                <PrivateRoute exact component={Admin} path="/pedidos" isAdmin />
             </Switch>
         </Router>
     )
