@@ -2,11 +2,13 @@ import React from "react";
 
 import { Container } from "./styles";
 import Orders from "./Orders";
+import SlideMenuAdmin from "../../components/SlideMenuAdmin";
 
 function Admin() {
     return (
         <Container>
-            <h1>admin</h1>
+           
+            <SlideMenuAdmin />
             <Orders />
         </Container>
     )

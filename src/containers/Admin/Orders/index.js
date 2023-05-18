@@ -24,7 +24,7 @@ function Orders() {
         // Carregando menu de categorias
         async function loadOrders() {
             const { data } = await api.get('orders')
-
+          
             setOrders(data)
             setFilteredOrders(data)
         }
@@ -35,7 +35,7 @@ function Orders() {
     function createData(order) {
         return {
             name: order.user.name,
-            description: order.description,//
+            description: order.description,
             orderId: order._id,
             date: formatDate(order.createdAt),
             status: order.status,

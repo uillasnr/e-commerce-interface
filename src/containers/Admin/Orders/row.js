@@ -36,6 +36,7 @@ function Row({ row, setOrders, orders }) {
         } finally {
             setIsLoading(false)
         }
+       
     }
 
     return (
@@ -116,7 +117,7 @@ function Row({ row, setOrders, orders }) {
                                             </TableCell>
                                             <TableCell>
                                                 <ProductsImg
-                                                    src={productRow.url}
+                                                    src={productRow.url_img1}
                                                     alt="Imagem-do-produto"
                                                 />
                                             </TableCell>
