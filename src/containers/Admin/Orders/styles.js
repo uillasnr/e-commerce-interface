@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
     background: #efefef;
     min-height: 100vh;
+    padding: 40px;
 `
 export const ProductsImg = styled.img`
     width: 60px;
@@ -12,7 +13,7 @@ export const ProductsImg = styled.img`
 
 export const ReactSelectStyle = styled(ReactSelect)`
     width: 250px;
-    .css-1s2u09g-control {
+    .css-13cymwt-control {
         cursor: pointer;
     }
 `
