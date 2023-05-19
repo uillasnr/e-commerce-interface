@@ -7,15 +7,14 @@ import listLinks from "./menu-list";
 import { Container, ItemContainer, ListLink } from "./styles"
 
 
- function SlideMenuAdmin() {
+export function SlideMenuAdmin({ path }) {
     const { logout } = useUser()
 
     return (
         <Container>
-            <h1>Adiministrador</h1>
             <hr></hr>
             {listLinks.map(item => (
-                <ItemContainer key={item.id} isActive=''>
+                <ItemContainer key={item.id} isActive={path === item.link}>
                     <item.icon className="icon" />
                     <ListLink to={item.link}>{item.label}</ListLink>
                 </ItemContainer>
@@ -29,8 +28,10 @@ import { Container, ItemContainer, ListLink } from "./styles"
         </Container>
     )
 }
+
+export default SlideMenuAdmin
+
 SlideMenuAdmin.propTypes = {
     path: PropTypes.string
 }
 
-export default SlideMenuAdmin
