@@ -134,6 +134,7 @@ p{
 } 
 @media  (max-width: 605px) {
     width: 465px;
+    width: 465px;
 } 
 
 `
