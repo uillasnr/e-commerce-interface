@@ -51,20 +51,18 @@ function Login() {
     )
     putUserData(data)
 
-          
-       // Esperando 1s para o usuario ver a menssagem e ser redirecionado para a tela de home
-              // setTimeout vai executar o que está dentro depois de um determinado tempo
-  /*         setTimeout(() => {
-            if (data.admin) {      //se o usuario for admin ele vai direto para a tela de pedidos 
-              history.push('/pedidos')
-            }
-            else {
-              history.push('/')
-            }
-          }, 1000)  */
-          setTimeout(() =>{
-            history.push('/')
-          }, 1000)
+
+    // Esperando 1s para o usuario ver a menssagem e ser redirecionado para a tela de home
+    // setTimeout vai executar o que está dentro depois de um determinado tempo
+    setTimeout(() => {
+      if (data.admin) {      //se o usuario for admin ele vai direto para a tela de pedidos 
+        history.push('/pedidos')
+      }
+      else {
+        history.push('/')
+      }
+    }, 1000)
+
 
   }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-import  Header  from "../components/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 function PrivateRouter({ component, isAdmin, ...rest }) {
@@ -12,19 +12,19 @@ function PrivateRouter({ component, isAdmin, ...rest }) {
     if (!user) {
         return <Redirect to="/login" />
     }
-    // Trava de segurança para o usuário não acessar areas restritas .Se o usuário não é administrador, ele é redirecionado para tela de home.
-/*     if (isAdmin && !JSON.parse(user).admin) {
+    // Trava de segurança para o usuário não acessar areas restritas .Se o usuário não é administrador, ele sera redirecionado para tela de home.
+    if (isAdmin && !JSON.parse(user).admin) {
         return <Redirect to="/" />
-    } */
+    }
 
     //todas as rotas que estão logados
     return (
         <>
-             <Header /> {/*  Header em todas as Telas de navegação */}
+            {!isAdmin && <Header />}  {/*  Header em todas as Telas de navegação se for !isAdmin não tera Header */}
             <Route {...rest} component={component} />
-            <Footer />
+            {!isAdmin && <Footer />}
         </>
-    )   /* {!isAdmin && <Header />} */ 
+    )
 }
 
 export default PrivateRouter
