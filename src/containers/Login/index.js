@@ -5,9 +5,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from "react-toastify";
 import { Link, useHistory } from "react-router-dom";
 import { useUser } from '../../hooks/UserContext'
+import  ErrorMessage  from "../../components/ErrorMessage"
 import api from "../../services/api"
 
-import { Container, Label, Input, Button, ContainerItens, SignInLink, ErrorMessage } from "./styles"
+import { Container, Label, Input, Button, ContainerItens, SignInLink } from "./styles"
 
 
 

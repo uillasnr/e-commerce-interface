@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from "react-toastify";
 import api from "../../services/api"
+import  ErrorMessage  from "../../components/ErrorMessage"
 
-import { Container, Label, Input, Button, ContainerItens, SignInLink, ErrorMessage } from "./styles"
+import { Container, Label, Input, Button, ContainerItens, SignInLink } from "./styles"
 
 
 

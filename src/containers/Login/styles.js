@@ -40,14 +40,7 @@ border: ${props => (props.error ? ' 2px solid #cc1717' : 'none')};
 padding-left: 10px;
 `;
 
-export const ErrorMessage = styled.p`
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 16px;
-color: #cc1717;
-margin-top: 2px;
-`
+
 
 
 export const SignInLink = styled.p`
