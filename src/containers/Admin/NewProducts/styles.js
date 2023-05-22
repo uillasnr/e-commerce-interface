@@ -4,10 +4,13 @@ import styled from "styled-components";
 export const Container = styled.div`
 display: block;
 
-form{
-/*     border-radius: 10px;
-    padding: 30px;
-    background: red; */
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: -10px;
 }
 `
 export const Label = styled.p`
@@ -33,12 +36,22 @@ padding: 10px;
 margin-bottom: 30px;
 height: 65px;
 background: #36E73D;
+justify-content: center;
 gap: 10px;
 
 input{
     opacity: 0;
     width: 1px;
 }
+
+`
+export const LabelOptions = styled.label`
+
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 10px;
+
 
 `
 export const LabelUploadOptions = styled.label`
@@ -71,6 +84,7 @@ display: flex;
     margin: 49px 90px 0 90px;
 `
 export const CardImg = styled.div`
+  
   background: #464646;
     border-radius: 10.6557px;
     width: 200px;
@@ -79,7 +93,6 @@ export const CardImg = styled.div`
 
 img{
     width: 100px;
-    background: none;
 }
    
  h6{
@@ -122,6 +135,7 @@ p{
     text-align: center;
 }
 
+
 `
 export const Description = styled.div`
     display: flex;
@@ -131,12 +145,12 @@ export const Description = styled.div`
     gap: 25px;
     margin-top: 50px;
 
-    input{
+    textarea{
         width: 80%;
         height: 150px;
         box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
  border-radius: 5px;
  border: none;
- padding-left: 10px;
+ padding: 15px;
     }
 `
