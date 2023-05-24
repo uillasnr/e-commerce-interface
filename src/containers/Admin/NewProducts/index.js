@@ -5,13 +5,13 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import ClaudUploadIcon from "@mui/icons-material/CloudUpload"
 import ErrorMessage from "../../../components/ErrorMessage"
 import ReactSelect from 'react-select'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller } from "react-hook-form"
 import formatCurrency from '../../../utils/formarCurrency'
 import api from '../../../services/api'
 import { Container, Label, Input, CardImg, Description, LabelUpload, ContainerItems, LabelOptions, LabelUploadOptions } from "./styles"
 import { Button } from "../../../components/Button"
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 
 
 
@@ -27,12 +27,12 @@ function NewProduct() {
 
     // Validando os campos do formulário
     const schema = Yup.object().shape({
-        name: Yup.string().required('Digite o nome do produto'),
-        description: Yup.string().required('Digite a descrição do produto'),
-        price: Yup.string().required('Digite o preço do produto'),
-        category: Yup.object().required('Escolha uma categoria'),
+        //   name: Yup.string().required('Digite o nome do produto'),
+        //  description: Yup.string().required('Digite a descrição do produto'),
+        // price: Yup.string().required('Digite o preço do produto'),
+        // category: Yup.object().required('Escolha uma categoria'),
 
-           file: Yup.mixed()
+        /*   file: Yup.mixed()
               .test('required', 'Carregue um imagem', value => {
                   return value?.length > 0
               })
@@ -44,7 +44,7 @@ function NewProduct() {
                       (value[0]?.type === 'image/jpeg') ||
                       (value[0]?.type === 'image/png')
                   )
-              }) 
+              })  */
     })
 
     const { register, handleSubmit, control,
@@ -54,10 +54,29 @@ function NewProduct() {
     // Enviando novo produto para o back-end
     const onSubmit = async data => {
         const productDataFormData = new FormData()
-
-      
         console.log(productDataFormData)
+        productDataFormData.append('name', data.name)
+        productDataFormData.append('description', data.description)
+        productDataFormData.append('price', data.price)
+        productDataFormData.append('category_id', data.category.id)
+        // productDataFormData.append('file', data.file[0] )
+        productDataFormData.append('file', data.file[0])
+           productDataFormData.append('file2', data.file2[0])
+        /*   productDataFormData.append('file3', data.file3[0])
+          productDataFormData.append('file4', data.file4[0])  */
+
+
+        await toast.promise(api.post('products', productDataFormData), {
+            pending: 'Criando novo produto...',
+            success: 'Produto criado com sucesso',
+            error: "Falha ao criar o produto"
+        })
+        /*    setTimeout(() => {
+               push('/listar-produtos')
+           }, 2000)  */
     }
+
+
 
 
     // Carregando o select com as categorias
@@ -72,7 +91,7 @@ function NewProduct() {
     }, [])
 
 
-  /*   /////////////////////////////////////////
+    /////////////////////////////////////////
     const handleFileChange = (event) => {
         const files = Array.from(event.target.files); // Obter todos os arquivos selecionados
 
@@ -100,19 +119,19 @@ function NewProduct() {
             return `${description.slice(0, maxLength)}...`;
         }
         return description;
-    } */
+    }
 
     return (
         <Container>
             <h1>Adicionar novo Produto a Loja</h1>
             <ContainerItems>
                 <CardImg>
-                             <div>
+                    <div>
                         <img src={valueInput.fileName} alt="foto do Produto" />
                     </div>
                     <h2>{valueInput.name}</h2>
-               {/*      <h3>{LimitDescription(valueInput.description, 50)}</h3> */}
-                    <p>{formatCurrency(valueInput.price)}</p> 
+                    <h3>{LimitDescription(valueInput.description, 50)}</h3>
+                    <p>{formatCurrency(valueInput.price)}</p>
                 </CardImg>
 
                 <form noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -136,19 +155,19 @@ function NewProduct() {
 
                         />
                     </LabelUpload>
-                    <ErrorMessage>{errors.file?.message}</ErrorMessage> 
+                    <ErrorMessage>{errors.file?.message}</ErrorMessage>
 
 
                     <Label>Nome</Label>
-                    <Input type='texe' {...register('name')} /* onChange={handleInputChange} */ />
+                    <Input type='text' {...register('name')} onChange={handleInputChange} />
                     <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
                     <Label>Preço</Label>
-                    <Input type='number' {...register('price')} /* onChange={handleInputChange} */ />
+                    <Input type='number' {...register('price')} onChange={handleInputChange} />
                     <ErrorMessage>{errors.price?.message}</ErrorMessage>
 
 
-                        <Controller name="category" control={control}
+                    <Controller name="category" control={control}
                         render={({ field }) => {
                             return (
                                 <ReactSelect
@@ -167,7 +186,7 @@ function NewProduct() {
 
 
                     <LabelOptions>adicione no máximo 3 imagens</LabelOptions>
-                     <LabelUploadOptions>
+                    <LabelUploadOptions>
 
                         {fileData.length > 0 ? (
                             fileData.map((data, index) => (
@@ -182,12 +201,16 @@ function NewProduct() {
                         <input
                             type="file"
                             accept="image/png, image/jpeg"
-                            /* onChange={handleFileChange} */
+                            onChange={handleFileChange}
+                           // multiple
+                           // {...register('file2')}
                         />
+
+
 
                     </LabelUploadOptions>
                     <ErrorMessage>{errors.file?.message}</ErrorMessage>
- 
+
 
                     <Button style={{
                         width: '80%', marginTop: 30, marginLeft: '93PX'
@@ -197,17 +220,18 @@ function NewProduct() {
             </ContainerItems>
 
 
-                <Description>
+            <Description>
                 <h1>Descrição do produto</h1>
 
                 <textarea type="text" placeholder="Digite a descrição do produto"
-                   /*  onChange={handleInputChange} */
+                    onChange={handleInputChange}
+                    {...register('description')}
                     name="description"
                 ></textarea>
             </Description>
 
 
-        
+
         </Container >
     )
 }
