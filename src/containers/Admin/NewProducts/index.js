@@ -59,8 +59,9 @@ function NewProduct() {
         productDataFormData.append('description', data.description)
         productDataFormData.append('price', data.price)
         productDataFormData.append('category_id', data.category.id)
-        // productDataFormData.append('file', data.file[0] )
         productDataFormData.append('file', data.file[0])
+
+
            productDataFormData.append('file2', data.file2[0])
         /*   productDataFormData.append('file3', data.file3[0])
           productDataFormData.append('file4', data.file4[0])  */
@@ -108,6 +109,7 @@ function NewProduct() {
 
         setFileData(updatedFileData);
     };
+///////////////////////////////////////////////////////////////////////////////////
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -202,7 +204,7 @@ function NewProduct() {
                             type="file"
                             accept="image/png, image/jpeg"
                             onChange={handleFileChange}
-                           // multiple
+                            multiple
                            // {...register('file2')}
                         />
 

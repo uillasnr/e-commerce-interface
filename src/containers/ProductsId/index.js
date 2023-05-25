@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
-//import OfferProducts from "../../components/OfferProducts";
+import OfferProducts from "../../components/OfferProducts";
 import formatCurrency from '../../utils/formarCurrency'
 //import { Button } from "../../components/Button";
 //import PropTypes from 'prop-types'
@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { Container, Image, Img, ContainerImg, ImgOptions, ContainerItems, Button, ButtonCart, ContainerTex, Description } from './styles'
 import { useParams } from "react-router-dom";
 
+import Carousel from 'react-elastic-carousel';
 
 import { useCart } from "../../hooks/CartContext";
 
@@ -49,13 +50,26 @@ function ProductsId(/*  { product } */) {
       increaseProducts(product.id, -1); // diminui a quantidade do produto no carrinho
     }
   }
-  
+
   function handleIncrease() {
     const newQuantity = product.quantity + 1;
     setProduct({ ...product, quantity: newQuantity });
     increaseProducts(product.id, 1); // aumenta a quantidade do produto no carrinho
   }
-  
+
+  const items = [
+    <OfferProducts />
+
+  ];
+
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 400, itemsToShow: 2 },
+    { width: 600, itemsToShow: 3 },
+    { width: 900, itemsToShow: 4 },
+    { width: 1300, itemsToShow: 5 }
+  ]
+
 
   return (
     <Container>
@@ -101,11 +115,18 @@ function ProductsId(/*  { product } */) {
 
       <Description>Descrição do produto</Description>
 
-      {/*    <line />
-        <OfferProducts />
-
       <line />
-       */}
+      <Carousel
+        itemsToShow={5}
+        style={{ width: '90%' }}
+        breakPoints={breakPoints}
+      >
+        {items.map((item, index) => (
+          <div key={index}>{item}</div>
+        ))}
+      </Carousel>
+      <line />
+
 
       <h5>{product.description}</h5>
 
