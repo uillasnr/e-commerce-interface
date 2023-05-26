@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
-import OfferProducts from "../../components/OfferProducts";
+//import OfferProducts from "../../components/OfferProducts";
 import formatCurrency from '../../utils/formarCurrency'
 //import { Button } from "../../components/Button";
 //import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
-import { Container, Image, Img, ContainerImg, ImgOptions, ContainerItems, Button, ButtonCart, ContainerTex, Description } from './styles'
+import { Container, Image, Img, ContainerImg, ImgOptions, ContainerItems, Button, ButtonCart, ContainerOffers, ContainerTex, Description } from './styles'
 import { useParams } from "react-router-dom";
 
 import Carousel from 'react-elastic-carousel';
@@ -19,7 +19,7 @@ function ProductsId(/*  { product } */) {
   const [product, setProduct] = useState({ quantity: 1 }); // Inicia a quantidade como 1
   const [currentImg, setCurrentImg] = useState(product.url_img1);
   const { putProductInCart, increaseProducts, decreaseProducts } = useCart() //função do carrinho de compras
-
+  const [offers, setOffers] = useState([])
 
 
   useEffect(() => {
@@ -36,6 +36,19 @@ function ProductsId(/*  { product } */) {
     fetchProduct();
 
   }, [id]);
+
+
+  useEffect(() => {
+    async function loadOffers() {
+      const { data } = await api.get('products')
+
+      const onlyOffers = data.filter(product => product.offer)
+      console.log(data)
+      setOffers(onlyOffers)
+    }
+    loadOffers()
+  }, [])
+
 
 
   function ImageClick(imgUrl) {
@@ -57,19 +70,22 @@ function ProductsId(/*  { product } */) {
     increaseProducts(product.id, 1); // aumenta a quantidade do produto no carrinho
   }
 
-  const items = [
-    <OfferProducts />
 
-  ];
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
-    { width: 400, itemsToShow: 2 },
-    { width: 600, itemsToShow: 3 },
-    { width: 900, itemsToShow: 4 },
-    { width: 1300, itemsToShow: 5 }
+    { width: 400, itemsToShow: 3 },
+    { width: 600, itemsToShow: 4 },
+    { width: 900, itemsToShow: 5 },
+    { width: 1200, itemsToShow: 6 }
   ]
 
+  const LimitDescription = (description, maxLength) => {
+    if (description.length > maxLength) {
+      return `${description.slice(0, maxLength)}...`;
+    }
+    return description;
+  }
 
   return (
     <Container>
@@ -116,15 +132,27 @@ function ProductsId(/*  { product } */) {
       <Description>Descrição do produto</Description>
 
       <line />
-      <Carousel
-        itemsToShow={5}
-        style={{ width: '90%' }}
-        breakPoints={breakPoints}
-      >
-        {items.map((item, index) => (
-          <div key={index}>{item}</div>
-        ))}
+
+      <Carousel style={{marginTop: 30}} itemsToShow={5} breakPoints={breakPoints}>
+        {offers &&
+          offers.map(product => (
+
+            <ContainerOffers key={product.id}  >
+              <h6>OFF</h6>
+              <div>
+                <img src={product.url_img1} alt="foto do Produto" />
+              </div>
+              <h2>{product.name}</h2>
+              <h3>{LimitDescription(product.description, 50)}</h3>
+              <p>{formatCurrency(product.price)}</p>
+
+              <button onClick={() => putProductInCart(product)}>COMPRAR</button>
+
+            </ContainerOffers>
+          ))}
       </Carousel>
+
+
       <line />
 
 
