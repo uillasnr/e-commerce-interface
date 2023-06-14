@@ -21,12 +21,13 @@ h1{
 }
 h5{
     display: flex;
+    flex-direction: column;
     -webkit-box-pack: center;
     justify-content: center;
-    margin: 40px;
+    height: 300px;
     align-items: center;
-    text-align: center;   
-
+    text-align: center;
+    margin: 0px 100px;
 }
 
 

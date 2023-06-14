@@ -55,7 +55,23 @@ margin: 10px;
 
 `
 export const LabelUploadOptions = styled.label`
-cursor: pointer;
+  background: #36E73D;
+display: flex;
+input{
+    opacity: 0;
+    width: 10px;
+}
+div{
+    cursor: pointer;
+    background: #464646;
+    display: inline;
+    width: 90px;
+    margin: 4px;
+    height: 75px;
+    border-radius: 10px;
+    border: 1px dashed #fff;
+}
+/*  cursor: pointer;
 display: flex;
 align-items: center;
 border: 1px dashed #fff;
@@ -75,7 +91,7 @@ input{
 img{
     width: 70px;
     border: 3px dashed #464646;
-}
+}  */
 `
 
 export const ContainerItems = styled.div`

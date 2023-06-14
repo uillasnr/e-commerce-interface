@@ -129,7 +129,7 @@ function ProductsId(/*  { product } */) {
       </ContainerItems>
 
 
-      <Description>Descrição do produto</Description>
+   
 
       <line />
 
@@ -154,7 +154,7 @@ function ProductsId(/*  { product } */) {
 
 
       <line />
-
+      <Description>Descrição do produto</Description>
 
       <h5>{product.description}</h5>
 

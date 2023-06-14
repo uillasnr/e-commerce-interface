@@ -11,7 +11,7 @@ import { useCart } from "../../hooks/CartContext"
 function OfferProducts() {
     const [offers, setOffers] = useState([])
     const { putProductInCart } = useCart() //função do carrinho de compras
-    const [day, hour, minute, second] = useCountdown("MAY 22, 2023 00:00:00")
+    const [day, hour, minute, second] = useCountdown("Aug 22, 2023 00:00:00")
     const [isHovering, setIsHovering] = useState(false);
 
     useEffect(() => {
