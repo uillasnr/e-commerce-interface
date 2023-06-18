@@ -15,7 +15,7 @@ import { useHistory } from 'react-router-dom'
 import paths from '../../../constants/paths'
 import api from '../../../services/api'
 import formatCurrency from '../../../utils/formarCurrency'
-import { Container, Img, EditIconStyles,  } from './styles'
+import { Container, Img, EditIconStyles, DeleteIconStyles } from './styles'
 
 function ListProducts() {
     const [products, setProducts] = useState()
@@ -25,12 +25,19 @@ function ListProducts() {
     useEffect(() => {
         async function loadOrders() {
             const { data } = await api.get('products')
-console.log(data)
+
             setProducts(data)
         }
 
         loadOrders()
     }, [])
+
+
+    // Função para excluir produto
+    async function deleteProduct(productId) {
+        await api.delete(`products/${productId}`);
+        setProducts(products.filter((product) => product.id !== productId));
+    }
 
     function isOffer(offerStatus) {
         if (offerStatus) {
@@ -40,7 +47,7 @@ console.log(data)
         return <CancelIcon style={{ color: '#CC1717' }} />
     }
 
-     //Função para editar produto
+    //Função para editar produto
     function EditProduct(product) {
         push(paths.EditProduct, { product })
     }
@@ -53,7 +60,7 @@ console.log(data)
         return description;
     }
 
-    
+
 
     return (
         <Container>
@@ -75,6 +82,7 @@ console.log(data)
                                 Imagem do Produto
                             </TableCell>
                             <TableCell>Editar</TableCell>
+                            <TableCell>Excluir </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -88,7 +96,7 @@ console.log(data)
                                 }}
                             >
                                 <TableCell component="th" scope="row">{product.name}</TableCell>
-                                <TableCell style={{fontSize:'10px', width: '200px'}}
+                                <TableCell style={{ fontSize: '10px', width: '200px' }}
                                 >{LimitDescription(product.description, 50)}</TableCell>
                                 <TableCell>{formatCurrency(product.price)}</TableCell>
                                 <TableCell align="center">{isOffer(product.offer)}</TableCell>
@@ -96,6 +104,11 @@ console.log(data)
                                 <TableCell>
                                     <EditIconStyles
                                         onClick={() => EditProduct(product)}
+                                    />
+                                </TableCell>
+                                <TableCell>
+                                    <DeleteIconStyles
+                                        onClick={() => deleteProduct(product.id)}
                                     />
                                 </TableCell>
                             </TableRow>
@@ -108,3 +121,4 @@ console.log(data)
 }
 
 export default ListProducts
+

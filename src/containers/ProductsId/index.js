@@ -9,7 +9,7 @@ import formatCurrency from '../../utils/formarCurrency'
 import { Link } from "react-router-dom";
 import { Container, Image, Img, ContainerImg, ImgOptions, ContainerItems, Button, ButtonCart, ContainerOffers, ContainerTex, Description } from './styles'
 import { useParams } from "react-router-dom";
-
+import ReactImageMagnify from 'react-image-magnify';
 import Carousel from 'react-elastic-carousel';
 
 import { useCart } from "../../hooks/CartContext";
@@ -123,17 +123,41 @@ function ProductsId(/*  { product } */) {
             <Img src={product.url_img3} alt="Foto do produto3" onClick={() => ImageClick(product.url_img3)} />
             <Img src={product.url_img4} alt="Foto do produto4" onClick={() => ImageClick(product.url_img4)} />
           </ImgOptions>
-          <Image src={currentImg} alt="Foto do produto" />
+       {/*     <Image src={currentImg} alt="Foto do produto" />  */}
+           <div style={{ background: '#464646', padding: '40px', display: 'flex',    width: '270%' }}>
+            <ReactImageMagnify
+              {...{
+                smallImage: {
+                  alt: 'Foto do produto',
+                  src: currentImg,
+                  isFluidWidth: true,
+                },
+                largeImage: {
+                  src: currentImg,
+                  width: 1200,
+                  height: 1800,
+                },
+                enlargedImageContainerDimensions: {
+                  display: 'flex',
+                  alignItems: 'center',
+                  width: '150%',
+                  height: '150%',
+                },
+                enlargedImageContainerClassName: 'zoomed-image-container',
+              }}
+            />
+          </div> 
+
 
         </ContainerImg>
       </ContainerItems>
 
 
-   
+
 
       <line />
 
-      <Carousel style={{marginTop: 30}} itemsToShow={5} breakPoints={breakPoints}>
+      <Carousel style={{ marginTop: 30 }} itemsToShow={5} breakPoints={breakPoints}>
         {offers &&
           offers.map(product => (
 

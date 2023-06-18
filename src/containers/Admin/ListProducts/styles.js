@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import EditIcon from '@mui/icons-material/Edit'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 
 export const Container = styled.div``
 
@@ -11,4 +12,8 @@ border-radius: 5px;
 export const EditIconStyles = styled(EditIcon)`
 cursor: pointer;
 color: '323D5D';
+`
+export const DeleteIconStyles = styled(DeleteForeverIcon)`
+  cursor: pointer;
+  color: '323D5D';
 `

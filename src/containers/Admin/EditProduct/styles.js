@@ -136,7 +136,23 @@ p{
     font-weight: 800;
     text-align: center;
 }
-
+form{
+    margin-top: 300px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+label{
+    margin: 10px;
+}
+input{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    color: #36E73D;
+    
+}
 
 `
 export const Description = styled.div`

@@ -17,10 +17,10 @@ import { useHistory } from "react-router-dom"
 
 
 function NewProduct() {
-    const [fileName, setFileName] = useState(null)
+    const [fileName, setFileName] = useState(null)// Armazena o nome do arquivo selecionado pelo usuário
     const [categories, setCategories] = useState([])
-    const [fileData, setFileData] = useState(null);
-    const [valueInput, setValueInput] = useState({ fileName: "", name: "", price: "", description: "" });
+    const [fileUpload, setFileUpload] = useState('');
+    const [valueInput, setValueInput] = useState({ fileName: "", name: "", price: "", description: "" }); //Preview do card
     const { push } = useHistory()
 
 
@@ -113,6 +113,7 @@ function NewProduct() {
      }; */
     ///////////////////////////////////////////////////////////////////////////////////
 
+    //Preview do card
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setValueInput((preValueInput) => ({ ...preValueInput, [name]: value }));
@@ -193,6 +194,20 @@ function NewProduct() {
                     <LabelUploadOptions>
 
                         <div>
+                            {fileUpload && <img src={URL.createObjectURL(fileUpload)} alt="Preview" />}
+                            <input
+                                type="file"
+                                accept="image/png"
+                                onChange={(event) => {
+                                    setFileUpload(event.target.files[0]); // Atualiza o estado fileUpload com o arquivo selecionado
+                                }}
+                                {...register('file2')}
+                            />
+                        </div>
+
+
+
+                        {/*    <div>
                             {fileData ? (
                                 <img src={fileData} alt="Product" />
                             ) : (
@@ -211,8 +226,8 @@ function NewProduct() {
                                 }}
                                 {...register('file2')}
                             />
-                        </div>
-
+                        </div> 
+ */}
                         <div>
                             <input type="file" accept="image/png"
                                 onChange={(event) => {
@@ -270,6 +285,4 @@ function NewProduct() {
     )
 }
 export default NewProduct
-
-
 

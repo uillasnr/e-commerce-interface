@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import { Container, ContainerItems } from "./styles"
 import paths from "../../constants/paths";
 import NewProduct from "../Admin/NewProducts";
-//import EditProduct from "./EditProduct";
+import EditProduct from "./EditProduct";
 
 function Admin({ match: { path } }) {
 
@@ -23,7 +23,7 @@ function Admin({ match: { path } }) {
                 {path === paths.Order && <Orders />}
                 {path === paths.Products && <ListProducts />}
                 {path === paths.NewProduct && <NewProduct />}
-                {/*    {path === paths.EditProduct && <EditProduct />}  */}
+                {path === paths.EditProduct && <EditProduct />}
             </ContainerItems>
 
         </Container>

@@ -32,7 +32,7 @@ h5{
 
 
 `
-export const ContainerOffers  = styled.div`
+export const ContainerOffers = styled.div`
 
 
 background: #464646;
@@ -356,6 +356,8 @@ background: #464646;
 padding: 40px;
 display: flex;
 
+
+
 @media (max-width: 950px){
 height: 290px;
 }
@@ -363,6 +365,9 @@ height: 290px;
 height: 265px;
 }
 `
+
+
+
 export const ImgOptions = styled.div`
     display: flex;
     flex-direction: column;
@@ -376,6 +381,24 @@ height: 350px;
 margin: 30px;
 display: flex;
 margin-left: -1020px;
+
+
+
+
+/* div{
+    background: #464646;
+padding: 40px;
+display: flex;
+
+
+
+@media (max-width: 950px){
+height: 290px;
+}
+@media (max-width: 850px){
+height: 265px;
+}
+} */
 
 @media (max-width: 1040px){
     margin-left: -940px;
@@ -472,7 +495,7 @@ opacity: 0.6;
         margin-left: 400px;
     }
 
-`  
+`
 export const ContainerItems = styled.div`
 display: flex;
 `
