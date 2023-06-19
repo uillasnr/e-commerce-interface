@@ -264,9 +264,7 @@ h3 {
     margin-left: 456px;
     width: 225px;
 }
-/* button{
-    margin-left: 455px;
-} */
+
 .quantity-container{
     display: flex;
     gap: 20px;
@@ -333,38 +331,110 @@ p {
 }
 }
 @media (max-width: 750px){
+  
     h2 {
-    font-size: 1.5em;
+        font-size: 1.5em;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-left: 110px;
     text-align: center;
+    margin-top: -35px;
 
 }
     h3 {
-    margin-left: 290px;
+    margin-left: 300px;
     margin-top: 330px;
     width: 150px;
+    font-size: 1.2em;
+}
+p {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 90px;
+    margin-top: 20px;
+    font-size: 0.9em;;
+}
+.quantity-container {
+    display: flex;
+    gap: 20px;
+    width: 110px;
+    height: 40px;
+    margin-left: 300px;
+}
+
+}
+@media (max-width: 630px){
+    h2 {
+        margin-left: 70px;
+    }
+    h3 {
+    margin-left: 240px;
+    font-size: 1.2em;
+}
+p {
+    
+    margin-left: 68px;
+    font-size: 0.9em;;
+}
+.quantity-container {
+    display: flex;
+    gap: 20px;
+    width: 110px;
+    height: 40px;
+    margin-left: 235px;
+}
+}
+@media (max-width: 510px){
+    h2 {
+        margin-left: 35px;
+    }
+    h3 {
+    margin-left: 160px;
+    font-size: 1.2em;
+}
+p {
+    
+    margin-left: 25px;
+    font-size: 0.9em;;
+}
+.quantity-container {
+    display: flex;
+    gap: 20px;
+    width: 110px;
+    height: 40px;
+    margin-left: 160px;
+}
+}
+@media (max-width: 445px){
+    h2 {
+        margin-left: 35px;
+    }
+    h3 {
+    margin-left: 160px;
+    font-size: 1.2em;
+}
+p {
+    
+    margin-left: 25px;
+    font-size: 0.9em;;
+}
+.quantity-container {
+    display: flex;
+    gap: 20px;
+    width: 110px;
+    height: 40px;
+    margin-left: 160px;
 }
 }
 
 `
 
-export const Image = styled.img`
 
-background: #464646;
-padding: 40px;
-display: flex;
-
-
-
-@media (max-width: 950px){
-height: 290px;
-}
-@media (max-width: 850px){
-height: 265px;
-}
-`
 
 
 
@@ -376,29 +446,35 @@ export const ImgOptions = styled.div`
 `
 
 export const ContainerImg = styled.div`
-width: 450px;
-height: 350px;
-margin: 30px;
-display: flex;
-margin-left: -1020px;
+    width: 421px;
+    height: 330px;
+    margin: 30px;
+    display: flex;
+    margin-left: -1020px;
 
-
-
-
-/* div{
-    background: #464646;
-padding: 40px;
-display: flex;
-
-
-
-@media (max-width: 950px){
-height: 290px;
+div{
+   
+    width: 328px;
+    height: 328px;
 }
-@media (max-width: 850px){
-height: 265px;
+.zoomed-image-container {
+
+   position: fixed;
+   top: 50%;
+  left: 500%; 
+   transform: translate(5%, -15%); 
+  z-index: 9999;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden; 
 }
-} */
+
+
+
+
+
+
 
 @media (max-width: 1040px){
     margin-left: -940px;
@@ -407,7 +483,7 @@ height: 265px;
 
 @media (max-width: 1000px){
     margin-left: -850px;
-    width: 392px;
+    width: 421px;
     height: 306px;
     }
 @media (max-width: 950px){
@@ -424,9 +500,29 @@ height: 265px;
      margin-left: -755px;
     width: 380px;
     height: 306px;
-    }
+.image-magnify {
+    width: 80%;
+    height: 93%;
+}
+}
+    
     @media (max-width: 800px){
     margin-left: -740px;
+    width: 380px;
+    height: 306px;
+    }
+    @media (max-width: 750px){
+    margin-left: -355px;
+    width: 380px;
+    height: 306px;
+    }
+    @media (max-width: 630px){
+    margin-left: -345px;
+    width: 380px;
+    height: 306px;
+    }
+    @media (max-width: 445px){
+    margin-left: -345px;
     width: 380px;
     height: 306px;
     }
@@ -438,7 +534,7 @@ export const Img = styled.img`
     padding: 10px;
     background: #464646;
     @media (max-width: 950px){
-        width: 51%;
+        width: 84%;
     }
 `
 export const Description = styled.div`
@@ -494,6 +590,19 @@ opacity: 0.6;
     @media (max-width: 800px){
         margin-left: 400px;
     }
+    @media (max-width: 750px){
+   
+        margin-left: 185px;
+    }
+    @media (max-width: 630px){
+        margin-left: 120px;
+    }
+    @media (max-width: 510px){
+        margin-left: 50px;
+    }
+    @media (max-width: 445px){
+        margin-left: 50px;
+    }
 
 `
 export const ContainerItems = styled.div`
@@ -543,6 +652,10 @@ opacity: 0.6;
     @media (max-width: 800px){
         display: flex;
     } */
-
+    @media (max-width: 750px){
+   
+  /*  margin-left: 400px; */
+   
+}
 
 `
