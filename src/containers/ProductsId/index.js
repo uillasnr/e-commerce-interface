@@ -7,7 +7,10 @@ import formatCurrency from '../../utils/formarCurrency'
 //import { Button } from "../../components/Button";
 //import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
-import { Container, Img, ContainerImg, ImgOptions, ContainerItems, Button, ButtonCart, ContainerOffers, ContainerTex, Description } from './styles'
+import {
+  Container, Img, ContainerImg, ImgOptions, ContainerItems,
+  Button, ButtonCart, ContainerOffers, ContainerTex, Description
+} from './styles'
 import { useParams } from "react-router-dom";
 import ReactImageMagnify from 'react-image-magnify';
 import Carousel from 'react-elastic-carousel';
@@ -71,14 +74,16 @@ function ProductsId(/*  { product } */) {
   }
 
 
-
+/*   { width: 1, itemsToShow: 1 },
+  { width: 550, itemsToShow: 2 },
+  { width: 768, itemsToShow: 3 },
+  { width: 1200, itemsToShow: 4 } */
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
-    { width: 400, itemsToShow: 3 },
-    { width: 600, itemsToShow: 2 },
-    { width: 750, itemsToShow: 3 },
-    { width: 900, itemsToShow: 5 },
-    { width: 1200, itemsToShow: 6 }
+  { width: 550, itemsToShow: 2 },
+  { width: 768, itemsToShow: 3 },
+  { width: 900, itemsToShow: 5 },
+  { width: 1200, itemsToShow: 6 }
   ]
 
   const LimitDescription = (description, maxLength) => {
@@ -124,15 +129,15 @@ function ProductsId(/*  { product } */) {
             <Img src={product.url_img3} alt="Foto do produto3" onClick={() => ImageClick(product.url_img3)} />
             <Img src={product.url_img4} alt="Foto do produto4" onClick={() => ImageClick(product.url_img4)} />
           </ImgOptions>
-        {/*   <Image src={currentImg} alt="Foto do produto" /> */}
-          <div className= 'image-magnify'style={{ background: '#464646', padding: '15px',  }}>
+          {/*   <Image src={currentImg} alt="Foto do produto" /> */}
+          <div className='image-magnify' style={{ background: '#464646', padding: '15px', }}>
             <ReactImageMagnify
               {...{
                 smallImage: {
                   alt: 'Foto do produto',
                   src: currentImg,
                   className: 'image-magnify', // Adicione a classe CSS aqui
-                   isFluidWidth: true, 
+                  isFluidWidth: true,
                 },
                 largeImage: {
                   src: currentImg,
@@ -151,16 +156,15 @@ function ProductsId(/*  { product } */) {
             />
           </div>
 
-
         </ContainerImg>
+
+
+
       </ContainerItems>
-
-
-
 
       <line />
 
-      <Carousel style={{ marginTop: 30 }} itemsToShow={5} breakPoints={breakPoints}>
+      <Carousel style={{ marginTop: 30, padding: 10 }} itemsToShow={5} breakPoints={breakPoints}>
         {offers &&
           offers.map(product => (
 
@@ -179,8 +183,9 @@ function ProductsId(/*  { product } */) {
           ))}
       </Carousel>
 
-
       <line />
+
+
       <Description>Descrição do produto</Description>
 
       <h5>{product.description}</h5>
