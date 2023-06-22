@@ -12,7 +12,7 @@ function Home() {
     return (
         <Container>
              <Category /> 
-            <H1>Ofertas em destaque</H1>
+           
             <OfferProducts />
         </Container>
 

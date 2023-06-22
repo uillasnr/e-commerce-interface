@@ -73,6 +73,7 @@ export const Imput = styled.input`
     width: 37%;
    text-align: center;
     font-size: 15px;
+    font-weight: 700;
     border-radius: 20px;
     height: 40px;
 `

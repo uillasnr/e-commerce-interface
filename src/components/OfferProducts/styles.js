@@ -1,11 +1,35 @@
 import styled from "styled-components";
 
+export const Container = styled.div``
 
-export const Container = styled.div`
+export const H1 = styled.h1`
+color: #fff;
+margin-left: 35px;
+margin-top: 50px;
+font-size: 2rem;
+
+@media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+`
+
+
+export const ContainerCardOffer = styled.div`
 display: grid;
 grid-template-columns: repeat(5,1fr);
 gap: 10px;
 padding: 40px; 
+
+
+
 
 @media  (max-width: 1120px) {
     grid-template-columns: repeat(4, 1fr);
@@ -129,6 +153,7 @@ padding: 40px;
       }
 `
 
+
 export const Img = styled.img`
 width: 100px;
 background: none;
@@ -136,27 +161,7 @@ background: none;
 
 `
 export const ButtonOffers = styled.button`
-/* width: 150px;
-height: 30px;
-background: #36E73D;;
-border-radius: 20px;
-border: none;
-cursor: pointer;
-font-style: normal;
-font-weight: 500;
-font-size: 10px;
-line-height: 24px;
-text-align: center;
-color: #2c2b2b;
-margin-top: 0px;
-margin-left: 25px;
-margin-bottom: 0px;
-&:hover {
-    opacity:  0.8;
-}
-&:active {
-opacity: 0.6;
-} */
+
 background: rgb(68, 214, 44);
 border: none;
 cursor: pointer;
@@ -178,33 +183,37 @@ export const ContainerItems = styled.h1`
     height: 290px;
     position: relative;
 
- ::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 40px solid transparent;
-    border-top: 40px solid #44D62C;
-    border-right: 40px solid #44D62C;
-    border-radius: 0px 10px 0px 10px;
+  
     
-}
-
-
-   
- h6{
-    position: absolute;
+h5{
+  position: absolute;
     left: 160px;
     font-size: 15px;
     margin-top: 15px;
     color: #FFFFFF;
- }
+    z-index: 1;
+}
+
+
+   
+h6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 40px solid transparent;
+  border-top: 40px solid #44D62C;
+  border-right: 40px solid #44D62C;
+  border-radius: 0px 10px 0px 10px;
+  z-index: 1;
+}
+
 
 
 div{
     display: grid;
     justify-content: center;
-    margin: 15px;
+    margin: 10px;
 }
 h2{
     font-size: 15px;
@@ -235,7 +244,7 @@ p{
 
 `
 
- export const Stopwatch = styled.div`
+export const Stopwatch = styled.div`
 display: grid;
 background: rgb(68, 214, 44);
 border-radius: 10px;
@@ -262,4 +271,3 @@ img{
 
 }
 `
- 

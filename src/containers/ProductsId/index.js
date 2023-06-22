@@ -80,10 +80,10 @@ function ProductsId(/*  { product } */) {
   { width: 1200, itemsToShow: 4 } */
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 900, itemsToShow: 5 },
-  { width: 1200, itemsToShow: 6 }
+  { width: 550, itemsToShow: 4 },
+  { width: 768, itemsToShow: 5 },
+/*   { width: 1175, itemsToShow: 5 },
+  { width: 1200, itemsToShow: 6 } */
   ]
 
   const LimitDescription = (description, maxLength) => {
@@ -169,7 +169,7 @@ function ProductsId(/*  { product } */) {
           offers.map(product => (
 
             <ContainerOffers key={product.id}  >
-              <h6>OFF</h6>
+               <h6><h4>OFF</h4></h6>
               <div>
                 <img src={product.url_img1} alt="foto do Produto" />
               </div>
@@ -177,7 +177,9 @@ function ProductsId(/*  { product } */) {
               <h3>{LimitDescription(product.description, 50)}</h3>
               <p>{formatCurrency(product.price)}</p>
 
-              <button onClick={() => putProductInCart(product)}>COMPRAR</button>
+              <Link style={{ textDecoration: 'none', }} to={`/detalhes/${product.id}`}>
+              <button>COMPRAR</button>
+              </Link>
 
             </ContainerOffers>
           ))}

@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 3 },
-    { width: 768, itemsToShow: 4 },
-    { width: 1040, itemsToShow: 4 },
-    { width: 1175, itemsToShow: 4 },
-    { width: 1200, itemsToShow: 6 }
-  ];
-
 
 export const Container = styled.div`
 background: #222222;
@@ -67,30 +58,39 @@ button.rec-dot{
 
 
 export const ContainerOffers = styled.div`
-  background: #464646;
-  border-radius: 10.6557px;
-  width: 200px;
-  height: 290px;
-  position: relative;
+ 
+ background: #464646;
+    border-radius: 10.6557px;
+    width: 200px;
+    height: 290px;
+    position: relative;
 
-  ::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 40px solid transparent;
-    border-top: 40px solid #44d62c;
-    border-right: 40px solid #44d62c;
-    border-radius: 0px 10px 0px 10px;
-  }
-
-  h6 {
-    position: absolute;
+  
+    
+h4{
+  position: absolute;
     left: 160px;
     font-size: 15px;
     margin-top: 15px;
-    color: #ffffff;
-  }
+    color: #FFFFFF;
+    z-index: 1;
+}
+
+
+   
+h6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 40px solid transparent;
+  border-top: 40px solid #44D62C;
+  border-right: 40px solid #44D62C;
+  border-radius: 0px 10px 0px 10px;
+  z-index: 1;
+}
+
+
 
   div {
     display: grid;
@@ -157,7 +157,7 @@ export const ContainerOffers = styled.div`
   }
 
   /* Estilos para dispositivos mobile */
-  @media (max-width: ${breakPoints[1].width}px) {
+ /*  @media (max-width: 1090px){
     width: 100%;
 
     h6 {
@@ -199,28 +199,10 @@ export const ContainerOffers = styled.div`
       margin-top: 15px;
       margin-left: 20px;
     }
-  }
+  } */
 
-  /* Estilos para dispositivos com largura entre breakpoints[1].width + 1 e breakpoints[2].width */
-  @media (min-width: ${breakPoints[1].width + 1}px) and (max-width: ${breakPoints[2].width}px) {
-    /* Atualize os estilos dos elementos internos conforme necessário */
-  }
-
-  /* Estilos para dispositivos com largura entre breakpoints[2].width + 1 e breakpoints[3].width */
-  @media (min-width: ${breakPoints[2].width + 1}px) and (max-width: ${breakPoints[3].width}px) {
-    /* Atualize os estilos dos elementos internos conforme necessário */
-  }
-
-  /* Estilos para dispositivos com largura entre breakpoints[3].width + 1 e breakpoints[4].width */
-  @media (min-width: ${breakPoints[3].width + 1}px) and (max-width: ${breakPoints[4].width}px) {
-    /* Atualize os estilos dos elementos internos conforme necessário */
-  }
-
-  /* Estilos para dispositivos com largura acima de breakpoints[4].width */
-  @media (min-width: ${breakPoints[4].width + 1}px) {
-    /* Atualize os estilos dos elementos internos conforme necessário */
-  }
-`;
+  
+`
 
 
 
