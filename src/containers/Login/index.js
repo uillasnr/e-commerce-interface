@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from "react-toastify";
 import { Link, useHistory } from "react-router-dom";
 import { useUser } from '../../hooks/UserContext'
-import  ErrorMessage  from "../../components/ErrorMessage"
+import ErrorMessage from "../../components/ErrorMessage"
 import api from "../../services/api"
 
 import { Container, Label, Input, Button, ContainerItens, SignInLink } from "./styles"
@@ -14,6 +14,8 @@ import { Container, Label, Input, Button, ContainerItens, SignInLink } from "./s
 
 function Login() {
   const history = useHistory()
+  const [emailInputValue, setEmailInputValue] = useState('');
+  const [passwordInputValue, setPasswordInputValue] = useState('');
   const { putUserData } = useUser()
 
 
@@ -67,21 +69,41 @@ function Login() {
 
   }
 
+  const handleEmailInputChange = e => {
+    setEmailInputValue(e.target.value);
+  };
+
+  const handlePasswordInputChange = e => {
+    setPasswordInputValue(e.target.value);
+  };
+
+
 
   return (
-    <Container>
+    <Container >
+      <button /* onClick={() => setShowModal(false)} */>X</button>
       <ContainerItens>
-        <h1>Login</h1>
+        <h1>Realizar Login</h1>
 
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
-          <Label>Email</Label>
-          <Input type="email" {...register('email')}
-            error={errors.email?.message} />
+
+          <Label className={emailInputValue ? 'active' : ''}>Email</Label>
+
+          <Input
+            type="email"
+            {...register('email')}
+            className={emailInputValue ? 'active' : ''}
+            onChange={handleEmailInputChange} />
           <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-          <Label>Senha</Label>
-          <Input type="password" {...register('password')}
-            error={errors.email?.message} />
+
+          <Label className={passwordInputValue ? 'active' : ''}>Senha</Label>
+
+          <Input
+            type="password"
+            {...register('password')}
+            className={passwordInputValue ? 'active' : ''}
+            onChange={handlePasswordInputChange} />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
           <Button type="submit">Sing up</Button>
@@ -89,7 +111,7 @@ function Login() {
 
         <SignInLink>
           Não possui conta ? {' '}
-          <Link style={{ color: 'blur' }} to="/cadastro">SignUp</Link>
+          <Link style={{ color: 'red' }} to="/cadastro">SignUp</Link>
 
         </SignInLink>
       </ContainerItens>
