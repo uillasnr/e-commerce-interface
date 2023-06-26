@@ -11,26 +11,23 @@ export const CartProvider = ({ children }) => {
 
 
 
-  // Função para atualizar o localStorage
-  const updateLocalStorage = async products => {
-    await localStorage.setItem('e-commerce:cartInfo',JSON.stringify(products)
-    )
-}
+    // Função para atualizar o localStorage
+    const updateLocalStorage = async products => {
+        await localStorage.setItem('e-commerce:cartInfo', JSON.stringify(products)
+        )
+    }
+
 
     //função do carrinho de compras
     const putProductInCart = async product => {
         const cartIndex = cartProducts.findIndex(prd => prd.id === product.id)
 
         let newCartProducts = []
-        if (cartIndex > 0) {
+        if (cartIndex >= 0) {
             newCartProducts = cartProducts
-
-            newCartProducts[cartIndex].quantity =
-                newCartProducts[cartIndex].quantity + 1
-
+            newCartProducts[cartIndex].quantity = newCartProducts[cartIndex].quantity + 1
             setCartProducts(newCartProducts)
-        }
-        else {
+        } else {
             product.quantity = 1
             newCartProducts = [...cartProducts, product]
             setCartProducts(newCartProducts)
@@ -38,24 +35,19 @@ export const CartProvider = ({ children }) => {
 
         // Gravando os itens do carrinho no localStorage
         await updateLocalStorage(newCartProducts)
-        
     }
-
-
 
     //função de deletar o produto do carrinho quando a quantidade for menor que 1 
-    const deleteProducts = async productId => {
+    const deleteProduct = async productId => {
         const newCart = cartProducts.filter(product => product.id !== productId)
-
         setCartProducts(newCart)
 
-              // Gravando os itens do carrinho no localStorage
-              await updateLocalStorage(newCart)
+        // Gravando os itens do carrinho no localStorage
+        await updateLocalStorage(newCart)
     }
 
-
     //função de aumentar a quantidade do item no carrinho
-    const increaseProducts = async productId => {
+    const increaseProductQuantity = async productId => {
         const newCart = cartProducts.map(product => {
             return product.id === productId
                 ? { ...product, quantity: product.quantity + 1 }
@@ -63,13 +55,12 @@ export const CartProvider = ({ children }) => {
         })
         setCartProducts(newCart)
 
-              // Gravando os itens do carrinho no localStorage
-              await updateLocalStorage(newCart)
+        // Gravando os itens do carrinho no localStorage
+        await updateLocalStorage(newCart)
     }
 
-
     //função de diminuir a quantidade do item no carrinho
-    const decreaseProducts = async productId => {
+    const decreaseProductQuantity = async productId => {
         const cartIndex = cartProducts.findIndex(product => product.id === productId)
 
         if (cartProducts[cartIndex].quantity > 1) {
@@ -80,12 +71,15 @@ export const CartProvider = ({ children }) => {
             })
             setCartProducts(newCart)
 
-                  // Gravando os itens do carrinho no localStorage
-        await updateLocalStorage(newCart)
+            // Gravando os itens do carrinho no localStorage
+            await updateLocalStorage(newCart)
         } else {
-            deleteProducts(productId)
+            deleteProduct(productId)
         }
     }
+
+
+
 
 
 
@@ -105,7 +99,7 @@ export const CartProvider = ({ children }) => {
     }, [])
 
     return (
-        <CartContext.Provider value={{ putProductInCart, cartProducts, increaseProducts, decreaseProducts }}>
+        <CartContext.Provider value={{ putProductInCart, cartProducts, increaseProductQuantity, decreaseProductQuantity }}>
             {children}
         </CartContext.Provider>
     )

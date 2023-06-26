@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,16 +7,17 @@ import { Link, useHistory } from "react-router-dom";
 import { useUser } from '../../hooks/UserContext'
 import ErrorMessage from "../../components/ErrorMessage"
 import api from "../../services/api"
+import { GoogleLogin } from "react-google-login";
+import { Container, Label, Input, Buttons, ButtonLogin, ContainerItens, SignInLink, GoogleLoginButton } from "./styles"
 
-import { Container, Label, Input, Button, ContainerItens, SignInLink } from "./styles"
 
 
-
-function Login() {
+function Login({ setShowDropdown }) {
   const history = useHistory()
   const [emailInputValue, setEmailInputValue] = useState('');
   const [passwordInputValue, setPasswordInputValue] = useState('');
   const { putUserData } = useUser()
+  const containerRef = useRef();
 
 
   /* Validação do formulario */
@@ -69,6 +70,29 @@ function Login() {
 
   }
 
+  // Função de resposta do Google Login
+  const responseGoogle = async (response) => {
+    try {
+      const { tokenId } = response; // Obtém o token de acesso do Google
+      const { data } = await api.post("google-login", { tokenId }); // Envie o token de acesso para o backend
+
+      // Armazene os dados do usuário retornado pelo backend ou faça o que for necessário
+      putUserData(data);
+
+      // Redirecione o usuário após o login
+      if (data.admin) {
+        history.push('/pedidos')
+      } else {
+        history.push('/')
+      }
+    } catch (error) {
+      console.log(error);
+      // Trate qualquer erro que ocorra durante a autenticação do Google
+      // Exiba uma mensagem de erro ou execute outra ação apropriada
+    }
+  };
+
+
   const handleEmailInputChange = e => {
     setEmailInputValue(e.target.value);
   };
@@ -77,12 +101,27 @@ function Login() {
     setPasswordInputValue(e.target.value);
   };
 
+  //fechar o modal login
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    }
+    // Adiciona um event listener para fechar o modal ao clicar fora dele
+    document.addEventListener("mousedown", handleClickOutside);
+    // Remove o event listener quando o componente for desmontado
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setShowDropdown]);
+
 
 
   return (
-    <Container >
-      <button /* onClick={() => setShowModal(false)} */>X</button>
-      <ContainerItens>
+    <Container>
+      <button className='buttonLoginModal' onClick={() => setShowDropdown(false)} >X</button>
+      <ContainerItens ref={containerRef}>
         <h1>Realizar Login</h1>
 
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -106,12 +145,22 @@ function Login() {
             onChange={handlePasswordInputChange} />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button type="submit">Sing up</Button>
+          <Buttons>
+            <ButtonLogin type="submit">Entrar</ButtonLogin>
+            <GoogleLoginButton>
+              <GoogleLogin
+                clientId="428538656949-utus73bqoa2dtn99n615gjk2ttbetcqv.apps.googleusercontent.com"
+                buttonText="Login com Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle} 
+                className="google-login-button"/>
+            </GoogleLoginButton>
+          </Buttons>
         </form>
 
         <SignInLink>
           Não possui conta ? {' '}
-          <Link style={{ color: 'red' }} to="/cadastro">SignUp</Link>
+          <Link style={{ color: '#36e73d' }} to="/cadastro">Cadastre-se</Link>
 
         </SignInLink>
       </ContainerItens>

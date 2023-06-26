@@ -21,7 +21,7 @@ function ProductsId(/*  { product } */) {
   const { id } = useParams();
   const [product, setProduct] = useState({ quantity: 1 }); // Inicia a quantidade como 1
   const [currentImg, setCurrentImg] = useState(product.url_img1);
-  const { putProductInCart, increaseProducts, decreaseProducts } = useCart() //função do carrinho de compras
+  const { putProductInCart, increaseProductQuantity, decreaseProductQuantity } = useCart() //função do carrinho de compras
   const [offers, setOffers] = useState([])
 
 
@@ -63,27 +63,27 @@ function ProductsId(/*  { product } */) {
     if (product.quantity > 1) {
       const newQuantity = product.quantity - 1;
       setProduct({ ...product, quantity: newQuantity });
-      increaseProducts(product.id, -1); // diminui a quantidade do produto no carrinho
+      decreaseProductQuantity(product.id);
     }
   }
 
   function handleIncrease() {
     const newQuantity = product.quantity + 1;
     setProduct({ ...product, quantity: newQuantity });
-    increaseProducts(product.id, 1); // aumenta a quantidade do produto no carrinho
+    increaseProductQuantity(product.id);
+    console.log(increaseProductQuantity(product.id));
   }
 
-
-/*   { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 } */
+  /*   { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 } */
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 4 },
-  { width: 768, itemsToShow: 5 },
-/*   { width: 1175, itemsToShow: 5 },
-  { width: 1200, itemsToShow: 6 } */
+    { width: 550, itemsToShow: 4 },
+    { width: 768, itemsToShow: 5 },
+    /*   { width: 1175, itemsToShow: 5 },
+      { width: 1200, itemsToShow: 6 } */
   ]
 
   const LimitDescription = (description, maxLength) => {
@@ -169,7 +169,7 @@ function ProductsId(/*  { product } */) {
           offers.map(product => (
 
             <ContainerOffers key={product.id}  >
-               <h6><h4>OFF</h4></h6>
+              <h6><h4>OFF</h4></h6>
               <div>
                 <img src={product.url_img1} alt="foto do Produto" />
               </div>
@@ -178,7 +178,7 @@ function ProductsId(/*  { product } */) {
               <p>{formatCurrency(product.price)}</p>
 
               <Link style={{ textDecoration: 'none', }} to={`/detalhes/${product.id}`}>
-              <button>COMPRAR</button>
+                <button>COMPRAR</button>
               </Link>
 
             </ContainerOffers>

@@ -22,7 +22,7 @@ export function SlideMenuAdmin({ path }) {
             <hr></hr>
             <ItemContainer style={{ position: 'fixed', bottom: '30px' }}>
                 <LogoutIcon style={{color:'fff'}} />
-                <ListLink to="/login" onClick={logout}>Sair</ListLink>
+                <ListLink to="/" onClick={logout}>Sair</ListLink>
                
             </ItemContainer>
         </Container>

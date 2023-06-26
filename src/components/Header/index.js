@@ -12,7 +12,7 @@ import Cart from "../../assets/carrinho.png"
 import Logo from "../../assets/DEV.png"
 
 import { Container, ContainerLeft, ContainerRight, Car, ContainerItems, Imput, PageLink, PageLinkExit, ContainerText, Search } from "./styles"
-import  Login  from '../../containers/Login'
+import Login from '../../containers/Login'
 
 
 
@@ -22,7 +22,7 @@ function Header() {
   const { cartProducts } = useCart()
   const [showDropdown, setShowDropdown] = useState(false); // Estado para controlar a exibição do dropdown
   const searchRef = useRef();
-  const { logout,userData } = useUser();
+  const { logout, userData } = useUser();
   const {
     push,
     location: { pathname },
@@ -71,8 +71,8 @@ function Header() {
     <Container>
       <ContainerItems>
         <ContainerLeft>
-        <PageLink onClick={() => push("/")}>
-          <img src={Logo} alt="logo" />
+          <PageLink onClick={() => push("/")}>
+            <img src={Logo} alt="logo" />
           </PageLink>
         </ContainerLeft>
 
@@ -97,13 +97,11 @@ function Header() {
 
 
           <div></div>
-          <PageLink onClick={toggleDropdown}>
+          <PageLink onClick={() => setShowDropdown(true)}>
             <img src={Person} alt="logo-pessoa" />
           </PageLink>
 
-          {showDropdown && (
-          <Login/>
-          )}
+          {showDropdown && (<Login setShowDropdown={setShowDropdown} /> )}
 
           <ContainerText>
             <p>Olá, {userData.name}</p>

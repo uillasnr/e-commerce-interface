@@ -1,111 +1,140 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from "react-toastify";
-import api from "../../services/api"
-import  ErrorMessage  from "../../components/ErrorMessage"
+import { GoogleLogin } from "react-google-login";
+import api from "../../services/api";
+import ErrorMessage from "../../components/ErrorMessage";
 
-import { Container, Label, Input, Button, ContainerItens, SignInLink } from "./styles"
+import {
+  Container,
+  Label,
+  Input,
+  ButtonLogin,
+  ContainerItens,
+  SignInLink,
 
+} from "./styles";
 
+function Register({ setShowDropdown }) {
+  const [nameInputValue, setNameInputValue] = useState('');
+  const [emailInputValue, setEmailInputValue] = useState('');
+  const [passwordInputValue, setPasswordInputValue] = useState('');
+  const [confirmPasswordInputValue, setConfirmPasswordInputValue] = useState('');
 
-function Register() {
-    /* Validação do formulario */
-    const schema = yup.object().shape({
-        name: yup.string().required('O seu nome é obrigatório'),
-        email: yup.string().email('Digite um e-mail válido')
-            .required('O e-mail é obrigatório'),
-        password: yup.string().required('A senha e obrigatória')
-            .min(6, 'A senha deve ter pelo 6 digitos'),
-        confirmPassword: yup.string().required('A senha e obrigatória')
-            .oneOf([yup.ref('password')], 'As senhas devem ser iguais')
-    })
+  /* Validação do formulário */
+  const schema = yup.object().shape({
+    name: yup.string().required('O seu nome é obrigatório'),
+    email: yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
+    password: yup.string().required('A senha é obrigatória').min(6, 'A senha deve ter pelo menos 6 dígitos'),
+    confirmPassword: yup.string().required('A senha é obrigatória').oneOf([yup.ref('password')], 'As senhas devem ser iguais')
+  });
 
-    const { register, handleSubmit,
-        formState: { errors }
-    } = useForm({
-        resolver: yupResolver(schema)
-    })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schema)
+  });
 
-    const onSubmit = async clientData => {
-     try {
+  const onSubmit = async (formData) => {
+    try {
       const { status } = await api.post("users", {
-        name: clientData.name,
-        email: clientData.email,
-        password: clientData.password
+        name: formData.name,
+        email: formData.email,
+        password: formData.password
       },
         { validateStatus: () => true }
-      )
+      );
 
       if (status === 200 || status === 201) {
-        toast.success('Cadastro criado com sucesso!!')
-        //{
-        // position: 'top-right'
-        // autoClose: 2000,
-        // hideProgressBar: false,
-        // closeOnClick: true,
-        // pauseOnHover: true,
-        // draggable: true,
-        // progress: undefined
-        //}
+        toast.success('Cadastro criado com sucesso!!');
       } else if (status === 409) {
-        toast.error('E-mail ja cadastrado, faça login para continuar!')
-        // {
-        //position: 'top-right'
-        // autoClose: 2000,
-        // hideProgressBar: false,
-        // closeOnClick: true,
-        // pauseOnHover: true,
-        // draggable: true,
-        // progress: undefined
-        //}
+        toast.error('E-mail já cadastrado, faça login para continuar!');
       } else {
-        throw new Error()
+        throw new Error();
       }
     } catch (err) {
-      toast.error('Serviço indisponível')
+      toast.error('Serviço indisponível');
     }
-  }
+  };
 
+ 
 
-    return (
-        <Container>
-            <ContainerItens>
-                <h1>Cadastre-se</h1>
+  const handleNameInputChange = (e) => {
+    setNameInputValue(e.target.value);
+  };
 
-                <form noValidate onSubmit={handleSubmit(onSubmit)}>
-                <Label>Nome</Label>
-                    <Input type="text" {...register('name')}
-                        error={errors.name?.message} />
-                    <ErrorMessage>{errors.name?.message}</ErrorMessage>
+  const handleEmailInputChange = (e) => {
+    setEmailInputValue(e.target.value);
+  };
 
-                    <Label>Email</Label>
-                    <Input type="email" {...register('email')}
-                        error={errors.email?.message} />
-                    <ErrorMessage>{errors.email?.message}</ErrorMessage>
+  const handlePasswordInputChange = (e) => {
+    setPasswordInputValue(e.target.value);
+  };
 
-                    <Label>Senha</Label>
-                    <Input type="password" {...register('password')}
-                        error={errors.email?.message} />
-                    <ErrorMessage>{errors.password?.message}</ErrorMessage>
+  const handleConfirmPasswordInputChange = (e) => {
+    setConfirmPasswordInputValue(e.target.value);
+  };
 
-                    <Label>Confirmar senha</Label>
-                    <Input type="password" {...register('confirmPassword')}
-                        error={errors.confirmPassword?.message} />
-                    <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+  return (
+    <Container>
+      <button className='buttonLoginModal' onClick={() => setShowDropdown(false)}>X</button>
+      <ContainerItens>
+        <h1>Cadastre-se</h1>
 
-                    <Button type="submit">Sing up</Button>
-                </form>
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+          <Label className={nameInputValue ? 'active' : ''}>Nome</Label>
+          <Input
+            type="text"
+            {...register('name')}
+            className={nameInputValue ? 'active' : ''}
+            onChange={handleNameInputChange}
+          />
+          <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
-                <SignInLink>
-                    já possui conta ? {''}
-                    
-                    <Link to='/login'>Sign In</Link>
-                </SignInLink>
-            </ContainerItens>
-        </Container>
-    )
+          <Label className={emailInputValue ? 'active' : ''}>Email</Label>
+          <Input
+            type="email"
+            {...register('email')}
+            className={emailInputValue ? 'active' : ''}
+            onChange={handleEmailInputChange}
+          />
+          <ErrorMessage>{errors.email?.message}</ErrorMessage>
+
+          <Label className={passwordInputValue ? 'active' : ''}>Senha</Label>
+          <Input
+            type="password"
+            {...register('password')}
+            className={passwordInputValue ? 'active' : ''}
+            onChange={handlePasswordInputChange}
+          />
+          <ErrorMessage>{errors.password?.message}</ErrorMessage>
+
+          <Label className={confirmPasswordInputValue ? 'active' : ''}>Confirmar senha</Label>
+          <Input
+            type="password"
+            {...register('confirmPassword')}
+            className={confirmPasswordInputValue ? 'active' : ''}
+            onChange={handleConfirmPasswordInputChange}
+          />
+          <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+
+        
+            <ButtonLogin type="submit">Cadastrar</ButtonLogin >
+          
+        </form>
+
+        <SignInLink>
+          Já tem cadastro?{' '}
+          <Link style={{ color: '#36e73d' }} to="/login">ENTRAR</Link>
+        </SignInLink>
+      </ContainerItens>
+    </Container>
+  );
 }
-export default Register
+
+export default Register;
