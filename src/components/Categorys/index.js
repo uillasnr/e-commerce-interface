@@ -1,71 +1,62 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import api from '../../services/api';
+import { Container, ContainerItems, Image, Button } from './styles';
 
-import api from '../../services/api'
-import { Container, ContainerItems, Image, Button } from './styles'
-
-
-
-
-
-
-export function Category() {
-  const [categories, setCategories] = useState([])
+function Category() {
+  const [categories, setCategories] = useState([]);
   const [marginTop, setMarginTop] = useState(90);
-  
+  const [hideImage, setHideImage] = useState(false);
 
   useEffect(() => {
     async function loadCategories() {
-      const { data } = await api.get('categories')
-
-      setCategories(data)
+      const { data } = await api.get('categories');
+      setCategories(data);
     }
 
-    loadCategories()
-  }, [])
-
-
-
-
-  //scroll Header 
-  function handleScroll() {
-    if (window.pageYOffset > -45) {
-      setMarginTop(45); //o tamanho que e para ficar fixo
-    } else {
-      setMarginTop(90);
-    }
-  }
-
-
+    loadCategories();
+  }, []);
 
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 48) {
+        setHideImage(true);
+      } else {
+        setHideImage(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-
-
   return (
     <Container style={{ marginTop: `${marginTop}px` }}>
       {categories &&
-        categories.map(category => (
+        categories.map((category) => (
           <ContainerItems key={category.id}>
-            <Image src={category.url} alt="foto da categoria" />
+            {!hideImage && (
+              <Image
+                src={category.url}
+                alt="foto da categoria"
+              />
+            )}
 
             <Button
               to={{
                 pathname: '/produtos',
-                state: { categoryId: category.id }
+                state: { categoryId: category.id },
               }}
             >
               {category.name}
             </Button>
           </ContainerItems>
         ))}
-
     </Container>
-  )
+  );
 }
 
-export default Category
+export default Category;

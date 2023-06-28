@@ -2,10 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
-//import OfferProducts from "../../components/OfferProducts";
 import formatCurrency from '../../utils/formarCurrency'
-//import { Button } from "../../components/Button";
-//import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 import {
   Container, Img, ContainerImg, ImgOptions, ContainerItems,
@@ -14,10 +11,12 @@ import {
 import { useParams } from "react-router-dom";
 import ReactImageMagnify from 'react-image-magnify';
 import Carousel from 'react-elastic-carousel';
-
 import { useCart } from "../../hooks/CartContext";
 
-function ProductsId(/*  { product } */) {
+
+
+
+function ProductsId() {
   const { id } = useParams();
   const [product, setProduct] = useState({ quantity: 1 }); // Inicia a quantidade como 1
   const [currentImg, setCurrentImg] = useState(product.url_img1);
@@ -71,7 +70,6 @@ function ProductsId(/*  { product } */) {
     const newQuantity = product.quantity + 1;
     setProduct({ ...product, quantity: newQuantity });
     increaseProductQuantity(product.id);
-    console.log(increaseProductQuantity(product.id));
   }
 
   /*   { width: 1, itemsToShow: 1 },
@@ -103,10 +101,11 @@ function ProductsId(/*  { product } */) {
           <h3>{formatCurrency(product.price)}</h3>
           <p>À vista no PIX com até 5% OFF</p>
 
+
           <div className="quantity-container">
-            <button onClick={() => handleDecrease(product.id)}>-</button>
+            <button onClick={handleDecrease}>-</button>
             <h1><h6>{product.quantity}</h6></h1>
-            <button onClick={() => handleIncrease(product.id)}>+</button>
+            <button onClick={handleIncrease}>+</button>
           </div>
 
 
@@ -129,14 +128,14 @@ function ProductsId(/*  { product } */) {
             <Img src={product.url_img3} alt="Foto do produto3" onClick={() => ImageClick(product.url_img3)} />
             <Img src={product.url_img4} alt="Foto do produto4" onClick={() => ImageClick(product.url_img4)} />
           </ImgOptions>
-          {/*   <Image src={currentImg} alt="Foto do produto" /> */}
+
           <div className='image-magnify' style={{ background: '#464646', padding: '15px', }}>
             <ReactImageMagnify
               {...{
                 smallImage: {
                   alt: 'Foto do produto',
                   src: currentImg,
-                  className: 'image-magnify', // Adicione a classe CSS aqui
+                  className: 'image-magnify',
                   isFluidWidth: true,
                 },
                 largeImage: {
@@ -196,8 +195,5 @@ function ProductsId(/*  { product } */) {
     </Container>
   );
 }
-/* ProductsId.propTypes = {
-  product: PropTypes.object
-} */
 
 export default ProductsId;

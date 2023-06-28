@@ -55,6 +55,8 @@ export const Image = styled.img`
     height: 50px;
     border-radius: 10px;
     padding: 10px;
+
+    
  
 `
 
