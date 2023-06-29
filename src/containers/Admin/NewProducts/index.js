@@ -25,6 +25,7 @@ function NewProduct() {
 
 
 
+
     // Validando os campos do formulário
     const schema = Yup.object().shape({
         name: Yup.string().required('Digite o nome do produto'),
@@ -194,17 +195,24 @@ function NewProduct() {
                     <LabelUploadOptions>
 
                         <div>
-                            {fileUpload && <img src={URL.createObjectURL(fileUpload)} alt="Preview" />}
+                            {fileUpload ? (
+                                <img src={URL.createObjectURL(fileUpload)} alt="Preview" />
+                            ) : (
+                                <>
+                                    <ClaudUploadIcon />
+                                </>
+                            )}
                             <input
                                 type="file"
                                 accept="image/png"
-                                onChange={(event) => {
-                                    setFileUpload(event.target.files[0]); // Atualiza o estado fileUpload com o arquivo selecionado
-                                }}
                                 {...register('file2')}
+                                onChange={(event) => {
+                                    const file2 = event.target.files[0];
+                                    setFileUpload(file2);
+                                }}
                             />
                         </div>
-
+                        
 
 
                         {/*    <div>
@@ -228,7 +236,7 @@ function NewProduct() {
                             />
                         </div> 
  */}
-                        <div>
+                        {/*         <div>
                             <input type="file" accept="image/png"
                                 onChange={(event) => {
                                     setValueInput((prevValueInput) => ({
@@ -252,7 +260,7 @@ function NewProduct() {
                                 }}
                                 {...register('file4')}
                             />
-                        </div>
+                        </div> */}
 
                     </LabelUploadOptions>
                     <ErrorMessage>{errors.file?.message}</ErrorMessage>

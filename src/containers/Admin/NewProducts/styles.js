@@ -56,7 +56,7 @@ margin: 10px;
 `
 export const LabelUploadOptions = styled.label`
 
-/*  cursor: pointer;
+ cursor: pointer;
 display: flex;
 align-items: center;
 border: 1px dashed #fff;
@@ -70,11 +70,11 @@ justify-content: center;
 
 input{
     opacity: 0;
-    width: 1px;
-}  */
+    //width: 1px;
+}  
 
 img{
-    width: 70px;
+    width: 15%;
     background: red;
     border: 3px dashed #464646;
 }  

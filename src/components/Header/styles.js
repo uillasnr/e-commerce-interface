@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-  background: rgb(70 70 70);
+    background: rgb(70 70 70);
     border: 0.5px solid #d5d5d5;
-position: fixed;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -115,6 +115,8 @@ position: absolute;
     top: 65px;
     left: 420px;
 
+    
+
 .CardSearch{
     margin: 5px;
     display: flex;
@@ -123,6 +125,11 @@ position: absolute;
     border-radius: 5px;
     justify-content: center;
     list-style-type: none;
+
+    &:hover {
+    transform: scale(1.03); /* Aumenta o tamanho em 5% */
+    cursor: pointer;
+  }
 }
 .CardSearch:hover{
     background: #36e73d;

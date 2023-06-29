@@ -241,6 +241,10 @@ p{
     text-align: center;
 }
 
+&:hover {
+    transform: scale(1.03); /* Aumenta o tamanho em 5% */
+    cursor: pointer;
+  }
 
 `
 

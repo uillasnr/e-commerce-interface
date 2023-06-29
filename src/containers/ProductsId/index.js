@@ -20,6 +20,7 @@ function ProductsId() {
   const { id } = useParams();
   const [product, setProduct] = useState({ quantity: 1 }); // Inicia a quantidade como 1
   const [currentImg, setCurrentImg] = useState(product.url_img1);
+  const [selectedImage, setSelectedImage] = useState(null);
   const { putProductInCart, increaseProductQuantity, decreaseProductQuantity } = useCart() //função do carrinho de compras
   const [offers, setOffers] = useState([])
 
@@ -30,7 +31,7 @@ function ProductsId() {
         const { data } = await api.get(`products/${id}`);
         setProduct({ ...data, quantity: 1 }); // Atualiza o produto recebido da API e define a quantidade como 1
         setCurrentImg(data.url_img1)
-        console.log(data)
+
       } catch (error) {
         console.error(error);
       }
@@ -45,7 +46,7 @@ function ProductsId() {
       const { data } = await api.get('products')
 
       const onlyOffers = data.filter(product => product.offer)
-      console.log(data)
+
       setOffers(onlyOffers)
     }
     loadOffers()
@@ -56,6 +57,7 @@ function ProductsId() {
   function ImageClick(imgUrl) {
     console.log(imgUrl)
     setCurrentImg(imgUrl)
+    setSelectedImage(imgUrl)
   }
 
   function handleDecrease() {
@@ -123,10 +125,25 @@ function ProductsId() {
         <ContainerImg>
 
           <ImgOptions>
-            <Img src={product.url_img1} alt="Foto do produto1" onClick={() => ImageClick(product.url_img1)} />
-            <Img src={product.url_img2} alt="Foto do produto2" onClick={() => ImageClick(product.url_img2)} />
-            <Img src={product.url_img3} alt="Foto do produto3" onClick={() => ImageClick(product.url_img3)} />
-            <Img src={product.url_img4} alt="Foto do produto4" onClick={() => ImageClick(product.url_img4)} />
+            <Img src={product.url_img1}
+              alt="Foto do produto1"
+              isSelected={selectedImage === product.url_img1}
+              onClick={() => ImageClick(product.url_img1)} />
+
+            <Img src={product.url_img2}
+              alt="Foto do produto2"
+              isSelected={selectedImage === product.url_img2}
+              onClick={() => ImageClick(product.url_img2)} />
+
+            <Img src={product.url_img3}
+              alt="Foto do produto3"
+              isSelected={selectedImage === product.url_img3}
+              onClick={() => ImageClick(product.url_img3)} />
+
+            <Img src={product.url_img4}
+              alt="Foto do produto4"
+              isSelected={selectedImage === product.url_img4}
+              onClick={() => ImageClick(product.url_img4)} />
           </ImgOptions>
 
           <div className='image-magnify' style={{ background: '#464646', padding: '15px', }}>

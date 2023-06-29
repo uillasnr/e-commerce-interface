@@ -6,7 +6,7 @@ display: grid;
 grid-template-columns: repeat(5,1fr);
 gap: 0px;
 padding: 10px; 
-/* width: max-content; */
+
 
 `
 
@@ -48,7 +48,10 @@ export const ContainerItems = styled.h1`
     height: 290px;
 
 
-
+    &:hover {
+    transform: scale(1.03); /* Aumenta o tamanho em 5% */
+    cursor: pointer;
+  }
    
  h6{
     position: absolute;

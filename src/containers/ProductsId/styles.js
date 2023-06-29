@@ -65,7 +65,10 @@ export const ContainerOffers = styled.div`
     height: 290px;
     position: relative;
 
-  
+    &:hover {
+    transform: scale(1.03); /* Aumenta o tamanho em 5% */
+    cursor: pointer;
+  }
     
 h4{
   position: absolute;
@@ -611,9 +614,9 @@ div{
     }
 `
 export const Img = styled.img`
-
+    border: 0.5px solid ${props => props.isSelected ? '#36e73d' : 'none'};
     width: 80%;
-  cursor: pointer;
+    cursor: pointer;
     padding: 10px;
     background: #464646;
     @media (max-width: 950px){
