@@ -54,30 +54,39 @@ margin: 10px;
 
 
 `
+
 export const LabelUploadOptions = styled.label`
 
- cursor: pointer;
 display: flex;
-align-items: center;
-border: 1px dashed #fff;
-border-radius: 5px;
-padding: 10px;
-margin-bottom: 30px;
-height: 90px;
-background: #36E73D;
-gap: 10px;
-justify-content: center;
+    gap: 10px;
+    width: 315px;
+    height: 110px;
 
-input{
-    opacity: 0;
-    //width: 1px;
-}  
 
-img{
-    width: 15%;
-    background: red;
+.image-preview {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    background: #36E73D;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+}
+
+ input {
+  display: none;
+  
+}
+
+img {
+    width: 85px;
+    height: auto;
     border: 3px dashed #464646;
-}  
+}
+
 `
 
 export const ContainerItems = styled.div`
