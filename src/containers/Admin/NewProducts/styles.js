@@ -76,10 +76,24 @@ display: flex;
     height: 100px;
 }
 
- input {
-  display: none;
-  
+.fileUpload2{
+    cursor: pointer;
+    width: 75px;
+    height: 100px;
+    opacity: 0;
+ }
+.fileUpload3{
+    cursor: pointer;
+    width: 75px;
+    height: 100px;
+    opacity: 0;
 }
+.fileUpload4 {
+    cursor: pointer;
+    width: 75px;
+    height: 100px;
+    opacity: 0;
+} 
 
 img {
     width: 85px;

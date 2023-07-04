@@ -7,6 +7,14 @@ width: 300px;
 top: 0;
 left: 0;
 
+img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px 10px 40px;
+    margin-top: 30px;
+}
+
 hr{
     margin: 50px 15px;
 }

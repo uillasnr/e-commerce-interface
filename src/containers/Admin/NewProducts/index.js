@@ -185,7 +185,7 @@ function NewProduct() {
                             <input
                                 type="file"
                                 accept="image/png"
-                                id="fileUpload2" // Identificador único para o input
+                                className="fileUpload2" 
                                 {...register('file2')}
                                 onChange={(event) => {
                                     const file2 = event.target.files[0];
@@ -206,7 +206,7 @@ function NewProduct() {
                             <input
                                 type="file"
                                 accept="image/png"
-                                id="fileUpload3" // Identificador único para o input
+                                className="fileUpload3" 
                                 {...register('file3')}
                                 onChange={(event) => {
                                     const file3 = event.target.files[0];
@@ -227,7 +227,7 @@ function NewProduct() {
                             <input
                                 type="file"
                                 accept="image/png"
-                                id="fileUpload4" // Identificador único para o input
+                                className="fileUpload4" 
                                 {...register('file4')}
                                 onChange={(event) => {
                                     const file4 = event.target.files[0];

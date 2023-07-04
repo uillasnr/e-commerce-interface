@@ -20,7 +20,9 @@
     function EditProduct() {
         const [fileName, setFileName] = useState(null)// Armazena o nome do arquivo selecionado pelo usuário
         const [categories, setCategories] = useState([])
-        const [fileUpload, setFileUpload] = useState('');
+        const [fileUpload2, setFileUpload2] = useState('');
+        const [fileUpload3, setFileUpload3] = useState('');
+        const [fileUpload4, setFileUpload4] = useState('');
         const [valueInput, setValueInput] = useState({ fileName: "", name: "", price: "", description: "" }); //Preview do card
         const { push, location:
             { state: { product }
@@ -84,47 +86,7 @@
         }, [])
 
 
-    // Carregar os dados do produto ao carregar o componente
-      /*    useEffect(() => {
-            async function loadProductData() {
-            // Carregar os dados do produto
-            const { data } = await api.put(`products/${product.id}`);
-            const { name, price, description } = data;
-        console.log(data)
-            // Atualizar o estado com os dados do produto
-            setValueInput((prevValueInput) => ({
-                ...prevValueInput,
-                name,
-                price,
-                description,
-                fileName: data.fileName,
-            }));
-            }
-        
-            loadProductData();
-        }, [product.id]); 
-         */
-
-
-
-        ///////////////////////////////////////// input 3 img
-        /*  const handleFileChange = (event) => {
-            const files = Array.from(event.target.files); // Obter todos os arquivos selecionados
     
-            const remainingSlots = 3 - fileData.length; // Slots de upload restantes
-    
-            const newFiles = files.slice(0, remainingSlots); // Limitar o número de arquivos adicionados ao máximo de slots restantes
-    
-            const updatedFileData = [...fileData]; // Copiar o estado atual das imagens
-    
-            newFiles.forEach((file) => {
-                const imageURL = URL.createObjectURL(file);
-                updatedFileData.push(imageURL); // Adicionar as URLs das novas imagens ao estado atual
-            });
-    
-            setFileData(updatedFileData);
-        }; */
-        ///////////////////////////////////////////////////////////////////////////////////
 
         //Preview do card
         const handleInputChange = (event) => {
@@ -215,68 +177,71 @@
 
 
                         <LabelOptions>adicione no máximo 3 imagens</LabelOptions>
+
                         <LabelUploadOptions>
 
-                            <div>
-                                {fileUpload && <img src={URL.createObjectURL(fileUpload)} alt="Preview" />}
-                                <input
-                                    type="file"
-                                    accept="image/png"
-                                    onChange={(event) => {
-                                        setFileUpload(event.target.files[0]); // Atualiza o estado fileUpload com o arquivo selecionado
-                                    }}
-                                    {...register('file2')}
-                                />
-                            </div>
+                        <div className="image-preview">
+                            {fileUpload2 ? (
+                                <img src={URL.createObjectURL(fileUpload2)} alt="Preview" />
+                            ) : (
+                                <>
+                                    <ClaudUploadIcon />
+                                </>
+                            )}
+                            <input
+                                type="file"
+                                accept="image/png"
+                                className="fileUpload2" 
+                                {...register('file2')}
+                                onChange={(event) => {
+                                    const file2 = event.target.files[0];
+                                    setFileUpload2(file2);
+                                }}
 
+                            />
+                        </div>
 
+                        <div className="image-preview">
+                            {fileUpload3 ? (
+                                <img src={URL.createObjectURL(fileUpload3)} alt="Preview" />
+                            ) : (
+                                <>
+                                    <ClaudUploadIcon />
+                                </>
+                            )}
+                            <input
+                                type="file"
+                                accept="image/png"
+                                className="fileUpload3" 
+                                {...register('file3')}
+                                onChange={(event) => {
+                                    const file3 = event.target.files[0];
+                                    setFileUpload3(file3);
+                                }}
 
-                            {/*    <div>
-                                {fileData ? (
-                                    <img src={fileData} alt="Product" />
-                                ) : (
-                                    <>
-                                        <ClaudUploadIcon />
-                                    
-                                    </>
-                                )}
-                                <input type="file" accept="image/png"
-                                    onChange={(event) => {
-                                        setValueInput((prevValueInput) => ({
-                                            ...prevValueInput,
-                                            setFileData: event.target.files[0],
-                                            fileData: URL.createObjectURL(event.target.files[0])
-                                        }));
-                                    }}
-                                    {...register('file2')}
-                                />
-                            </div> 
-    */}
-                            <div>
-                                <input type="file" accept="image/png"
-                                    onChange={(event) => {
-                                        setValueInput((prevValueInput) => ({
-                                            ...prevValueInput,
-                                            setFileData: event.target.files[0],
-                                            fileName: URL.createObjectURL(event.target.files[0])
-                                        }));
-                                    }}
-                                    {...register('file3')}
-                                />
-                            </div>
+                            />
+                        </div>
 
-                            <div>
-                                <input type="file" accept="image/png"
-                                    onChange={(event) => {
-                                        setValueInput((prevValueInput) => ({
-                                            ...prevValueInput,
-                                            setFileData: event.target.files[0],
-                                            fileName: URL.createObjectURL(event.target.files[0])
-                                        }));
-                                    }}
-                                    {...register('file4')}
-                                />
-                            </div>
+                        <div className="image-preview">
+                            {fileUpload4 ? (
+                                <img src={URL.createObjectURL(fileUpload4)} alt="Preview" />
+                            ) : (
+                                <>
+                                    <ClaudUploadIcon />
+                                </>
+                            )}
+                            <input
+                                type="file"
+                                accept="image/png"
+                                className="fileUpload4" 
+                                {...register('file4')}
+                                onChange={(event) => {
+                                    const file4 = event.target.files[0];
+                                    setFileUpload4(file4);
+                                }}
+
+                            />
+                        </div>
 
                         </LabelUploadOptions>
                         <ErrorMessage>{errors.file?.message}</ErrorMessage>
