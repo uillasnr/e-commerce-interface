@@ -1,62 +1,79 @@
-//Tela Resumo dos produtos do carrinho
+import React, { useEffect, useState } from "react";
+import { Container } from "./styles";
+import { Button } from "../Button";
+import formatCurrency from '../../utils/formarCurrency';
+import api from "../../services/api";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
+import { useCart } from "../../hooks/CartContext";
 
-import React, { useEffect, useState } from "react"
-
-import { Container } from "./styles"
-import { Button } from "../Button"
-import formatCurrency from '../../utils/formarCurrency'
-import { useCart } from "../../hooks/CartContext"
-import api from "../../services/api"
-import { toast } from "react-toastify"
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom"
 
 
 
 function CartResume() {
-    const [finalPrice, setFinalPrice] = useState(0)
-    const [deliveryTax] = useState(5)
-    const { cartProducts } = useCart()  // Informações do carrinho
-    const history = useHistory()
-
-    //para armazenar os dados do pedido
-    const [orderData, setOrderData] = useState(null);
+    const [finalPrice, setFinalPrice] = useState(0);
+    const [deliveryTax] = useState(5);
+    const { cartProducts, clearCart } = useCart();
+    const history = useHistory();
 
 
 
+    const clearCartOnSuccess = () => {
+        // Deleta os itens do carrinho
+        clearCart();
 
-    // Sempre que as informações do carrinho forem alteradas, será somado todos os produtos do carrinho para ter o preço final
+        // Redireciona o usuário para a página de sucesso ou qualquer outra página desejada
+        history.push("/sucesso");
+    };
+
+
+    // Atualiza o preço final sempre que as informações do carrinho forem alteradas
     useEffect(() => {
         const sumAllItems = cartProducts.reduce((acc, current) => {
-            return current.price * current.quantity + acc
-        }, 0)
-        setFinalPrice(sumAllItems)
-    }, [cartProducts, deliveryTax])
+            return current.price * current.quantity + acc;
+        }, 0);
+        setFinalPrice(sumAllItems);
+    }, [cartProducts, deliveryTax]);
 
 
-
-    // Enviando pedidos para a API
+    // Envia o pedido para a API
     const submitOrder = async () => {
         const order = cartProducts.map(product => {
-            return { id: product.id, quantity: product.quantity }
-        })
+            return { id: product.id, quantity: product.quantity };
+        });
+
+        try {
+            // Exibe a mensagem "Faça o pagamento do seu pedido..."
+            toast.success("Faça o pagamento do seu pedido...");
+
+            // Envia o pedido para a API e aguarda a resposta
+            const response = await api.post('orders', { products: order });
+
+            // Obtém a URL do checkout da resposta da API e redireciona o usuário
+            if (response.data && response.data.url) {
+                const checkoutUrl = response.data.url;
 
 
-        //teste de envio  para Pagamentos
-        const { data } = await api.post('orders', { products: order })
-        //Enviar o pedido para a API e armazenar a resposta em orderData
-        setOrderData(data);
+                // Redireciona o usuário para a tela de checkout após um pequeno atraso
+                setTimeout(() => {
+                    window.location.href = checkoutUrl;
+
+                    clearCartOnSuccess(); // Chama a função para deletar os itens do carrinho
+                }, 2000)
+
+            } else {
+                throw new Error("A resposta da API não possui uma URL de checkout válida.");
+            }
+        } catch (error) {
+            //    console.error(error);
+            toast.error("Falha ao tentar realizar o seu pedido, tente novamente!");
+        }
+    };
 
 
 
-        await toast.promise(api.post('orders', { products: order }), {
-            pending: 'Realizando seu pedido...',
-            success: 'Pedido realizado com sucesso!',
-            error: 'Falha ao tentar realizar o seu pedido, tente novamente!'
-        })
-        console.log(data)   ///eu preciso pegar tudo que vem de ordem e mandar para pagamentos
 
-       /*  history.push("/checkout"); */
-    }
+
 
     return (
         <div>
@@ -73,15 +90,12 @@ function CartResume() {
                     <p>{formatCurrency(finalPrice + deliveryTax)}</p>
                 </div>
             </Container>
-            <Button style={{ width: '80%', marginTop: 30, marginLeft: 30 }} onClick={submitOrder}>Finalizar Pedido</Button>
 
-
-            <Link to={`/payment`} >
-                <button> pagamento </button>
-                
-            </Link>
-
+            <Button style={{ width: "80%", marginTop: 30, marginLeft: 30 }} onClick={submitOrder}>
+                Finalizar Pedido
+            </Button>
         </div>
-    )
+    );
 }
-export default CartResume
+
+export default CartResume;
