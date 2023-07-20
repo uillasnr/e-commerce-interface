@@ -10,7 +10,7 @@ function PrivateRouter({ component, isAdmin, ...rest }) {
 
     // Se usuário não existir ele vai ser redirecionado para tela de login
     if (!user) {
-        return <Redirect to="/login" />
+        return <Redirect to="/Login" />
     }
     // Trava de segurança para o usuário não acessar areas restritas .Se o usuário não é administrador, ele sera redirecionado para tela de home.
     if (isAdmin && !JSON.parse(user).admin) {
@@ -20,9 +20,9 @@ function PrivateRouter({ component, isAdmin, ...rest }) {
     //todas as rotas que estão logados
     return (
         <>
-            {!isAdmin && <Header />}  {/*  Header em todas as Telas de navegação se for !isAdmin não tera Header */}
+          {/*   {!isAdmin && <Header />}  */} {/*  Header em todas as Telas de navegação se for !isAdmin não tera Header */}
             <Route {...rest} component={component} />
-            {!isAdmin && <Footer />}
+           {/*  {!isAdmin && <Footer />} */}
         </>
     )
 }

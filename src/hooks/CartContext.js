@@ -56,6 +56,13 @@ export const CartProvider = ({ children }) => {
         await updateLocalStorage(newCart)
     }
 
+    // Função para limpar o carrinho
+  const clearCart = async () => {
+    setCartProducts([]);
+   // deletar os itens do carrinho no localStorage
+    await updateLocalStorage([]);
+  };
+
     //função de aumentar a quantidade do item no carrinho
     const increaseProductQuantity = async productId => {
         const newCart = cartProducts.map(product => {
@@ -106,7 +113,7 @@ export const CartProvider = ({ children }) => {
     }, [])
 
     return (
-        <CartContext.Provider value={{ putProductInCart, cartProducts, increaseProductQuantity, decreaseProductQuantity }}>
+        <CartContext.Provider value={{ putProductInCart, cartProducts, increaseProductQuantity, decreaseProductQuantity, clearCart }}>
             {children}
         </CartContext.Provider>
     )

@@ -1,23 +1,23 @@
 import styled from "styled-components";
 
-export const Container = styled.div``
+export const Container = styled.div`
+text-align: center;
+`
 
 export const H1 = styled.h1`
 color: #fff;
-margin-left: 35px;
 margin-top: 50px;
 font-size: 2rem;
 
+
 @media (max-width: 768px) {
     font-size: 1.5rem;
-    margin-left: 20px;
-    margin-top: 30px;
+   
   }
   
   @media (max-width: 480px) {
     font-size: 1.2rem;
-    margin-left: 10px;
-    margin-top: 20px;
+   
   }
 `
 
@@ -57,21 +57,21 @@ padding: 40px;
         grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     width: 800px;
-    margin-left: 95px;
+    margin-left: 93px;
     padding: 40px;
       } 
       @media (max-width: 910px) {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     width: 800px;
-    margin-left: 50px;
+    margin-left: 45px;
     padding: 40px;
       } 
       @media (max-width: 865px) {
         grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     width: 800px;
-    margin-left: 22px;
+    margin-left: 15px;
     padding: 40px;
       } 
       @media (max-width: 837px) {
@@ -92,7 +92,7 @@ padding: 40px;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     width: 700px;
-    margin-left: 10px;
+    margin-left: 0px;
     padding: 40px;
       } 
       @media (max-width: 725px) {
@@ -110,54 +110,83 @@ padding: 40px;
     padding: 40px 10px;
       }
       @media (max-width: 650px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     width: 567px;
-    margin-left: 28px;
+    margin-left: -8px;
     padding: 40px;
       }
       @media (max-width: 610px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 455px;
+        margin-left: -30px;
+        padding: 40px;
+      }
+      @media (max-width: 590px) {
         grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 525px;
-    margin-left: 28px;
-    padding: 40px;
+        gap: 10px;
+        width: 455px;
+        margin-left: 80px;
       }
       @media (max-width: 570px) {
         grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 490px;
-    margin-left: 28px;
-    padding: 40px;
+        gap: 10px;
+    width: 411px;
+    margin-left: 65px;
       }
       @media (max-width: 533px) {
         grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 411px;
-    margin-left: 35px;
+    margin-left: 55px;
     padding: 40px 0px;
       }
-      @media (max-width: 570px) {
+      @media (max-width: 485px) {
         grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 411px;
     margin-left: 35px;
     padding: 40px 0px;
       }
-      @media (max-width: 470px) {
-      grid-template-columns: repeat(2, 1fr);
+      @media (max-width: 465px) {
+        grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    width: 411px;
-    margin-left: 8px;
+    width: 370px;
+    margin-left: 35px;
     padding: 40px 0px;
       }
+      @media (max-width: 435px) {
+        grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 335px;
+    margin-left: 35px;
+    padding: 40px 0px;
+      }
+      @media (max-width: 400px) {
+        grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 335px;
+    margin-left: 10px;
+    padding: 40px 0px;
+      }
+           @media (max-width: 375px) {
+        grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 335px;
+    margin-left: 10px;
+    padding: 40px 0px;
+      }
+     
 `
 
 
 export const Img = styled.img`
 width: 100px;
 background: none;
-
+@media (max-width: 655px) {
+  width: 80px;
+}
 
 `
 export const ButtonOffers = styled.button`
@@ -246,6 +275,29 @@ p{
     cursor: pointer;
   }
 
+  @media (max-width: 655px) { //////////////////////////////////////////
+    width: 180px;
+    height: 270px;
+    
+  
+  h5{
+    position: absolute;
+    left: 145px; 
+    font-size: 14px;
+  }
+}
+  @media (max-width: 550px) {
+  
+  h2{
+    font-size: 13px;
+  }
+  h3{
+    font-size: 8px;
+  }
+  p{
+    font-size: 13px;
+  }
+}
 `
 
 export const Stopwatch = styled.div`

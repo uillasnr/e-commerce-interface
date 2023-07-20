@@ -12,9 +12,13 @@ export const ProductsImg = styled.img`
 `
 
 export const ReactSelectStyle = styled(ReactSelect)`
-    width: 250px;
+ 
+    width: 190px;
+    text-align: center;
     .css-13cymwt-control {
         cursor: pointer;
+        width: 190px;
+    text-align: center;
     }
 `
 

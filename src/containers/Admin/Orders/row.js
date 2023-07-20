@@ -15,6 +15,7 @@ import React from 'react'
 import api from '../../../services/api'
 import status from './order-status'
 import { ProductsImg, ReactSelectStyle } from './styles'
+import formatCurrency from '../../../utils/formarCurrency'
 
 function Row({ row, setOrders, orders }) {
     const [open, setOpen] = React.useState(false)
@@ -29,7 +30,7 @@ function Row({ row, setOrders, orders }) {
             const newOrders = orders.map(order => {
                 return order._id === id ? { ...order, status } : order
             })
-            
+              /*    console.log(newOrders) */
             setOrders(newOrders)
         } catch (err) {
             console.error(err)
@@ -61,7 +62,7 @@ function Row({ row, setOrders, orders }) {
                 <TableCell>{row.name}</TableCell>
                 <TableCell>{row.date}</TableCell>
                 <TableCell>
-                    <ReactSelectStyle
+                    <ReactSelectStyle style={{ width: 190,textAlign: 'center'}}
                         options={status.filter(sts => sts.value !== 'Todos')}
                         menuPortalTarget={document.body}
                         placeholder="Status"
@@ -76,6 +77,7 @@ function Row({ row, setOrders, orders }) {
                         isLoading={isLoading}
                     />
                 </TableCell>
+                <TableCell style={{fontWeight: '900',width: 100}}>{formatCurrency(row.totalPrice)}</TableCell>
             </TableRow>
             <TableRow>
                 <TableCell
@@ -121,6 +123,7 @@ function Row({ row, setOrders, orders }) {
                                                     alt="Imagem-do-produto"
                                                 />
                                             </TableCell>
+                                          
                                         </TableRow>
                                     ))}
                                 </TableBody>
@@ -141,12 +144,15 @@ Row.propTypes = {
         orderId: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
         status: PropTypes.string.isRequired,
+      
+
         products: PropTypes.arrayOf(
             PropTypes.shape({
                 quantity: PropTypes.number.isRequired,
                 name: PropTypes.string.isRequired,
                 category: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired
+                url: PropTypes.string.isRequired,
+                
             })
         ).isRequired
     }).isRequired

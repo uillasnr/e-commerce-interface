@@ -76,6 +76,14 @@ export const Imput = styled.input`
     font-weight: 700;
     border-radius: 20px;
     height: 40px;
+
+    
+  @media (max-width: 480px) {
+font-size: 12px;
+  }
+  @media (max-width: 380px) {
+font-size: 10px;
+  }
 `
 export const PageLinkExit = styled.a`
 font-style: normal;
