@@ -8,8 +8,16 @@ export const Container = styled.div`
     top: 0;
     width: 100%;
     z-index: 100;
-
-
+    .MenuIco{
+      display: none;
+    }
+    @media (max-width: 400px) {
+    .MenuIco{
+    display: flex;
+    font-size: 15px;
+    cursor: pointer;
+  }
+}
 `
 
 export const ContainerLeft = styled.div`
@@ -23,7 +31,10 @@ export const ContainerRight = styled.div`
 display: flex;
 align-items: center;
 gap: 15px;
-
+@media (max-width: 400px) {
+ 
+display: none;
+  }
 `
 export const Car = styled.div`
     margin-top: 3px;
@@ -63,6 +74,17 @@ p{
     align-items: center;
     color: #fff;
 }
+div{
+  width: 90px;
+    height: 40px;
+    margin-top: 13px;
+}
+span{
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #fff;
+  line-height: 13px;
+}
 `
 
 export const Imput = styled.input`
@@ -81,7 +103,7 @@ export const Imput = styled.input`
   @media (max-width: 480px) {
 font-size: 12px;
   }
-  @media (max-width: 380px) {
+  @media (max-width: 400px) {
 font-size: 10px;
   }
 `

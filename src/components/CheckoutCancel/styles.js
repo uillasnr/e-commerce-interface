@@ -48,7 +48,7 @@ export const ContainerItems = styled.div`
 `;
 
 export const Div = styled.div`
-     padding: 150px 130px 0px 130px;
+     padding: 164px 130px 0px 130px;
 
   button {
     background: none;
@@ -56,6 +56,7 @@ export const Div = styled.div`
     display: flex;
     margin-left: 40%;
     margin-top: 10px;
+    margin-bottom: 10px;
     align-items: center;
     gap: 10px;
     cursor: pointer;
@@ -142,7 +143,7 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
-  height: 533px;
+  height: 560px;
   width: 100%;
   background: #222222;
 `;

@@ -22,20 +22,13 @@ export const ContainerItems = styled.div`
     width: 60%;
   }
 
+
   @media (max-width: 768px) {
     div {
       width: 100%;
     }
     img {
-      width: 100%;
-    }
-  }
-  @media (max-width: 768px) {
-    div {
-      width: 100%;
-    }
-    img {
-      width: 100%;
+      width: 100px;
     }
     h3 {
     font-size: 12px;
@@ -48,7 +41,7 @@ export const ContainerItems = styled.div`
 `;
 
 export const Div = styled.div`
-     padding: 150px 130px 0px 130px;
+     padding: 145px 130px 0px 130px;
 
   button {
     background: none;
@@ -56,6 +49,7 @@ export const Div = styled.div`
     display: flex;
     margin-left: 40%;
     margin-top: 10px;
+    margin-bottom: 29px;
     align-items: center;
     gap: 10px;
     cursor: pointer;
@@ -77,9 +71,9 @@ export const Div = styled.div`
     }
   }
   @media (max-width: 768px) {
+   padding: 145px 130px 42px 130px;
     button {
       margin-left: 30%;
-     
     }
   }
   @media (max-width: 650px) {
@@ -137,8 +131,9 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
-  height: 533px;
+  height: 543px;
   width: 100%;
   background: #222222;
+ 
 `;
 

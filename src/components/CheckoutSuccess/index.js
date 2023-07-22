@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import api from '../../services/api';
 import formatCurrency from '../../utils/formarCurrency';
 import { Home } from '@mui/icons-material';
+import Header from '../Header';
+import Footer from '../Footer';
 
 function CheckoutSuccess() {
   const [lastOrder, setLastOrder] = useState()
@@ -23,6 +25,7 @@ function CheckoutSuccess() {
 
   return (
     <Background>
+      <Header />
       <Div>
         {lastOrder && (
           <Container key={lastOrder._id} >
@@ -45,12 +48,12 @@ function CheckoutSuccess() {
           </Container>
         )}
         <button>
-        <Home style={{ color: '#44d62c', alignItems: 'center'}}/>
+          <Home style={{ color: '#44d62c', alignItems: 'center' }} />
           <Link style={{ color: '#44d62c', textDecoration: 'underline' }} to="/" >Continuar Comprando</Link>
         </button>
       </Div>
+      <Footer />
 
-   
     </Background>
   );
 
