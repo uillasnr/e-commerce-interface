@@ -1,4 +1,4 @@
-//menu
+
 
 import React, { useEffect, useState, useRef } from "react";
 import api from "../../services/api";
@@ -6,13 +6,16 @@ import { useHistory } from "react-router-dom";
 import { useUser } from "../../hooks/UserContext"
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/CartContext"
-
 import Person from "../../assets/user.png"
 import Cart from "../../assets/carrinho.png"
 import Logo from "../../assets/DEV.png"
 
-import { Container, ContainerLeft, ContainerRight, Car, ContainerItems, Imput, PageLink, PageLinkExit, ContainerText, Search } from "./styles"
-import Login from '../../containers/Login'
+import {
+  Container, ContainerLeft, ContainerRight, Car,
+  ContainerItems, Imput, PageLink, ContainerText, Search
+} from "./styles"
+import MenuMobile from "../MenuMobile";
+
 
 
 
@@ -20,7 +23,6 @@ function Header() {
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
   const { cartProducts } = useCart()
-  const [showDropdown, setShowDropdown] = useState(false); // Estado para controlar a exibição do dropdown
   const searchRef = useRef();
   const { logout, userData } = useUser();
   const {
@@ -63,13 +65,12 @@ function Header() {
     };
   }, []);
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+
 
   return (
     <Container>
       <ContainerItems>
+        
         <ContainerLeft>
           <PageLink onClick={() => push("/")}>
             <img src={Logo} alt="logo" />
@@ -85,9 +86,8 @@ function Header() {
         />
 
         <ContainerRight>
-
           <PageLink onClick={() => push("/carrinho")}>
-            <Car >
+            <Car onClick={() => push("/carrinho")}>
               {cartProducts.length > 0 && (      /*  exibe a quantidade de itens no carrinho  */
                 <span>{cartProducts.length}</span>
               )}
@@ -95,22 +95,25 @@ function Header() {
             <img src={Cart} alt="carrinho" />
           </PageLink>
 
-
-          <div></div>
-          <PageLink onClick={() => setShowDropdown(true)}>
-            <img src={Person} alt="logo-pessoa" />
-          </PageLink>
-
-          {showDropdown && (<Login setShowDropdown={setShowDropdown} /> )}
+          <MenuMobile />
 
           <ContainerText>
-            <p>Olá, {userData.name}</p>
-            <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
+            <PageLink onClick={() => push("/Login")}>
+              <img src={Person} alt="logo-pessoa" />
+            </PageLink>
+
+            <div className="user-info">
+              {userData.name ? (
+                <p>Olá, {userData.name}</p>
+              ) : (
+                <span>Olá, faça o login ou cadastre-se!</span>
+              )}
+              <div className="logout" onClick={logoutUser}> Sair</div>
+            </div>
           </ContainerText>
+
         </ContainerRight>
       </ContainerItems>
-
-
 
       <Search style={{ display: products.length ? "block" : "none" }}>
         {products.map((product) => (

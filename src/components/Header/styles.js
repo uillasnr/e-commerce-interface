@@ -8,37 +8,37 @@ export const Container = styled.div`
     top: 0;
     width: 100%;
     z-index: 100;
-    .MenuIco{
-      display: none;
-    }
-    @media (max-width: 400px) {
-    .MenuIco{
-    display: flex;
-    font-size: 15px;
-    cursor: pointer;
-  }
-}
+   
+   
 `
 
 export const ContainerLeft = styled.div`
-display: flex;
-margin: 10px;
+
+
 img{
-    width: 80%;
+    width: 100px
+}
+@media (max-width: 480px) {
+img{
+width: 75px;
+} 
 }
 `
 export const ContainerRight = styled.div`
 display: flex;
 align-items: center;
-gap: 15px;
-@media (max-width: 400px) {
- 
-display: none;
-  }
+gap: 5px;
+
+@media (max-width: 650px) {
+  image {
+    display: none;
+}
+}
 `
+
 export const Car = styled.div`
-    margin-top: 3px;
-    margin-left: 18px;
+    /* margin-top: 3px;
+    margin-left: 18px; */
     
 img{
     margin-top: 35px;
@@ -55,16 +55,20 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: -5px 18px 0px;
 }
 `
 
 export const PageLink = styled.div`
 cursor: pointer;
-font-size: 16px;
-line-height: 19px;
+
 `
 export const ContainerText = styled.div`
 margin: 10px;
+display: flex;
+img{
+  margin: 10px 0px 10px 10px;
+}
 p{
     font-style: normal;
     font-weight: 300;
@@ -74,16 +78,30 @@ p{
     align-items: center;
     color: #fff;
 }
-div{
-  width: 90px;
-    height: 40px;
-    margin-top: 13px;
+div.user-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  width: 100px;
+  margin-top: 5px;
 }
 span{
   font-size: 0.8rem;
   font-weight: 300;
   color: #fff;
   line-height: 13px;
+}
+div.logout {
+  font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
+    color: rgb(68 214 44);
+    margin-top: 5px;
+  }
+@media (max-width: 650px) {
+  display: none;
 }
 `
 
@@ -107,27 +125,86 @@ font-size: 12px;
 font-size: 10px;
   }
 `
-export const PageLinkExit = styled.a`
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 16px;
-display: flex;
-align-items: center;
-cursor: pointer;
-color: rgb(68 214 44);
-`
-
-
 
 
 export const ContainerItems = styled.div`
-height: 90px;
-display: flex;
-align-items: center;
-flex-direction: row;
-justify-content: space-around;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 130px;
+    margin: 0px 80px 0px 170px;
+
+    @media (max-width: 1090px) {
+  height: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+  }
+   @media (max-width: 1030px) {
+     height: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0px;
+    padding: 10px;
+    margin: 0px -14px 0px 100px;
+  }
+    @media (max-width: 870px) {
+ height: 90px; 
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+    /* gap: 0px; */
+    padding: 10px;
+    margin: 0px 10px 0px 93px;
+  }
+    @media (max-width: 800px) {
+     height: 90px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 0px -10px 0px 93px;
+  }
+      @media (max-width: 650px) {
+     height: 90px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 0px 0px 0px 0px;
+  }
+
+@media (max-width: 590px) {
+  height: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+  }
+  @media (max-width: 480px) {
+  height: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+  }
+  @media (max-width: 400px) {
+  height: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+ 
+    padding: 10px;
+  }
+
 `
+
+
 export const ContainerSearch = styled.div`
 
 display: block;

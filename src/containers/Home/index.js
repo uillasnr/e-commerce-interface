@@ -1,21 +1,64 @@
 import React from "react";
 import OfferProducts from "../../components/OfferProducts";
 import Category from "../../components/Categorys";
-import { Container, H1 } from './styles'
+import { Container, Slider } from './styles';
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+
+
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+
+import banner1 from "../../assets/banner_img.webp";
+import banner2 from "../../assets/banner_img 2.webp";
+import banner3 from "../../assets/banner_img 3.webp";
+import banner4 from "../../assets/banner_img 4.webp";
+import banner5 from "../../assets/banner_img 5.webp";
 
 
 function Home() {
 
+  const banners = [banner1, banner2, banner3, banner4, banner5];
 
-    return (
-        <Container>
-             <Category /> 
-           
-            <OfferProducts />
-        </Container>
+  return (
+    <Container>
+      <Header />
+      <Category />
 
-    )
+      <Slider>
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={false}
+          modules={[Autoplay, Pagination, Navigation]}
+        >
+
+          {banners.map((banner, index) => (
+            <SwiperSlide key={index}>
+              <img src={banner} alt={`Slide ${index + 1}`} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </ Slider>
+
+      <OfferProducts />
+      <Footer />
+    </Container>
+  );
 }
-export default Home
+
+export default Home;

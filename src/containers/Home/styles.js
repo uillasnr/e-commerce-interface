@@ -18,5 +18,10 @@ img{
     width: 100%;
    
 }
+
+@media (max-width: 650px) {
+  margin-top: 85px;
+    padding-top: 25px;
+}
 `
 
