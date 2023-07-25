@@ -167,7 +167,7 @@ padding: 40px;
         grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 335px;
-    margin-left: 10px;
+    margin-left: 30px;
     padding: 40px 0px;
       }
            @media (max-width: 375px) {
@@ -187,7 +187,14 @@ background: none;
 @media (max-width: 655px) {
   width: 80px;
 }
-
+@media (max-width: 550px) {
+width: 80px;
+    
+}
+@media (max-width: 450px) {
+width: 80px;
+    margin-top: 10px;
+}
 `
 export const ButtonOffers = styled.button`
 
@@ -275,7 +282,7 @@ p{
     cursor: pointer;
   }
 
-  @media (max-width: 655px) { //////////////////////////////////////////
+  @media (max-width: 655px) { 
     width: 180px;
     height: 270px;
     
@@ -287,12 +294,52 @@ p{
   }
 }
   @media (max-width: 550px) {
-  
+    width: 165px;
+    height: 260px;
+
+    
+    h6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 35px solid transparent;
+  border-top: 35px solid #44D62C;
+  border-right: 35px solid #44D62C;
+  border-radius: 0px 10px 0px 10px;
+  z-index: 1;
+}
+
+    h5{
+    position: absolute;
+    left: 127px; 
+    font-size: 14px;
+  }
   h2{
     font-size: 13px;
   }
   h3{
     font-size: 8px;
+  }
+  p{
+    font-size: 13px;
+  }
+}
+@media (max-width: 450px) {
+    width: 155px;
+    height: 255px;
+
+    h5{
+    position: absolute;
+    left: 117px; 
+    font-size: 14px;
+  }
+  h2{
+    font-size: 13px;
+  }
+  h3{
+    font-size: 8px;
+    margin: 5px;
   }
   p{
     font-size: 13px;

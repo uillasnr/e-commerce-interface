@@ -24,7 +24,7 @@ function Orders() {
         // Carregando menu de categorias
         async function loadOrders() {
             const { data } = await api.get('orders')
-          
+                   console.log(data)
             setOrders(data)
             setFilteredOrders(data)
         }
@@ -39,7 +39,8 @@ function Orders() {
             orderId: order._id,
             date: formatDate(order.createdAt),
             status: order.status,
-            products: order.products
+            products: order.products,
+            totalPrice: order.totalPrice
         }
     }
 
@@ -80,33 +81,37 @@ function Orders() {
         <Container>
             <Menu>
                 {status && status.map(status => (
-                        <LinkMenu
-                            key={status.id}
-                            onClick={() => hundleStatus(status)}
-                            isActiveStatus={activeStatus === status.id}
-                        >
-                            {status.label}
-                        </LinkMenu>
-                    ))}
+                    <LinkMenu
+                        key={status.id}
+                        onClick={() => hundleStatus(status)}
+                        isActiveStatus={activeStatus === status.id}
+                    >
+                        {status.label}
+                    </LinkMenu>
+                ))}
             </Menu>
             <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
                     <TableHead style={{ backgroundColor: '#565656' }}>
                         <TableRow>
                             <TableCell />
-                            <TableCell style={{ color: 'white' }}>
+                            <TableCell style={{ color: 'white', textAlign: 'center' }}>
                                 Pedido
                             </TableCell>
-                            <TableCell style={{ color: 'white' }}>
+                            <TableCell style={{ color: 'white', textAlign: 'center' }}>
                                 Cliente
                             </TableCell>
-                            <TableCell style={{ color: 'white' }}>
+                            <TableCell style={{ color: 'white', textAlign: 'center' }}>
                                 Data do Pedido
                             </TableCell>
-                            <TableCell style={{ color: 'white' }}>
+                            <TableCell style={{ color: 'white', textAlign: 'center' }}>
                                 Status
                             </TableCell>
+                            <TableCell style={{ color: 'white', textAlign: 'center', width: 135 }}>
+                                Valor do Pedido
+                            </TableCell>
                         </TableRow>
+                        
                     </TableHead>
                     <TableBody>
                         {rows.map(row => (

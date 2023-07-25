@@ -1,33 +1,31 @@
 import styled from "styled-components";
 
+
+
+export const Background = styled.div`
+    background: #222222;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+  h1{
+    text-align: center;
+    color: #fff;
+    margin-top: 100px;
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   width: 375px;
   height: 330px;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #666;
   border-radius: 8px;
   border: 2px solid #d5d5d5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  .buttonLoginModal {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 5px;
-    width: 10%;
-    border: none;
-    height: 10%;
-    color: #ffffff;
-    background: none;
-    cursor: pointer;
-    font-size: 25px;
-  }
+  margin: 20px 0px 25px 0px;
 
   @media (max-width: 768px) {
     width: auto;
@@ -36,12 +34,14 @@ export const Container = styled.div`
   }
 `;
 
+
 export const ContainerItens = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -100px;
 
   h1 {
     margin-bottom: 50px;
@@ -56,16 +56,17 @@ export const ContainerItens = styled.div`
 `;
 
 export const Label = styled.label`
-  color: #fff;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 0.8;
-  margin-bottom: 5px;
-  position: absolute;
-  transition: all 0.3s;
-  transform-origin: top left;
-  pointer-events: none;
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 0.8;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    position: absolute;
+    transition: all 0.3s;
+    transform-origin: top left;
+    pointer-events: none;
 
   &.active {
     transform: translateY(-20px) scale(0.8);
@@ -77,17 +78,27 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  background: none;
+  background:none;
   width: 100%;
   border: none;
   border-bottom: solid 2px ${(props) => (props.error ? "#cc1717" : "#44d62c")};
   padding-left: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-size: 16px;
   color: ${(props) => (props.error ? "#cc1717" : "#fff")};
 
   &.active {
     border-bottom-color: #44d62c;
+  }
+   /* Estilo para evitar preenchimento automático */
+  /* Pode ser necessário adicionar mais estilos específicos do navegador se necessário */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    /* Defina a cor do texto  */
+    -webkit-text-fill-color: #fff;
   }
 
   @media (max-width: 768px) {
@@ -119,8 +130,8 @@ export const Buttons = styled.div`
 `;
 
 export const ButtonLogin = styled.button`
-  width: 150px;
-  height: 60px;
+    width: 200px;
+    height: 40px;
   background: #36e73d;
   border-radius: 3px;
   border: none;
@@ -146,26 +157,3 @@ export const ButtonLogin = styled.button`
   }
 `;
 
-export const GoogleLoginButton = styled.div`
-  width: 150px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    opacity: 0.8;
-  }
-  &:active {
-    opacity: 0.6;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 50px;
-  }
-`;

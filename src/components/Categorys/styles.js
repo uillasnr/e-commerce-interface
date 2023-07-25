@@ -6,16 +6,6 @@ import { Link } from "react-router-dom";
 
 
 export const Container = styled.div`
-/* background: blue;
-width: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 35px;
-margin-left: 337px;
-display: -webkit-box;
-position: fixed;
-z-index: 100;  */
 display: flex;
     justify-content: center;
     gap: 30px;
@@ -42,6 +32,10 @@ display: flex;
     margin-left: 100px;
     margin: 0;
 }
+
+  @media (max-width: 650px){
+    display: none;
+    }
 `
 export const ContainerItems = styled.div`
 display: flex;
@@ -56,12 +50,11 @@ export const Image = styled.img`
     border-radius: 10px;
     padding: 10px;
 
-    
  
 `
 
 export const Button = styled(Link)`
-/* margin-top: 16px; */
+
 background: none;
 cursor: pointer;
 border-radius: 8px;
