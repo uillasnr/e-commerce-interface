@@ -6,7 +6,7 @@ background: rgb(119 122 143 / 53%);
 filter: drop-shadow(5px 5px 5px rgba(0,0,0,1.9));
 padding: 10px;
 border-radius: 20px;
-margin: 50px 25px;
+margin: 20px 25px;
 width: max-content;
 
 @media  (max-width: 1045px) {
@@ -38,9 +38,9 @@ padding: 10px;
 border-bottom: 1px solid #b5b5b5;
 h3{
     font-size: 16px;
-    /* color: #b5b5b5; */
-    color: #fff;
-  
+    color: #36e73d;
+    font-weight: bold;
+    margin-left: 20px;
 }
 `
 

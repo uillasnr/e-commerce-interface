@@ -12,10 +12,10 @@ function CartItems() {
         <Container>
             <Header>
                 <p></p>
-                <p>Itens</p>
-                <p>Preço</p>
-                <p style={{ paddingRight: 30 }}>Quantidade</p>
-                <p>Total</p>
+                <h3>Itens</h3>
+                <h3>Preço</h3>
+                <h3 style={{ paddingRight: 30 }}>Quantidade</h3>
+                <h3>Total</h3>
             </Header>
             {cartProducts && cartProducts.length > 0 ? (
                 cartProducts.map(product => (
