@@ -11,11 +11,14 @@ import { useCart } from "../../hooks/CartContext";
 
 
 
-function Checkout() {
+
+
+function Checkout({ freightData }) {
     const [finalPrice, setFinalPrice] = useState(0);
-    const [deliveryTax] = useState(5);       ///aqui e vou pegar o valor da entrga
+    const [freightValue, setFreightValue] = useState(0);
     const { cartProducts, clearCart } = useCart();
     const history = useHistory();
+    const [deliveryTax] = useState(1);       ///aqui e vou pegar o valor da entrga
 
 
 
@@ -27,14 +30,20 @@ function Checkout() {
         history.push("/sucesso");
     };
 
+    // Atualiza o valor do frete ao obter o valor de freightData
+/*     useEffect(() => {
+        if (freightData && freightData[0]?.Valor) {
+            setFreightValue(freightData[0].Valor);
+        }
+    }, [freightData]); */
 
     // Atualiza o preço final sempre que as informações do carrinho forem alteradas
     useEffect(() => {
         const sumAllItems = cartProducts.reduce((acc, current) => {
             return current.price * current.quantity + acc;
         }, 0);
-        setFinalPrice(sumAllItems);
-    }, [cartProducts, deliveryTax]);
+        setFinalPrice(sumAllItems );
+    }, [cartProducts, freightValue, deliveryTax]);
 
 
     // Envia o pedido para a API
@@ -49,15 +58,15 @@ function Checkout() {
 
             // Envia o pedido para a API e aguarda a resposta
             const response = await api.post('orders', { products: order });
-
+            console.log(response)
             // Obtém a URL do checkout da resposta da API e redireciona o usuário
             if (response.data && response.data.url) {
-                const checkoutUrl = response.data.url;
+                  const checkoutUrl = response.data.url;
 
 
                 // Redireciona o usuário para a tela de checkout após um pequeno atraso
                 setTimeout(() => {
-                    window.location.href = checkoutUrl;
+                     window.location.href = checkoutUrl; 
 
                     clearCartOnSuccess(); // Chama a função para deletar os itens do carrinho
                 }, 2000)
@@ -72,6 +81,15 @@ function Checkout() {
     };
 
 
+    // Atualiza o valor do frete ao obter o valor de freightData
+    useEffect(() => {
+        if (freightData && freightData[0]?.Valor) {
+            const freightValueString = freightData[0].Valor.replace(",", ".");
+            const freightValueAsNumber = parseFloat(freightValueString);
+            setFreightValue(freightValueAsNumber);
+        }
+    }, [freightData]);
+
 
 
 
@@ -83,12 +101,14 @@ function Checkout() {
                     <h2 className="title">Resumo do pedido</h2>
                     <p className="items">Itens</p>
                     <p className="items-price">{formatCurrency(finalPrice)}</p>
-                    <p className="delivery-tax">Valor da entrega</p>
-                    <p className="delivery-tax-price">{formatCurrency(deliveryTax)}</p>
+                    <p className="delivery-tax">Frete</p>
+                      <p className="delivery-tax-price">{formatCurrency(freightValue)}</p>  
+                    <p>oihiouhiohio</p>
+                    {/* <p className="delivery-tax-price">{formatCurrency(deliveryTax)}</p> */}
                 </div>
                 <div className="container-bottom">
                     <p>Total</p>
-                    <p>{formatCurrency(finalPrice + deliveryTax)}</p>
+                    <p>{formatCurrency(finalPrice + freightValue + deliveryTax)}</p>
                 </div>
             </Container>
 

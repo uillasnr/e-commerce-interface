@@ -7,8 +7,8 @@ import * as Yup from 'yup';
 import IconDelivery from "../../assets/icons8-delivery-truck-64.png"
 import RoomIcon from '@mui/icons-material/PinDrop';
 
-function CheckCep() {
-    //const [sCepDestino, setSCepDestino] = useState('');
+
+function CheckCep({ onFreightData }) {
     const [freteData, setFreteData] = useState(null); // Initialize with null
     const [cepData, setCepData] = useState(null); // Initialize with null
     // Estado para controlar a exibição do input do CEP
@@ -36,6 +36,7 @@ function CheckCep() {
             setCepData({
                 cep: formData.cep,
                 address: data.logradouro || "",
+                number: watch("number") || "",
                 neighborhood: data.bairro || "",
                 city: data.localidade || "",
                 uf: data.uf || "",
@@ -60,7 +61,7 @@ function CheckCep() {
             });
             const data = response.data;
             /*   console.log(data); */
-
+            
             // Atualizar os dados do frete em cepData
             setCepData(prevCepData => ({
                 ...prevCepData,
@@ -73,18 +74,28 @@ function CheckCep() {
         }
     }
 
+    
     // Função de callback para lidar com os dados do formulário após o envio
-    const onSubmit = (formData) => {
-        // Aqui você pode acessar os dados preenchidos nos campos do formulário
-        /*  console.log(formData); */
-
-        // Você pode acessar todos os dados (CEP e frete) através do estado cepData
-        console.log(cepData);
-
-        // Agora você pode fazer o que desejar com os dados aqui, como enviar para o servidor, etc.
-        // Por exemplo, enviar para o servidor:
-        // await api.post('/submitForm', cepData);
+    const onSubmit = async (formData) => {
+        try {
+           // Não há necessidade de chamar o checkCEP aqui, pois já foi chamado no evento onBlur
+            // aguarda checkCEP(formData);
+    /* console.log(formData) */ ///envio do cep
+    checkCEP(formData);
+      onFreightData(cepData.freteData); // Pass the freight data to the parent component
+            // Acesse o objeto cepData completo, incluindo dados de cálculo de frete
+            console.log(cepData);
+    
+            // Agora você pode fazer o que quiser com o cepData, como enviar para o servidor
+            // Por exemplo, você pode enviá-lo para o servidor usando o método api.post('/submitForm', cepData) aqui.
+        } catch (error) {
+            console.error('Error handling form submission:', error);
+        }
     };
+    
+
+
+
 
     return (
         <Container>
@@ -110,11 +121,21 @@ function CheckCep() {
                         <>
                             <input className="inputRua" type="text" placeholder="Rua" {...register("address")} />
 
-                            <input className="Number" placeholder="Número" type="text" {...register("Number")} />
+                            <input
+                                className="Number"
+                                placeholder="Número"
+                                type="text"
+                                {...register("number")} 
+                                onBlur={handleSubmit(onSubmit)} // Adiciona o evento onBlur para acionar o envio do formulário apos digitar o Número
+                            />
                             <>
-                                {errors.Number && <Error>{errors.Number.message}</Error>}
-                                {!errors.Number && !watch("Number") && <Error>{"Digite o número da residência"}</Error>}
+                                {errors.number && <Error>{errors.number.message}</Error>}
+                                {!errors.number && !watch("number") && (
+                                    <Error>{"Digite o número da residência"}</Error>
+                                )}
                             </>
+
+
 
                             <input className="neighborhood" type="text" placeholder="Bairro" {...register("neighborhood")} />
 
@@ -124,7 +145,7 @@ function CheckCep() {
 
                         </>
                     )}
-                    <button type="submit">Consultar CEP</button>
+                    
                     {!showCepInput && (
                         <h6>O prazo de entrega inicia-se após a confirmação do pagamento.</h6>
                     )}
@@ -135,8 +156,9 @@ function CheckCep() {
                         <div className="Result">
                             <img src={IconDelivery} alt="Entrega" />
                             <h5>Prazo de entrega:</h5>
-                            <span>até {cepData.freteData ? cepData.freteData[0].PrazoEntrega : "Aguardando consulta"} dias úteis*</span> 
-                            <h3>FRETE: R$ {cepData.freteData ? cepData.freteData[0].Valor : "Aguardando consulta"}</h3>
+                            <span>até {cepData.freteData ? cepData.freteData[0].PrazoEntrega : "Aguardando consulta"} dias úteis*</span>
+                            <h3 >Frete: R$ {cepData.freteData ? cepData.freteData[0].Valor : "Aguardando consulta"}</h3>
+                            
                         </div>
                     )}
                 </ConatinerFrete>
