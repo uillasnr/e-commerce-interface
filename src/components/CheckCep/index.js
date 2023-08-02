@@ -8,7 +8,7 @@ import IconDelivery from "../../assets/icons8-delivery-truck-64.png"
 import RoomIcon from '@mui/icons-material/PinDrop';
 
 
-function CheckCep({ onFreightData }) {
+function CheckCep({ onFreightData,onCepData }) {
     const [freteData, setFreteData] = useState(null); // Initialize with null
     const [cepData, setCepData] = useState(null); // Initialize with null
     // Estado para controlar a exibição do input do CEP
@@ -83,9 +83,10 @@ function CheckCep({ onFreightData }) {
     /* console.log(formData) */ ///envio do cep
     checkCEP(formData);
       onFreightData(cepData.freteData); // Pass the freight data to the parent component
+      onCepData(cepData.data)
             // Acesse o objeto cepData completo, incluindo dados de cálculo de frete
             console.log(cepData);
-    
+          //  console.log(cepData.data);
             // Agora você pode fazer o que quiser com o cepData, como enviar para o servidor
             // Por exemplo, você pode enviá-lo para o servidor usando o método api.post('/submitForm', cepData) aqui.
         } catch (error) {
@@ -102,7 +103,7 @@ function CheckCep({ onFreightData }) {
             <h1>Endereço De Entrega</h1>
             <h3>Informe o endereço onde deseja receber o seu pedido</h3>
             <ConatinerCep>
-                <form onSubmit={handleSubmit((data) => {
+                <form className="formCep" onSubmit={handleSubmit((data) => {
                     // Chame a função checkCEP passando os dados do formulário
                     checkCEP(data);
                     // Chame a função de callback para lidar com os dados preenchidos do formulário

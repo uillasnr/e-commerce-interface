@@ -10,18 +10,22 @@ import CheckCep from "../../components/CheckCep";
 
 function CartResume() {
     const [freightData, setFreightData] = useState(null);
+    const [cepData, setCepData] = useState(null);
 
     const updateFreightData = (data) => {
         setFreightData(data); // Receba os dados do frete através do callback
+    };
+    const updateCepData = (data) => {
+        setCepData(data); // Receives CEP data through the callback
     };
 
     return (
         <Container>
             <Header />
-            <CheckCep onFreightData={updateFreightData} />
+            <CheckCep onFreightData={updateFreightData} onCepData={updateCepData} />
             <Wrapper>
                 <CartItems />
-                <Checkout freightData={freightData} />
+                <Checkout freightData={freightData} cepData={cepData} />
             </Wrapper>
             <Footer />
         </Container>

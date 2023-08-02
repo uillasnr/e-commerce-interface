@@ -1,6 +1,6 @@
 //Total do pedido do checkout
 import React, { useEffect, useState } from "react";
-import { Container } from "./styles";
+import { Container,ContainerItens } from "./styles";
 import { Button } from "../Button";
 import formatCurrency from '../../utils/formarCurrency';
 import api from "../../services/api";
@@ -63,7 +63,7 @@ console.log(payload)
                 setTimeout(() => {
                     window.location.href = checkoutUrl;
       //              console.log(checkoutUrl)
-      //              clearCartOnSuccess(); // Chama a função para deletar os itens do carrinho
+                   clearCartOnSuccess(); // Chama a função para deletar os itens do carrinho
                }, 2000)
 
             } else {
@@ -84,8 +84,8 @@ console.log(payload)
 
 
     return (
-        <div>
-            <Container>
+        <Container>
+            <ContainerItens>
                 <div className="container-top">
                     <h2 className="title">Resumo do pedido</h2>
                     <p className="items">Itens</p>
@@ -97,12 +97,12 @@ console.log(payload)
                     <p>Total</p>
                     <p>{formatCurrency(finalPrice + freightValueAsNumber)}</p>
                 </div>
-            </Container>
+            </ContainerItens>
 
             <Button style={{ width: "80%", marginTop: 30, marginLeft: 30 }} onClick={submitOrder}>
                 Finalizar Pedido
             </Button>
-        </div>
+        </Container>
     );
 }
 
