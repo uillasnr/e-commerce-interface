@@ -10,8 +10,17 @@ import {
 } from './styles'
 import { useParams } from "react-router-dom";
 import ReactImageMagnify from 'react-image-magnify';
-import Carousel from 'react-elastic-carousel';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+//import 'swiper/swiper.min.css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
 import { useCart } from "../../hooks/CartContext";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import FreteResult from "../../components/FreteResult";
+import ProductRating from "../../components/ProductRating";
 
 
 
@@ -23,6 +32,7 @@ function ProductsId() {
   const [selectedImage, setSelectedImage] = useState(null);
   const { putProductInCart, increaseProductQuantity, decreaseProductQuantity } = useCart() //função do carrinho de compras
   const [offers, setOffers] = useState([])
+  const [totalRatings, setTotalRatings] = useState(0);
 
 
   useEffect(() => {
@@ -31,13 +41,25 @@ function ProductsId() {
         const { data } = await api.get(`products/${id}`);
         setProduct({ ...data, quantity: 1 }); // Atualiza o produto recebido da API e define a quantidade como 1
         setCurrentImg(data.url_img1)
-
+        console.log(data)
       } catch (error) {
         console.error(error);
       }
     }
     fetchProduct();
+    const fetchProductRatings = async () => {
+      try {
+        const response = await api.get(`/products/${id}/ratings`);
+        setTotalRatings(response.data.length);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
+    fetchProductRatings();
+
+    const interval = setInterval(fetchProductRatings, 1000);
+    return () => clearInterval(interval);
   }, [id]);
 
 
@@ -55,7 +77,7 @@ function ProductsId() {
 
 
   function ImageClick(imgUrl) {
-    console.log(imgUrl)
+  //  console.log(imgUrl)
     setCurrentImg(imgUrl)
     setSelectedImage(imgUrl)
   }
@@ -74,17 +96,81 @@ function ProductsId() {
     increaseProductQuantity(product.id);
   }
 
-  /*   { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2 },
-    { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 } */
-  const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 4 },
-    { width: 768, itemsToShow: 5 },
-    /*   { width: 1175, itemsToShow: 5 },
-      { width: 1200, itemsToShow: 6 } */
-  ]
+  const breakpoints = {
+    390: {
+      slidesPerView: 3,
+      spaceBetween: -50
+    },
+    445: {
+      slidesPerView: 3,
+      spaceBetween: -80
+    },
+    450: {
+      slidesPerView: 3,
+      spaceBetween: -80
+    },
+    480: {
+      slidesPerView: 3,
+      spaceBetween: -100
+    },
+    500: {
+      slidesPerView: 2,
+      spaceBetween: -80
+    },
+    550: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+
+    600: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    660: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    750: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    780: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    800: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    880: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    900: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    950: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    1000: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    1050: {
+      slidesPerView: 5,
+      spaceBetween: 20
+    },
+    1215: {
+      slidesPerView: 6,
+      spaceBetween: 20
+    }
+  }
 
   const LimitDescription = (description, maxLength) => {
     if (description.length > maxLength) {
@@ -95,13 +181,26 @@ function ProductsId() {
 
   return (
     <Container>
+      <Header />
       <h1>Produto</h1>
 
       <ContainerItems>
         <ContainerTex>
+
           <h2>{product.name}</h2>
+          
+            <div className='star'>
+              {[1, 2, 3, 4, 5].map((value) => (
+                <span key={value} style={{
+                  color: value <= totalRatings ? '#44d62c' : '#fff',
+                }}>★</span>
+              ))}
+               {' '} {totalRatings} Avaliações
+            </div>
+
+          <p>De: {formatCurrency(product.previou_price)}</p>
           <h3>{formatCurrency(product.price)}</h3>
-          <p>À vista no PIX com até 5% OFF</p>
+
 
 
           <div className="quantity-container">
@@ -112,38 +211,33 @@ function ProductsId() {
 
 
           <Link style={{ textDecoration: 'none', }} to={`/carrinho`}>
-            <Button style={{ width: '530', marginTop: 36, fontSize: 12 }}
+            <Button
               onClick={() => putProductInCart(product)} >COMPRAR</Button>
           </Link>
 
-          <ButtonCart style={{ width: '530', marginTop: 36, fontSize: 12 }}>ADICIONAR AO CARINHO</ButtonCart>
+          <ButtonCart >ADICIONAR AO CARINHO</ButtonCart>
 
-
+       {/*    <FreteResult /> */}
         </ContainerTex>
 
 
         <ContainerImg>
 
-          <ImgOptions>
-            <Img src={product.url_img1}
-              alt="Foto do produto1"
-              isSelected={selectedImage === product.url_img1}
-              onClick={() => ImageClick(product.url_img1)} />
-
-            <Img src={product.url_img2}
-              alt="Foto do produto2"
-              isSelected={selectedImage === product.url_img2}
-              onClick={() => ImageClick(product.url_img2)} />
-
-            <Img src={product.url_img3}
-              alt="Foto do produto3"
-              isSelected={selectedImage === product.url_img3}
-              onClick={() => ImageClick(product.url_img3)} />
-
-            <Img src={product.url_img4}
-              alt="Foto do produto4"
-              isSelected={selectedImage === product.url_img4}
-              onClick={() => ImageClick(product.url_img4)} />
+          <ImgOptions> {/*  4 img */}
+            {[ 
+            product.url_img1,
+            product.url_img2,
+            product.url_img3,
+            product.url_img4
+          ].map((imgUrl, index) => (
+            <Img
+              key={imgUrl} src={imgUrl}
+              alt={`Foto do produto${index + 1}`}
+              isSelected={selectedImage === imgUrl || (selectedImage === null && index === 0)}
+              onClick={() => ImageClick(imgUrl)}
+            />
+          ))}
+           
           </ImgOptions>
 
           <div className='image-magnify' style={{ background: '#464646', padding: '15px', }}>
@@ -178,37 +272,48 @@ function ProductsId() {
 
       </ContainerItems>
 
-      <line />
+      {/*     <line />
 
-      <Carousel style={{ marginTop: 30, padding: 10 }} itemsToShow={5} breakPoints={breakPoints}>
+      <Swiper
+        spaceBetween={0}
+        centeredSlides={true}
+        breakpoints={breakpoints}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+      >
         {offers &&
           offers.map(product => (
 
-            <ContainerOffers key={product.id}  >
-              <h6><h4>OFF</h4></h6>
-              <div>
-                <img src={product.url_img1} alt="foto do Produto" />
-              </div>
-              <h2>{product.name}</h2>
-              <h3>{LimitDescription(product.description, 50)}</h3>
-              <p>{formatCurrency(product.price)}</p>
+            <SwiperSlide key={product.id}  >
+              <ContainerOffers>
+                <h6><h4>OFF</h4></h6>
+                <div>
+                  <img src={product.url_img1} alt="foto do Produto" />
+                </div>
+                <h2>{product.name}</h2>
+                <h3>{LimitDescription(product.description, 50)}</h3>
+                <p>{formatCurrency(product.price)}</p>
 
-              <Link style={{ textDecoration: 'none', }} to={`/detalhes/${product.id}`}>
-                <button>COMPRAR</button>
-              </Link>
-
-            </ContainerOffers>
+                <Link style={{ textDecoration: 'none', }} to={`/detalhes/${product.id}`}>
+                  <button>COMPRAR</button>
+                </Link>
+              </ContainerOffers>
+            </SwiperSlide>
           ))}
-      </Carousel>
+      </Swiper>
 
       <line />
-
+ */}
 
       <Description>Descrição do produto</Description>
 
       <h5>{product.description}</h5>
 
-
+      <ProductRating productId={id} totalRatings={totalRatings} />
+      <Footer />
     </Container>
   );
 }

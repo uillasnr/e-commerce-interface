@@ -26,6 +26,7 @@ function FreteResult() {
 
     return (
         <Container>
+            <label>Consultar frete e prazo de entrega</label>
             <form onSubmit={(e) => handleCalcFrete(e, 'calculateFreight')}>
 
                 <div class="input-wrapper">
@@ -50,10 +51,3 @@ function FreteResult() {
 
 export default FreteResult;
 
-
-/* freteData && freteData[0] && (
-    <div className="Result">
-        <p>receba em até</p>
-        <span>{freteData[0].PrazoEntrega} dias úteis*</span>
-        <h6>R$ {freteData[0].Valor}</h6>
-    </div> */

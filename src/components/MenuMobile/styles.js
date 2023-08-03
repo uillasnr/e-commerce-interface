@@ -116,7 +116,13 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ContainerModal = styled.div`
- 
+ h2{
+  font-size: 15px;
+    text-align: center;
+    color: rgb(54, 231, 61);
+    padding: 3px;
+    border-bottom: 0.5px solid #d5d5d5;
+ }
   background: #464646;
   display: flex;
   flex-direction: column;

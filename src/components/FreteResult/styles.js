@@ -4,6 +4,14 @@ export const Container = styled.div`
  display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 5px;
+
+  label{
+    margin: 5px;
+    font-size: 13px;
+    margin-left: 190px;
+    margin-top: 10px;
+  }
 
   form{
     margin-left: 160px;
@@ -14,7 +22,7 @@ export const Container = styled.div`
     padding: 0;
     border: none;
     margin-left: 0px;
-    margin-top: 10px;
+   
 }
 
 .room-icon {

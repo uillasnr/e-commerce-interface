@@ -29,7 +29,7 @@ function MenuMobile() {
         loadCategories();
     }, []);
 
- 
+
 
     const handleIconClick = (event) => {
         event.stopPropagation();
@@ -81,6 +81,7 @@ function MenuMobile() {
                             <div></div>
                         </ContainerText>
 
+                        <h2>Categorias</h2>
 
                         {categories &&
                             categories.map((category) => (
