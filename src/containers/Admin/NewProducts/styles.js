@@ -115,6 +115,13 @@ export const CardImg = styled.div`
     width: 200px;
     height: 290px;
 
+    .previou_price{
+  text-align: center;
+    font-size: 11px;
+    font-weight: 200;
+    color: rgb(255 255 255);
+    text-decoration: line-through;
+}
 
 img{
     width: 100px;
