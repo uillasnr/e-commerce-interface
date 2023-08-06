@@ -219,8 +219,8 @@ flex-flow: column;
 align-items: center;
 justify-content: center;
 position: absolute;
-    top: 65px;
-    left: 420px;
+top: 65px;
+left: 463px;
 
     
 

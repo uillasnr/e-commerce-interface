@@ -111,6 +111,7 @@ export const ContainerItems = styled.h1`
   border-radius: 10.6557px;
   width: 200px;
   height: 290px;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,1.9));
 
   &:hover {
     transform: scale(1.03);

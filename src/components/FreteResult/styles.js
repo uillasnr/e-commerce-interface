@@ -1,20 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
- display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 1000px;
 
   label{
     margin: 5px;
     font-size: 13px;
-    margin-left: 190px;
+    margin-left: 260px;
     margin-top: 10px;
   }
 
   form{
-    margin-left: 160px;
+    margin-left: 228px;
   }
   .input-wrapper {
     position: relative;
@@ -58,13 +59,14 @@ input {
     margin-top: 10px;
     padding: 10px;
     text-align: center;
-    margin-left: 180px;
+    margin-left: 242px;
   }
 
-  p {
+  h4 {
     margin: 0px;
     font-size: 12px;
     width: 80px;
+    font-weight: 400;
   }
   span{
     font-size: 12px;
@@ -80,137 +82,186 @@ input {
     margin-left: 110px;
     margin-top: -25px;
   }
-  @media (max-width: 1090px){
+
+  @media (max-width: 1140px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: 295px;
+
+    label{
+    margin: 5px;
+    font-size: 13px;
+    margin-left: 115px;
+    margin-top: 10px;
+  }
     .Result {
     border: 0.5px solid #d5d5d5;
     width: 183px;
     margin-top: 10px;
     padding: 10px;
     text-align: center;
-    margin-left: 394px;
+    margin-left: 96px;
   }
     form{
-    margin-left: 380px;
+      margin-left: 82px;
   }
 }
-  @media (max-width: 1040px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 266px;
-  }
-    form{
-    margin-left: 250px;
-  }
-  }
-  @media (max-width: 1000px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 300px;
-  }
-    form{
-    margin-left: 288px;
-  }
-  }
-  @media (max-width: 910px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 248px;
-  }
-    form{
-      margin-left: 234px;
-  }
-  }
-  @media (max-width: 850px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 300px;
-  }
-    form{
-      margin-left: 290px;
-  }
-  }
-  @media (max-width: 800px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 247px;
-  }
-    form{
-      margin-left: 235px;
-  }
-  }
-  @media (max-width: 750px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 170px;
-  }
-    form{
-      margin-left: 157px;
-  }
-  }
-  @media (max-width: 630px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 73px;
-  }
-    form{
-      margin-left: 60px;
-  }
-  }
-  @media (max-width: 510px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 45px;
-  }
-    form{
-      margin-left: 30px;
-  }
-  }
-  @media (max-width: 400px){
-    .Result {
-    border: 0.5px solid #d5d5d5;
-    width: 183px;
-    margin-top: 10px;
-    padding: 10px;
-    text-align: center;
-    margin-left: 60px;
-  }
-    form{
-      margin-left: 47px;
-  }
+@media (max-width: 1030px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: 272px;
+}
+@media (max-width: 950px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: 231px;
 
+    span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
   }
+}
+@media (max-width: 900px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: 197px;
+    
+    span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
+@media (max-width: 845px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: 160px;
+    
+    span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
+@media (max-width: 780px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: -6px;
+
+span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
+@media (max-width: 740px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: -33px;
+
+span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
+@media (max-width: 690px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: -59px;
+
+span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
+@media (max-width: 630px){
+ span {
+    font-size: 12px;
+}
+}
+@media (max-width: 590px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: -89px;
+
+span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
+@media (max-width: 520px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: -130px;
+
+span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
+@media (max-width: 440px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: -156px;
+
+span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
+@media (max-width: 400px){
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    width: 430px;
+    margin-left: -172px;
+
+span{
+    font-size: 12px;
+    color: #36e73d;
+    margin-left: -90px;
+  }
+}
 `
 
 export const ConatinerCep = styled.div`

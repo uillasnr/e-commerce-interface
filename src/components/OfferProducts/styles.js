@@ -216,9 +216,9 @@ export const ContainerItems = styled.h1`
     background: #464646;
     border-radius: 10.6557px;
     width: 200px;
-    height: 290px;
+    height: 300px;
     position: relative;
-
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,1.9));
   
     
 h5{
@@ -229,7 +229,13 @@ h5{
     color: #FFFFFF;
     z-index: 1;
 }
-
+.previou_price{
+  text-align: center;
+    font-size: 11px;
+    font-weight: 200;
+    color: rgb(255 255 255);
+    text-decoration: line-through;
+}
 
    
 h6::before {

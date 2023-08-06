@@ -92,7 +92,8 @@ const ProductRating = ({ productId }) => {
     0
   ) / totalRatings;
   //Avaliação geral Arredonda para uma casa decimal
-  const roundedAverageRating = averageRatingWithValues.toFixed(1);
+  const roundedAverageRating = isNaN(averageRatingWithValues) ? 0 : averageRatingWithValues.toFixed(1);
+
 
   return (
     <ContainerItems>
@@ -113,7 +114,7 @@ const ProductRating = ({ productId }) => {
       <Container>
         <ContainerRating>
           {comments.length === 0 ? (
-            <div>
+            <div className='rateOff'>
               <h2>Avalie este produto</h2>
               <p>Seja o primeiro a avaliar este produto!</p>
             </div>

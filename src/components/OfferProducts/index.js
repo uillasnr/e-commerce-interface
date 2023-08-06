@@ -48,6 +48,7 @@ function OfferProducts() {
                                     </div>
                                     <h2>{product.name}</h2>
                                     <h3>{LimitDescription(product.description, 50)}</h3>
+                                    <p className="previou_price">De: {formatCurrency(product.previou_price)}</p>
                                     <p>{formatCurrency(product.price)}</p>
 
 

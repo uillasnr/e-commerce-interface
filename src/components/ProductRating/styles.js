@@ -126,6 +126,11 @@ height: 400px;
 overflow: auto;
 width: 330px;
 
+.rateOff{
+  text-align: center;
+    margin-top: 151px;
+}
+
  /* Estilizando a barra de rolagem para ocultá-la */
  scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer e Edge */

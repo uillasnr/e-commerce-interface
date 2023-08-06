@@ -40,7 +40,7 @@ function FreteResult() {
 
             {freteData && (
                 <div className="Result">
-                    <p>receba em até</p>
+                    <h4>receba em até</h4>
                     <span>{freteData[0].PrazoEntrega} dias úteis*</span>
                     <h6>R$ {freteData[0].Valor}</h6>
                 </div>

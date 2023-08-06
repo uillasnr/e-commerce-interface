@@ -1,7 +1,6 @@
 //Total do pedido do checkout
 import React, { useEffect, useState } from "react";
-import { Container,ContainerItens } from "./styles";
-import { Button } from "../Button";
+import { Container, ContainerItens } from "./styles";
 import formatCurrency from '../../utils/formarCurrency';
 import api from "../../services/api";
 import { toast } from "react-toastify";
@@ -9,15 +8,13 @@ import { useHistory } from "react-router-dom";
 import { useCart } from "../../hooks/CartContext";
 
 
-
-
-function Checkout({ freightData}) {
+function Checkout({  freightData, cepData }) {
     const [finalPrice, setFinalPrice] = useState(0);
     const [freightValue, setFreightValue] = useState(0);
     const { cartProducts, clearCart } = useCart();
     const history = useHistory();
 
-
+console.log(cepData)
 
     const clearCartOnSuccess = () => {
         // Deleta os itens do carrinho
@@ -48,23 +45,22 @@ function Checkout({ freightData}) {
             const payload = {
                 products: order,
                 freightValu: freightValueAsNumber, // Adiciona o valor do frete ao payload
-               /*  cepData: cepData, */ // Add the CEP data to the payload
+                addressData: cepData,  // Add the CEP data to the payload
             };
-console.log(payload)
+          
             // Envia o pedido para a API e aguarda a resposta
             const response = await api.post('orders', payload);
-            console.log(response)
+      
             // Obtém a URL do checkout da resposta da API e redireciona o usuário
             if (response.data && response.data.url) {
-                const checkoutUrl = response.data.url;
-
-
+              // const checkoutUrl = response.data.url;
+console.log(response.data);
                 // Redireciona o usuário para a tela de checkout após um pequeno atraso
-                setTimeout(() => {
-                    window.location.href = checkoutUrl;
-      //              console.log(checkoutUrl)
-                   clearCartOnSuccess(); // Chama a função para deletar os itens do carrinho
-               }, 2000)
+            //    setTimeout(() => {
+              //      window.location.href = checkoutUrl;
+                    //              console.log(checkoutUrl)
+           //         clearCartOnSuccess(); // Chama a função para deletar os itens do carrinho
+           //     }, 2000)
 
             } else {
                 throw new Error("A resposta da API não possui uma URL de checkout válida.");
@@ -99,9 +95,9 @@ console.log(payload)
                 </div>
             </ContainerItens>
 
-            <Button style={{ width: "80%", marginTop: 30, marginLeft: 30 }} onClick={submitOrder}>
+            <button onClick={submitOrder}>
                 Finalizar Pedido
-            </Button>
+            </button>
         </Container>
     );
 }

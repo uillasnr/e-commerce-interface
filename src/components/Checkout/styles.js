@@ -1,7 +1,48 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+ 
 
+button{
+    width: 230px;
+    height: 30px;
+    background: #36E73D;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #2c2b2b;
+    margin-top: 25px;
+    margin-left: 16px;
+
+     
+&:hover {
+    opacity:  0.8;
+}
+&:active {
+opacity: 0.6;
+}
+}
+
+@media (max-width: 826px) {
+    button{ 
+width: 96%
+}
+}
+@media (max-width: 640px) {
+    button{ 
+width: 95%
+}
+}
+@media (max-width: 520px) {
+    button{ 
+width:93%
+}
+}
 `
 
 export const ContainerItens = styled.div`

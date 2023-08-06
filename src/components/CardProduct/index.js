@@ -26,9 +26,9 @@ function CardProduct({ product }) {
                     <h2>{product.name}</h2>
                     <h3>{LimitDescription(product.description, 50)}</h3>
                     <p>{formatCurrency(product.price)}</p>
-                </Link>
 
-                <Button>Adicionar</Button>
+                    <Button>Adicionar</Button>
+                </Link>
 
             </ContainerItems>
 

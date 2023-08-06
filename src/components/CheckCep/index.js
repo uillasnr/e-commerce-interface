@@ -8,11 +8,11 @@ import IconDelivery from "../../assets/icons8-delivery-truck-64.png"
 import RoomIcon from '@mui/icons-material/PinDrop';
 
 
-function CheckCep({ onFreightData,onCepData }) {
-    const [freteData, setFreteData] = useState(null); // Initialize with null
-    const [cepData, setCepData] = useState(null); // Initialize with null
-    // Estado para controlar a exibição do input do CEP
+function CheckCep({ onFreightData, onCepData }) {
+    const [freteData, setFreteData] = useState(null); 
+    const [cepData, setCepData] = useState(null) 
     const [showCepInput, setShowCepInput] = useState(true);
+//console.log(cepData);
 
     const schema = Yup.object().shape({
         cep: Yup.string().required('Digite o CEP'),
@@ -81,11 +81,14 @@ function CheckCep({ onFreightData,onCepData }) {
            // Não há necessidade de chamar o checkCEP aqui, pois já foi chamado no evento onBlur
             // aguarda checkCEP(formData);
     /* console.log(formData) */ ///envio do cep
+    
     checkCEP(formData);
-      onFreightData(cepData.freteData); // Pass the freight data to the parent component
-      onCepData(cepData.data)
+    onFreightData(cepData.freteData); // Pass the freight data to the parent component
+    onCepData(cepData); // Pass the cepData to the parent component
+
+
             // Acesse o objeto cepData completo, incluindo dados de cálculo de frete
-            console.log(cepData);
+         //   console.log(cepData.freteData);
           //  console.log(cepData.data);
             // Agora você pode fazer o que quiser com o cepData, como enviar para o servidor
             // Por exemplo, você pode enviá-lo para o servidor usando o método api.post('/submitForm', cepData) aqui.
