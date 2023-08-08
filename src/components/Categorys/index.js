@@ -4,7 +4,7 @@ import { Container, ContainerItems, Image, Button } from './styles';
 
 function Category() {
   const [categories, setCategories] = useState([]);
-  const [marginTop, setMarginTop] = useState(90);
+  const [marginTop, setMarginTop] = useState(-3);
   const [hideImage, setHideImage] = useState(false);
 
   useEffect(() => {

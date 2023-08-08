@@ -6,23 +6,22 @@ import { useHistory } from "react-router-dom";
 import { useUser } from "../../hooks/UserContext"
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/CartContext"
-import Person from "../../assets/user.png"
 import Cart from "../../assets/carrinho.png"
 import Logo from "../../assets/DEV.png"
+import MenuMobile from "../MenuMobile";
+import Modal from "../Modal";
 
 import {
   Container, ContainerLeft, ContainerRight, Car,
   ContainerItems, Imput, PageLink, ContainerText, Search
 } from "./styles"
-import MenuMobile from "../MenuMobile";
-
-
 
 
 function Header() {
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
   const { cartProducts } = useCart()
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const searchRef = useRef();
   const { logout, userData } = useUser();
   const {
@@ -65,16 +64,24 @@ function Header() {
     };
   }, []);
 
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
 
   return (
     <Container>
       <ContainerItems>
-        
+
         <ContainerLeft>
+          <div> 
           <PageLink onClick={() => push("/")}>
             <img src={Logo} alt="logo" />
           </PageLink>
+          </div>
         </ContainerLeft>
 
 
@@ -98,9 +105,11 @@ function Header() {
           <MenuMobile />
 
           <ContainerText>
-            <PageLink onClick={() => push("/Login")}>
-              <img src={Person} alt="logo-pessoa" />
-            </PageLink>
+
+            <Modal isOpen={isModalOpen}
+              handleModalOpen={handleModalOpen}
+              handleModalClose={handleModalClose} />
+
 
             <div className="user-info">
               {userData.name ? (

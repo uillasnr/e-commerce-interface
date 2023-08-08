@@ -80,7 +80,11 @@ function MenuMobile() {
                             </div>
                             <div></div>
                         </ContainerText>
-
+                        <div className='Modal'>
+                            <p onClick={() => push("/Login")}>Login</p>
+                            <p onClick={() => push("/")}>Ofertas</p>
+                            <p onClick={() => push("/compras")}>Minha Compra</p>
+                        </div>
                         <h2>Categorias</h2>
 
                         {categories &&

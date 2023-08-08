@@ -9,7 +9,7 @@ h5{
   color: #fff;
     margin-left: 45px;
     font-size: 25px;
-    margin-top: 155px;
+    margin-top: 58px;
 }
 @media  (max-width: 1100px) {
      h5{
@@ -20,7 +20,7 @@ h5{
   h5{
     text-align: center;
     padding: 20px;
-    margin: 80px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
   }
 }
 `
@@ -246,7 +246,7 @@ border: 0.5px solid rgb(213, 213, 213);
     font-size: 0.8rem;
     }
     @media  (max-width: 390px) {
-    margin-left: 22px;
+    margin-left: 25px;
     }
 
 

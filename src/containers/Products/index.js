@@ -4,10 +4,12 @@ import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import PropTypes from "prop-types";
 
-import { Container,  ProductsContainer,Line, CategoriMenu, ContainerButton } from './styles'
+import { Container, ProductsContainer, Line, CategoriMenu, ContainerButton } from './styles'
 
 import CardProduct from "../../components/CardProduct";
 import formatCurrency from "../../utils/formarCurrency";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 
 function Products({ location: { state } }) {
@@ -66,13 +68,13 @@ function Products({ location: { state } }) {
 
     return (
         <Container>
-
-        
-          <Line/>
-          <h5>Categorias</h5>
-          <Line/>
-            <CategoriMenu>
+            <Header />
             
+         {/*    <Line /> */}
+            <h5>Categorias</h5>
+            <Line />
+            <CategoriMenu>
+
                 {categories &&
                     categories.map(categories => (
 
@@ -85,18 +87,18 @@ function Products({ location: { state } }) {
 
                         </ContainerButton>
                     ))}
-         
-        
+
+
             </CategoriMenu>
-       
+
             <ProductsContainer>
-              
+
                 {filteredProducts && filteredProducts.map(product => (
 
                     <CardProduct kay={product.id} product={product} />
                 ))}
-            </ProductsContainer> 
-          
+            </ProductsContainer>
+            <Footer />
         </Container>
 
     )

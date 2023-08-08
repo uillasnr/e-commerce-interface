@@ -20,8 +20,8 @@ img{
 }
 
 @media (max-width: 650px) {
-  margin-top: 85px;
-    padding-top: 25px;
+  margin-top: 20px;
+    padding-top: 0px;
 }
 `
 

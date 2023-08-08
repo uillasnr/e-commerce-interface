@@ -290,7 +290,7 @@ p{
 
   @media (max-width: 655px) { 
     width: 180px;
-    height: 270px;
+    height: 280px;
     
   
   h5{
@@ -301,7 +301,7 @@ p{
 }
   @media (max-width: 550px) {
     width: 165px;
-    height: 260px;
+    height: 270px;
 
     
     h6::before {
@@ -333,7 +333,7 @@ p{
 }
 @media (max-width: 450px) {
     width: 155px;
-    height: 255px;
+    height: 265px;
 
     h5{
     position: absolute;

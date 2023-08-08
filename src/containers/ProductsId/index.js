@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import formatCurrency from '../../utils/formarCurrency'
 import { Link } from "react-router-dom";
+import Cart from "../../assets/-carrinho.png"
 import {
   Container, Img, ContainerImg, ImgOptions, ContainerItems,
   Button, ButtonCart, ContainerOffers, ContainerTex, Description
@@ -58,8 +59,8 @@ function ProductsId() {
 
     fetchProductRatings();
 
-    const interval = setInterval(fetchProductRatings, 1000);
-    return () => clearInterval(interval);
+   /*  const interval = setInterval(fetchProductRatings, 1000); */
+  /*   return () => clearInterval(interval); */
   }, [id]);
 
 
@@ -77,7 +78,7 @@ function ProductsId() {
 
 
   function ImageClick(imgUrl) {
-  //  console.log(imgUrl)
+    //  console.log(imgUrl)
     setCurrentImg(imgUrl)
     setSelectedImage(imgUrl)
   }
@@ -182,21 +183,21 @@ function ProductsId() {
   return (
     <Container>
       <Header />
-      <h1>Produto</h1>
+     
 
       <ContainerItems>
         <ContainerTex>
 
           <h2>{product.name}</h2>
-          
-            <div className='star'>
-              {[1, 2, 3, 4, 5].map((value) => (
-                <span key={value} style={{
-                  color: value <= totalRatings ? '#44d62c' : '#fff',
-                }}>★</span>
-              ))}
-               {' '} {totalRatings} Avaliações
-            </div>
+
+          <div className='star'>
+            {[1, 2, 3, 4, 5].map((value) => (
+              <span key={value} style={{
+                color: value <= totalRatings ? '#44d62c' : '#fff',
+              }}>★</span>
+            ))}
+            {' '} {totalRatings} Avaliações
+          </div>
 
           <p>De: {formatCurrency(product.previou_price)}</p>
           <h3>{formatCurrency(product.price)}</h3>
@@ -210,34 +211,42 @@ function ProductsId() {
           </div>
 
 
-          <Link style={{ textDecoration: 'none', }} to={`/carrinho`}>
-            <Button
-              onClick={() => putProductInCart(product)} >COMPRAR</Button>
-          </Link>
+         
+            < Button >
+              <div className="buttonProductId">
+              <Link style={{ textDecoration: 'none', }} to={`/carrinho`}>
+                <button onClick={() => putProductInCart(product)} >COMPRAR</button>
+                </Link>
+                <button className="carrinho" 
+                onClick={() => putProductInCart(product)}
+                > <img src={Cart} alt="cart"></img></button>
+              </div>
+            </ Button>
+         
 
-          <ButtonCart >ADICIONAR AO CARINHO</ButtonCart>
+          {/*  <ButtonCart >ADICIONAR AO CARINHO</ButtonCart> */}
 
-       {/*    <FreteResult /> */}
+          <FreteResult />
         </ContainerTex>
 
 
         <ContainerImg>
 
           <ImgOptions> {/*  4 img */}
-            {[ 
-            product.url_img1,
-            product.url_img2,
-            product.url_img3,
-            product.url_img4
-          ].map((imgUrl, index) => (
-            <Img
-              key={imgUrl} src={imgUrl}
-              alt={`Foto do produto${index + 1}`}
-              isSelected={selectedImage === imgUrl || (selectedImage === null && index === 0)}
-              onClick={() => ImageClick(imgUrl)}
-            />
-          ))}
-           
+            {[
+              product.url_img1,
+              product.url_img2,
+              product.url_img3,
+              product.url_img4
+            ].map((imgUrl, index) => (
+              <Img
+                key={imgUrl} src={imgUrl}
+                alt={`Foto do produto${index + 1}`}
+                isSelected={selectedImage === imgUrl || (selectedImage === null && index === 0)}
+                onClick={() => ImageClick(imgUrl)}
+              />
+            ))}
+
           </ImgOptions>
 
           <div className='image-magnify' style={{ background: '#464646', padding: '15px', }}>

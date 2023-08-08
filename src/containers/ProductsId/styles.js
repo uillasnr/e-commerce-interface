@@ -60,7 +60,7 @@ button.rec-dot{
     height: auto;
     align-items: center;
     text-align: center;
-    margin: 20px 100px;
+    margin: 20px 20px;
     }
 }
 

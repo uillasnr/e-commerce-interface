@@ -1,55 +1,185 @@
 
-
 import styled from 'styled-components';
+import { Menu, MenuItem } from '@mui/material';
 
+export const Container = styled.div`  
+  
+ 
+    margin: 0px 10px;
 
-export const ModalContainer = styled.div`
-  position: fixed;   
-  top: -245px;
-  left: 216px;             /*    background: ; */
-  width: 100%;
-  height: 100%;
-
-  display: ${(props) => (props.isOpen ? 'flex' : 'none')};
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-`;
-
-export const ModalContent = styled.div`
-  position: relative;
-  background-color: #222222;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 150px;
-  height: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid rgb(213, 213, 213);
-  h3{
-    color: #fff;
-    font-weight: 500;
-    font-size: 15px;
-    margin-bottom: 5px;
-  }
-`;
-
-
-
-export const Button = styled.button`
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  margin: 8px;
+img{
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+  position: relative;
+  margin-top: 10px;
+}
 
-  &:hover {
-    background-color: #2980b9;
+
+  
+`
+
+
+
+export const StyledMenu = styled(Menu)`
+
+  .MuiPaper-root {
+    background-color: #464646;
+    margin-left: -85px;
+    margin-top: 10px;
+    width: 123px;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,1.9));
+    position: absolute;
+    border: 0.5px solid #d5d5d5;
   }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 39px;
+    right: 268px;
+    margin-top: 12px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #2d242400 #d5d5d5 transparent transparent;
+    transform: rotate(90deg);
+  }
+
+  .MuiButtonBase-root{
+    color: #fff;
+    font-size: 12px;
+    margin: 5px 0px;
+    display: flex;
+    justify-content: center;
+  }
+  .MuiMenuItem-root:hover {
+   
+    color: #44d62c;
+}
+
+@media (max-width: 1245px){
+  .MuiPaper-root {
+    background-color: #464646;
+    margin-left: -85px;
+    margin-top: 10px;
+    width: 123px;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,1.9));
+    position: absolute;
+    border: 0.5px solid #d5d5d5;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 39px;
+    right: 264px;
+    margin-top: 12px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #2d242400 #d5d5d5 transparent transparent;
+    transform: rotate(90deg);
+  }
+}
+@media (max-width: 1200px){
+  .MuiPaper-root {
+    background-color: #464646;
+    margin-left: -85px;
+    margin-top: 10px;
+    width: 123px;
+  }
+  &:after {
+    top: 39px;
+    right: 260px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 1160px){
+  .MuiPaper-root {
+    background-color: #464646;
+    margin-left: -85px;
+    margin-top: 10px;
+    width: 123px;
+  }
+  &:after {
+    top: 39px;
+    right: 255px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 1100px){
+  .MuiPaper-root {
+
+  }
+  &:after {
+    top: 39px;
+    right: 250px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 1090px){
+  .MuiPaper-root {
+
+  }
+  &:after {
+    top: 39px;
+    right: 265px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 1024px){
+  .MuiPaper-root {
+
+  }
+  &:after {
+    top: 39px;
+    right: 257px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 970px){
+  .MuiPaper-root {
+
+  }
+  &:after {
+    top: 39px;
+    right: 251px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 870px){
+  .MuiPaper-root {
+
+  }
+  &:after {
+    top: 39px;
+    right: 214px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 770px){
+  .MuiPaper-root {
+
+  }
+  &:after {
+    top: 39px;
+    right: 174px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 700px){
+  .MuiPaper-root {
+
+  }
+  &:after {
+    top: 39px;
+    right: 165px;
+    margin-top: 12px;
+  }
+}
 `;
+
+export const StyledMenuItem = styled(MenuItem)`
+/*    .MuiMenuItem-root:hover {
+   
+   color: rgb(243 0 0);
+} */
+
+`;
+
+

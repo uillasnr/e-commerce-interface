@@ -116,6 +116,17 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ContainerModal = styled.div`
+
+.Modal{
+  border-bottom: 0.5px solid #d5d5d5;
+  color: #d5d5d5;
+  font-size: 12px;
+  text-align: center;
+}
+p:hover {
+   
+   color: #44d62c;
+}
  h2{
   font-size: 15px;
     text-align: center;
@@ -131,14 +142,17 @@ export const ContainerModal = styled.div`
   max-height: 90%;
   overflow-y: auto;
   width: 200px;
-  height: 280px;
+  height: 340px;
   margin-top: -228px;
 
   @media (max-width: 650px) {
-    margin-top: -200px;
+    margin-top:-140px;
   }
 
   @media (max-width: 400px) {
-    margin-top: -200px;
+    margin-top: -315px;
+  }
+  @media (max-width: 390px) {
+    margin-top:-140px;
   }
 `;

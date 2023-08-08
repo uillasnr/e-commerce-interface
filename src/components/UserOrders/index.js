@@ -34,10 +34,12 @@ export function UserOrders() {
                     <Card>
                         <div className="status">
                             <h3>Detalhe da compra</h3>
-                            <span>Status: {order.status}</span>
+                            <span className="status">Status: {order.status}</span>
                         </div>
                         {order.address.freteData && (
-                            <span>O produto chega em até {order.address.freteData[0].PrazoEntrega} dias úteis.</span>
+                            <p className="PrazoEntrega">O produto chega em  {' '} 
+                            <p className="dia"> até {order.address.freteData[0].PrazoEntrega} dias úteis.</p></p>
+                            
                         )}
 
                         <ProductItens>

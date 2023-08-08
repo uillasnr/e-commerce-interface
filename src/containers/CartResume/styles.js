@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 background: #222222;
 min-height: calc(100vh - 72px);
-padding-top: 20px;
+
 `
 
 export const Wrapper = styled.div`

@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     background: rgb(70 70 70);
     border: 0.5px solid #d5d5d5;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -14,9 +14,19 @@ export const Container = styled.div`
 
 export const ContainerLeft = styled.div`
 
-
+div{
+  margin: 25px;
+}
 img{
     width: 100px
+}
+@media (max-width: 650px) {
+  div{
+    margin: 5px;
+}
+img{
+    width: 100px
+}
 }
 @media (max-width: 480px) {
 img{
@@ -39,6 +49,7 @@ gap: 5px;
 export const Car = styled.div`
     /* margin-top: 3px;
     margin-left: 18px; */
+    margin-top: 10px;
     
 img{
     margin-top: 35px;
@@ -66,9 +77,9 @@ cursor: pointer;
 export const ContainerText = styled.div`
 margin: 10px;
 display: flex;
-img{
+/* img{
   margin: 10px 0px 10px 10px;
-}
+} */
 p{
     font-style: normal;
     font-weight: 300;
@@ -100,6 +111,44 @@ div.logout {
     color: rgb(68 214 44);
     margin-top: 5px;
   }
+  @media (max-width: 1030px) {
+    margin: 10px;
+display: flex;
+/* img{
+  margin: 10px 0px 10px 10px;
+} */
+p{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+div.user-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  width: 100px;
+  margin-top: 5px;
+}
+span{
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #fff;
+  line-height: 13px;
+}
+div.logout {
+  font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
+    color: rgb(68 214 44);
+    margin-top: 5px;
+  }
+  }
 @media (max-width: 650px) {
   display: none;
 }
@@ -128,13 +177,13 @@ font-size: 10px;
 
 
 export const ContainerItems = styled.div`
-    height: 90px;
+   height: 90px;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
-    gap: 130px;
-    margin: 0px 80px 0px 170px;
+    gap: 30px;
+    margin: 0px 80px 0px 90px;
 
     @media (max-width: 1090px) {
   height: 90px;
@@ -144,32 +193,35 @@ export const ContainerItems = styled.div`
     gap: 10px;
     padding: 10px;
   }
-   @media (max-width: 1030px) {
-     height: 90px;
+
+    @media (max-width: 870px) {
+      height: 90px;
     display: flex;
     align-items: center;
     flex-direction: row;
-    gap: 0px;
-    padding: 10px;
-    margin: 0px -14px 0px 100px;
-  }
-    @media (max-width: 870px) {
- height: 90px; 
-    display: flex;
-    align-items: center;
-    /* flex-direction: row; */
-    /* gap: 0px; */
-    padding: 10px;
-    margin: 0px 10px 0px 93px;
+    justify-content: space-around;
+    gap: 30px;
+    margin: 0px 50px 0px 50px;
   }
     @media (max-width: 800px) {
-     height: 90px;
+      height: 90px;
     display: flex;
     align-items: center;
-    padding: 10px;
-    margin: 0px -10px 0px 93px;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+    margin: 0px 50px 0px 50px;
   }
-      @media (max-width: 650px) {
+  @media (max-width: 770px) {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+    margin: 0px 10px 0px 10px;
+  }
+      @media (max-width: 700px) {
      height: 90px;
     display: flex;
     align-items: center;
@@ -280,7 +332,8 @@ img{
     left: 240px;
       } 
       @media (max-width: 660px) {
-    left: 225px;
+        left: 225px;
+    width: 215px;
       } 
       @media (max-width: 630px) {
     left: 205px;
@@ -299,19 +352,22 @@ img{
     }
       } 
       @media (max-width: 520px) {
-    left: 166px;
+    left: 185px;
+    width: 159px;
     li{
         font-size: 11px 
     }
       } 
       @media (max-width: 480px) {
     left: 155px;
+    width: 159px;
     img{
     width: 50px;
 }
       }
       @media (max-width: 450px) {
-    left: 145px;
+        left: 117px;
+    width: 159px;
     img{
     width: 45px;
 }

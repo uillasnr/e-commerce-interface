@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-  height: auto;
+ min-height: calc(100vh - 72px);
   width: 100%;
   background: #222222;
 
@@ -13,73 +13,111 @@ export const Container = styled.div`
   h1 {
     color: #fff;
     text-align: center;
-    padding-top: 110px;
+    padding-top: 30px;
+    min-height: calc(100vh - 238px);
 
-    @media (max-width: 768px) {
+    @media (max-width: 850px) {
 
       padding-top: 50px;
       font-size: 24px;
     }
   }
+
+  
+  @media (max-width: 400px) {
+
+
+}
+
 `;
 
 
 export const Card = styled.div`
-  border-radius: 8px;
+ border-radius: 8px;
   padding: 10px;
-  margin: 30px 150px;
+  margin: 20px 130px auto;
   background: #464646;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 1.9));
 
   .status {
     display: inline-block;
-    margin: 10px 553px 0px 10px;
-
-    @media (max-width: 768px) {
+    margin: 5px;
+    color: #fff;
+    font-size: 15px;
     
-      margin: 10px auto;
-      text-align: center;
-    }
   }
 
   .Total {
-    gap: 423px;
     display: flex;
-    margin: 0px 20px;
+    justify-content: space-between;
     color: #44d62c;
     font-size: 14px;
     font-weight: 700;
+    gap: 10px; /* Ajuste o espaçamento */
 
-    @media (max-width: 1235px) {
-      .Total {
-    gap: 423px;
-    }
-  }
-    @media (max-width: 768px) {
-     
+    @media (max-width: 850px) {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      margin: 20px;
+      margin: 20px auto; /* Ajuste a margem */
     }
   }
 
   h3 {
     color: #fff;
   }
-  span {
+  .PrazoEntrega {
     color: #fff;
     font-size: 13px;
+    display: flex;
+    justify-content: flex-end; /* Ajuste o alinhamento */
+  }
+  .dia {
+    color: #44d62c;
+    margin-left: 5px;
+  }
+ @media (max-width: 750px) {
+margin: 20px 60px auto
+ }
+  @media (max-width: 550px) {
+    margin: 20px 60px auto;
+  h3{
+    text-align: center;
+  }
+  .status {
+    display: block;
+    text-align: center;
+  }
+  .PrazoEntrega {
+    color: #fff;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.Total {
+  flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+    font-size: 12px;
+}
+
+}
+  @media (max-width: 400px) {
+    margin: 20px 25px auto;
   }
 `;
 
 
+
 export const ProductItens = styled.div`
-  display: flex;
-  gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ajuste para uma coluna em telas menores */
+  gap: 10px; /* Ajuste o espaçamento */
   background: #464646;
-  border-bottom: 2px solid rgb(213, 213, 213);
   border-top: 2px solid rgb(213, 213, 213);
+  border-bottom: 2px solid rgb(213, 213, 213);
   margin: 10px;
   justify-content: center;
 
@@ -90,7 +128,8 @@ export const ProductItens = styled.div`
     margin: 20px;
     color: #fff;
     font-size: 14px;
-    height: 145px;
+   
+
   }
   h4 {
     font-size: 0.9rem;
@@ -99,7 +138,7 @@ export const ProductItens = styled.div`
 
   .address {
     color: #fff;
-    margin: 40px;
+    margin: 20px auto; 
   }
   p {
     font-size: 12px;
@@ -109,7 +148,7 @@ export const ProductItens = styled.div`
     margin-bottom: 5px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 850px) {
 
     flex-direction: column;
     align-items: center;
@@ -119,5 +158,37 @@ export const ProductItens = styled.div`
       margin: 10px;
     }
   }
+
+  @media (max-width: 650px) {
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+}
+
+@media (max-width: 550px) {
+    display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+
+  h3{
+    text-align: center;
+  }
+
+}
+
+  @media (max-width: 400px) {
+    display: flex;
+    gap: 1px;
+    background: #464646;
+    border-bottom: 2px solid rgb(213, 213, 213);
+    border-top: 2px solid rgb(213, 213, 213);
+    margin: 10px;
+    justify-content: center;
+li{
+  display: contents;
+}
+
+}
 
 `

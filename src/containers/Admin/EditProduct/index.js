@@ -51,6 +51,7 @@
             productDataFormData.append('name', data.name)
             productDataFormData.append('description', data.description)
             productDataFormData.append('price', data.price)
+            productDataFormData.append('previou_price', data.previou_price)
             productDataFormData.append('category_id', data.category.id)
             productDataFormData.append('offer', data.offer)
             productDataFormData.append('file', data.file[0])
@@ -78,7 +79,7 @@
         useEffect(() => {
             async function loadCategories() {
                 const { data } = await api.get("categories")
-
+               
                 setCategories(data)
 
             }
@@ -155,6 +156,11 @@
                         <Input type='number' {...register('price')} onChange={handleInputChange}
                             defaultValue={product.price} />
                         <ErrorMessage>{errors.price?.message}</ErrorMessage>
+
+                        <Label>Preço anterior</Label>
+                    <Input type='number' {...register('previou_price')} onChange={handleInputChange} />
+                    <ErrorMessage>{errors.previou_price?.message}</ErrorMessage>
+
 
 
                         <Controller name="category" control={control} defaultValue={product.category}

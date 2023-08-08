@@ -15,10 +15,14 @@ import {
   ButtonLogin,
   ContainerItens,
   SignInLink,
-
+  Background
 } from "./styles";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
-function Register({ setShowDropdown }) {
+function Register() {
+  const history = useHistory()
   const [nameInputValue, setNameInputValue] = useState('');
   const [emailInputValue, setEmailInputValue] = useState('');
   const [passwordInputValue, setPasswordInputValue] = useState('');
@@ -49,9 +53,12 @@ function Register({ setShowDropdown }) {
       },
         { validateStatus: () => true }
       );
-
       if (status === 200 || status === 201) {
         toast.success('Cadastro criado com sucesso!!');
+        // Redirecionar para a tela de login após criar a conta com sucesso
+        setTimeout(() => {
+          history.push('/Login');
+        }, 1000); // Adicionando setTimeout de 1 segundo
       } else if (status === 409) {
         toast.error('E-mail já cadastrado, faça login para continuar!');
       } else {
@@ -62,7 +69,6 @@ function Register({ setShowDropdown }) {
     }
   };
 
- 
 
   const handleNameInputChange = (e) => {
     setNameInputValue(e.target.value);
@@ -81,59 +87,63 @@ function Register({ setShowDropdown }) {
   };
 
   return (
-    <Container>
-      <button className='buttonLoginModal' onClick={() => setShowDropdown(false)}>X</button>
-      <ContainerItens>
-        <h1>Cadastre-se</h1>
+    <Background>
+      <Header />
 
-        <form noValidate onSubmit={handleSubmit(onSubmit)}>
-          <Label className={nameInputValue ? 'active' : ''}>Nome</Label>
-          <Input
-            type="text"
-            {...register('name')}
-            className={nameInputValue ? 'active' : ''}
-            onChange={handleNameInputChange}
-          />
-          <ErrorMessage>{errors.name?.message}</ErrorMessage>
+      <Container>
+        <ContainerItens>
+          <h1>Cadastre-se</h1>
 
-          <Label className={emailInputValue ? 'active' : ''}>Email</Label>
-          <Input
-            type="email"
-            {...register('email')}
-            className={emailInputValue ? 'active' : ''}
-            onChange={handleEmailInputChange}
-          />
-          <ErrorMessage>{errors.email?.message}</ErrorMessage>
+          <form noValidate onSubmit={handleSubmit(onSubmit)}>
+            <Label className={nameInputValue ? 'active' : ''}>Nome</Label>
+            <Input
+              type="text"
+              {...register('name')}
+              className={nameInputValue ? 'active' : ''}
+              onChange={handleNameInputChange}
+            />
+            <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
-          <Label className={passwordInputValue ? 'active' : ''}>Senha</Label>
-          <Input
-            type="password"
-            {...register('password')}
-            className={passwordInputValue ? 'active' : ''}
-            onChange={handlePasswordInputChange}
-          />
-          <ErrorMessage>{errors.password?.message}</ErrorMessage>
+            <Label className={emailInputValue ? 'active' : ''}>Email</Label>
+            <Input
+              type="email"
+              {...register('email')}
+              className={emailInputValue ? 'active' : ''}
+              onChange={handleEmailInputChange}
+            />
+            <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-          <Label className={confirmPasswordInputValue ? 'active' : ''}>Confirmar senha</Label>
-          <Input
-            type="password"
-            {...register('confirmPassword')}
-            className={confirmPasswordInputValue ? 'active' : ''}
-            onChange={handleConfirmPasswordInputChange}
-          />
-          <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+            <Label className={passwordInputValue ? 'active' : ''}>Senha</Label>
+            <Input
+              type="password"
+              {...register('password')}
+              className={passwordInputValue ? 'active' : ''}
+              onChange={handlePasswordInputChange}
+            />
+            <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-        
+            <Label className={confirmPasswordInputValue ? 'active' : ''}>Confirmar senha</Label>
+            <Input
+              type="password"
+              {...register('confirmPassword')}
+              className={confirmPasswordInputValue ? 'active' : ''}
+              onChange={handleConfirmPasswordInputChange}
+            />
+            <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+
+
             <ButtonLogin type="submit">Cadastrar</ButtonLogin >
-          
-        </form>
 
-        <SignInLink>
-          Já tem cadastro?{' '}
-          <Link style={{ color: '#36e73d' }} to="/login">ENTRAR</Link>
-        </SignInLink>
-      </ContainerItens>
-    </Container>
+          </form>
+
+          <SignInLink>
+            Já tem cadastro?{' '}
+            <Link style={{ color: '#36e73d' }} to="/login">ENTRAR</Link>
+          </SignInLink>
+        </ContainerItens>
+      </Container>
+      <Footer />
+    </Background>
   );
 }
 
