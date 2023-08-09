@@ -12,16 +12,13 @@ function CartResume() {
     const [freightData, setFreightData] = useState(null);
     const [cepData, setCepData] = useState(null);
 
-
     const updateFreightData = (data) => {
-        setFreightData(data); // Receives the freight data through the callback
+        setFreightData(data);
     };
 
     const updateCepData = (data) => {
         setCepData(data);
     }
-
-
 
 
     return (

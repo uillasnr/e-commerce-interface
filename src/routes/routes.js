@@ -17,6 +17,7 @@ import CheckoutCancel from "../components/CheckoutCancel";
 //import FreteResult from "../components/FreteResult";
 
 import ProductRating from "../components/ProductRating";
+import UserOrders from "../components/UserOrders";
 
 
 
@@ -31,9 +32,10 @@ function Routes() {
                 <Route exact component={Products} path="/produtos" />
                 <Route exact component={ProductsId} path="/detalhes/:id" />
 
-                <Route exact component={ProductRating} path="/cep" />
+              
 
                 <PrivateRoute exact component={Checkout} path="/carrinho" />
+                <PrivateRoute exact component={UserOrders} path="/compras" />
                 <PrivateRoute exact component={CheckoutSuccess} path="/success" />
                 <PrivateRoute exact component={CheckoutCancel} path="/cancel" />
 

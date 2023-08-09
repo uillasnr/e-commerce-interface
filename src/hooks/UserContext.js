@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { useCart } from '../../src/hooks/CartContext'; 
 import PropTypes from 'prop-types'
 
 const UserContext = createContext({})
@@ -12,10 +13,18 @@ export const UserProvider = ({ children }) => {
         await localStorage.setItem('e-commerce:userData', JSON.stringify(userInfo))
     }
 
+   // Acesse a função clearCart do CartProvider
+  const cartContext = useCart();
+
     //função de Deslogar o usuario
     const logout = async () => {
-        await localStorage.removeItem('e-commerce:userData')
-    }
+        window.location.reload();
+        await localStorage.removeItem('e-commerce:userData');
+        await localStorage.removeItem('e-commerce:cartInfo');
+        cartContext.clearCart(); 
+        setUserData({});
+        
+        };
 
 
     //recomperar os dados
