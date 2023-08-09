@@ -5,7 +5,7 @@ export const Container = styled.div`
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,1.9));
     padding: 10px;
     border-radius: 20px;
-    margin: 90px 80px 0px 107px;
+    margin: 50px 80px 0px 107px;
     width: max-content;
     
 
@@ -98,7 +98,7 @@ width: 330px;
 }
 }
 @media (max-width: 400px){
-  margin: 90px 80px 0px 23px;
+  margin: 30px 80px 0px 23px;
   height: auto;
   h1{
       color: #44d62c;

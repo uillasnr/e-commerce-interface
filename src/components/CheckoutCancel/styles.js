@@ -48,7 +48,7 @@ export const ContainerItems = styled.div`
 `;
 
 export const Div = styled.div`
-     padding: 164px 130px 0px 130px;
+   padding: 73px 130px 0px 130px;
 
   button {
     background: none;

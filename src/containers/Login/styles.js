@@ -7,7 +7,7 @@ export const Background = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: -62px;
+    margin-top: -61px;
   h1{
     text-align: center;
     color: #fff;

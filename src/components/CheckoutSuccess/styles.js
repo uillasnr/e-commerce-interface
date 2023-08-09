@@ -23,6 +23,7 @@ export const ContainerItems = styled.div`
   }
 
 
+
   @media (max-width: 768px) {
     div {
       width: 100%;
@@ -41,7 +42,7 @@ export const ContainerItems = styled.div`
 `;
 
 export const Div = styled.div`
-     padding: 145px 130px 0px 130px;
+   padding: 54px 130px 0px 130px;
 
   button {
     background: none;
@@ -53,12 +54,12 @@ export const Div = styled.div`
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    color: #44d62c; /* Cor inicial do texto */
+    color: #fff; /* Cor inicial do texto */
     transition: color 0.3s; /* Adicionando uma transição de 0.3 segundos na mudança de cor */
   }
 
   button:hover {
-    color: #fff;
+    color: #44d62c;
     transform: scale(1.03);
   }
 
@@ -71,7 +72,7 @@ export const Div = styled.div`
     }
   }
   @media (max-width: 768px) {
-   padding: 145px 130px 42px 130px;
+    padding: 35px 130px 25px 130px;
     button {
       margin-left: 30%;
     }
@@ -80,19 +81,19 @@ export const Div = styled.div`
     button{
       margin-left: 25%;
     }
-    padding: 150px 130px 0px 130px;
+    padding: 40px 130px 0px 130px;
   }
   @media (max-width: 565px) {
-    padding: 150px 86px 0px 86px;
+    padding: 40px 86px 0px 86px;
   }
   @media (max-width: 500px) {
-    padding: 150px 50px 0px 50px;
+    padding: 35px 50px 0px 50px;
   }
   @media (max-width: 400px) {
     button{
       margin-left: 23%;
     }
-    padding: 150px 15px 0px 15px;
+    padding: 40px 15px 0px 15px;
   }
 `;
 
@@ -105,17 +106,28 @@ export const Container = styled.div`
   border: 8px solid rgb(68 214 44);
 
   h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: #fff;
   }
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #fff;
   }
   h4 {
     color: #44d62c;
+    margin-bottom: 5px;
+  }
+  .PrazoEntrega {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .dia {
+    color: #44d62c;
+    margin-left: 5px;
   }
 
 

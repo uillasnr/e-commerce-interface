@@ -666,6 +666,7 @@ export const ContainerTex = styled.div`
     margin-left: 104px;
     font-size: 2.1rem;
     width: 315px;
+    text-align: center;
   }
 
   .star {
@@ -1085,7 +1086,77 @@ export const ContainerTex = styled.div`
     margin-left: -99px;
   }
 }
+@media (max-width: 460px) {
+    display: inline-block;
+    width: 60%;
+    margin-left: 88px;
+    h2 {
+      font-size: 1.5rem;
+    width: 108%;
+    margin-left: -26px;
+    }
 
+
+p {
+  margin-left: 78px;
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.star {
+  width: 155px;
+    margin-left: 37px;
+    font-size: 11px;
+}
+
+span {
+ font-size: 18px;
+}
+
+h3 {
+  margin-left: 67px;
+    font-size: 1rem;
+    color: rgb(54, 231, 61);
+    width: 125px;
+}
+
+.quantity-container {
+  display: flex;
+    gap: 15px;
+    width: 110px;
+    height: 40px;
+    margin-left: 74px;
+   margin-top: 0px;
+
+ button {
+  height: 30px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    color: rgb(54, 231, 61);
+ }
+
+ h1 {
+   font-size: 16px;
+   color: #000000;
+   margin-top: 15px;
+ }
+
+ h6 {
+  width: 30px;
+    height: 24px;
+    background: #fff;
+    border-radius: 5px;
+    padding: 5px 12px 0px;
+    font-size: 13px;
+ }
+}
+a{
+ margin-left: -101px;
+}
+}
   @media (max-width: 440px) {
     display: inline-block;
     width: 60%;
@@ -1093,7 +1164,7 @@ export const ContainerTex = styled.div`
     h2 {
       font-size: 1.5rem;
     width: 108%;
-    margin-left: 5px;
+    margin-left: -26px;
     }
 
 
@@ -1165,7 +1236,7 @@ a{
     h2 {
       font-size: 1.5rem;
     width: 108%;
-    margin-left: -9px;
+    margin-left: -27px;
     }
 
 
@@ -1242,6 +1313,23 @@ export const ImgOptions = styled.div`
     align-items: center;
     gap: 10px;
 
+    @media (max-width: 460px){
+    display: flex;
+    align-items: center;
+    flex-direction: inherit;
+    gap: 10px;
+    margin-top: 110px;
+    margin-left: 120px
+    }
+    
+    @media (max-width: 450px){
+    display: flex;
+    align-items: center;
+    flex-direction: inherit;
+    gap: 10px;
+    margin-top: 110px;
+    margin-left: 120px
+    }
     @media (max-width: 400px){
     display: flex;
     align-items: center;
@@ -1350,13 +1438,73 @@ div{
     width: 380px;
     height: 306px;
     }
-    @media (max-width: 445px){
+    @media (max-width: 460px){
+       
+      margin-left: -408px;
+         div{
+            width: 280px;
+            height: 146px;
+            margin-top: -20px;
+         }
+     .image-magnify {
+     width: 70%;
+     height: 70%;
+     margin-left: -180px;
+     background: red;
+     }
+     .zoomed-image-container {
+     display: none;
+     position: fixed;
+     top: 50%;
+     left: 500%; 
+     transform: translate(5%, -15%); 
+     z-index: 9999;
+     background: white;
+     border: 1px solid #ddd;
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+     overflow: hidden; 
+ }
+ 
+     }
+    @media (max-width: 450px){
     margin-left: -345px;
     width: 380px;
     height: 306px;
     }
+    @media (max-width: 445px){
+       
+    margin-left: -400px;
+    width: 380px;
+    height: 306px;
+   
+         div{
+            width: 280px;
+            height: 146px;
+            margin-top: -20px;
+         }
+     .image-magnify {
+     width: 70%;
+     height: 70%;
+     margin-left: -180px;
+     background: red;
+     }
+     .zoomed-image-container {
+     display: none;
+     position: fixed;
+     top: 50%;
+     left: 500%; 
+     transform: translate(5%, -15%); 
+     z-index: 9999;
+     background: white;
+     border: 1px solid #ddd;
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+     overflow: hidden; 
+ }
+ 
+     }
+    
     @media (max-width: 420px){
-     margin-left: -294px;
+      margin-left: -396px;
     width: 380px;
     height: 306px;
    } 
@@ -1372,6 +1520,7 @@ div{
     width: 70%;
     height: 70%;
     margin-left: -180px;
+    background: red;
     }
     .zoomed-image-container {
     display: none;
@@ -1397,6 +1546,16 @@ export const Img = styled.img`
     background: #464646;
     @media (max-width: 950px){
         width: 84%;
+    }
+    @media (max-width: 460px){
+        width: 36%;
+    margin-left: -5px;
+    margin-top: 355px;
+    }
+    @media (max-width: 450px){
+        width: 36%;
+    margin-left: -5px;
+    margin-top: 355px;
     }
     @media (max-width: 400px){
         width: 36%;

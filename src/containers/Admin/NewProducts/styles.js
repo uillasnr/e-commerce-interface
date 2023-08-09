@@ -54,9 +54,7 @@ margin: 10px;
 
 
 `
-
 export const LabelUploadOptions = styled.label`
-
 display: flex;
     gap: 10px;
     width: 315px;
@@ -100,7 +98,7 @@ img {
     height: auto;
     border: 3px dashed #464646;
 }
-
+ 
 `
 
 export const ContainerItems = styled.div`
@@ -115,13 +113,6 @@ export const CardImg = styled.div`
     width: 200px;
     height: 290px;
 
-    .previou_price{
-  text-align: center;
-    font-size: 11px;
-    font-weight: 200;
-    color: rgb(255 255 255);
-    text-decoration: line-through;
-}
 
 img{
     width: 100px;
@@ -166,7 +157,31 @@ p{
     font-weight: 800;
     text-align: center;
 }
-
+form{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    top: 434px;
+    left: 353px;
+}
+label{
+    margin: 10px;
+}
+input{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    color: #36E73D;
+}
+.previou_price{
+    text-align: center;
+    font-size: 11px;
+    font-weight: 200;
+    color: rgb(255 255 255);
+    text-decoration: line-through;
+}
 
 `
 export const Description = styled.div`

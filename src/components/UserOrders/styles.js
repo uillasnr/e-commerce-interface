@@ -14,7 +14,7 @@ export const Container = styled.div`
     color: #fff;
     text-align: center;
     padding-top: 30px;
-    min-height: calc(100vh - 238px);
+ /*    min-height: calc(100vh - 238px); */
 
     @media (max-width: 850px) {
 
@@ -35,7 +35,7 @@ export const Container = styled.div`
 export const Card = styled.div`
  border-radius: 8px;
   padding: 10px;
-  margin: 20px 130px auto;
+  margin: 20px 130px 60px;
   background: #464646;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 1.9));
 
@@ -53,7 +53,7 @@ export const Card = styled.div`
     color: #44d62c;
     font-size: 14px;
     font-weight: 700;
-    gap: 10px; /* Ajuste o espaçamento */
+    gap: 10px; 
 
     @media (max-width: 850px) {
       flex-direction: column;
@@ -70,7 +70,7 @@ export const Card = styled.div`
     color: #fff;
     font-size: 13px;
     display: flex;
-    justify-content: flex-end; /* Ajuste o alinhamento */
+    justify-content: flex-end; 
   }
   .dia {
     color: #44d62c;

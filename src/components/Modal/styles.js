@@ -33,7 +33,7 @@ export const StyledMenu = styled(Menu)`
   &:after {
     content: '';
     position: absolute;
-    top: 39px;
+    top: 47px;
     right: 268px;
     margin-top: 12px;
     border-width: 8px;

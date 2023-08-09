@@ -99,7 +99,7 @@ margin: 5px;
 export const ProductsContainer = styled.div`
 
 display: grid;
-    margin-top: -341px;
+    margin-top: -333px;
     margin-left: 180px;
     grid-template-columns: repeat(4, 0fr);
     gap: 0px;
