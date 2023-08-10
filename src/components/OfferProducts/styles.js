@@ -6,7 +6,7 @@ text-align: center;
 
 export const H1 = styled.h1`
 color: #fff;
-margin-top: 50px;
+margin: 25px 0px 25px;
 font-size: 2rem;
 
 
@@ -341,7 +341,7 @@ p{
     font-size: 14px;
   }
   h2{
-    font-size: 13px;
+    font-size: 12px;
   }
   h3{
     font-size: 8px;

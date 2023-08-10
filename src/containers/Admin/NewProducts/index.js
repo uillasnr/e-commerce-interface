@@ -33,14 +33,17 @@ function NewProduct() {
         name: Yup.string().required('Digite o nome do produto'),
         description: Yup.string().required('Digite a descrição do produto'),
         price: Yup.string().required('Digite o preço do produto'),
+        previou_price: Yup.string(),
         category: Yup.object().required('Escolha uma categoria'),
+        offer: Yup.boolean(),
+        news: Yup.boolean(),
 
         file: Yup.mixed()
             .test('required', 'Carregue um imagem', value => {
                 return value?.length > 0
             })
             .test('fileSize', 'Carregue arquivos de até 2mb', value => {
-                return value[0]?.size <= 200000
+                return value[0]?.size <= 900000
             })
             .test('type', 'Carregue apenas arquivos JPEG', value => {
                 return (
@@ -61,7 +64,10 @@ function NewProduct() {
         productDataFormData.append('name', data.name)
         productDataFormData.append('description', data.description)
         productDataFormData.append('price', data.price)
+        productDataFormData.append('previou_price', data.previou_price)
         productDataFormData.append('category_id', data.category.id)
+        productDataFormData.append('offer', data.offer)
+        productDataFormData.append('news', data.news)
         productDataFormData.append('file', data.file[0])
 
 
@@ -92,7 +98,7 @@ function NewProduct() {
         loadCategories()
     }, [])
 
-   
+
     //Preview do card
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -116,7 +122,24 @@ function NewProduct() {
                     </div>
                     <h2>{valueInput.name ? valueInput.name : "Preview"}</h2>
                     <h3>{LimitDescription(valueInput.description, 30)}</h3>
+                    <p className="previou_price"> {valueInput.previou_price ? formatCurrency(valueInput.previou_price) : null}</p>
                     <p>{valueInput.price ? formatCurrency(valueInput.price) : ""}</p>
+
+                    <form noValidate onSubmit={handleSubmit(onSubmit)}>
+                        <input className='offer'
+                            type='checkbox'
+                            {...register('offer')}
+                        /* defaultChecked={product.offer} */
+                        />
+                        <label>Produto em Oferta ?</label>
+
+                        <input className='news'
+                            type='checkbox'
+                            {...register('news')}
+                        /* defaultChecked={product.offer} */
+                        />
+                        <label>Mais Vendidos?</label>
+                    </form>
                 </CardImg>
 
                 <form noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -150,6 +173,10 @@ function NewProduct() {
                     <Label>Preço</Label>
                     <Input type='number' {...register('price')} onChange={handleInputChange} />
                     <ErrorMessage>{errors.price?.message}</ErrorMessage>
+
+                    <Label>Preço anterior</Label>
+                    <Input type='number' {...register('previou_price')} onChange={handleInputChange} />
+                    <ErrorMessage>{errors.previou_price?.message}</ErrorMessage>
 
 
                     <Controller name="category" control={control}
@@ -185,7 +212,7 @@ function NewProduct() {
                             <input
                                 type="file"
                                 accept="image/png"
-                                className="fileUpload2" 
+                                className="fileUpload2"
                                 {...register('file2')}
                                 onChange={(event) => {
                                     const file2 = event.target.files[0];
@@ -206,7 +233,7 @@ function NewProduct() {
                             <input
                                 type="file"
                                 accept="image/png"
-                                className="fileUpload3" 
+                                className="fileUpload3"
                                 {...register('file3')}
                                 onChange={(event) => {
                                     const file3 = event.target.files[0];
@@ -227,7 +254,7 @@ function NewProduct() {
                             <input
                                 type="file"
                                 accept="image/png"
-                                className="fileUpload4" 
+                                className="fileUpload4"
                                 {...register('file4')}
                                 onChange={(event) => {
                                     const file4 = event.target.files[0];

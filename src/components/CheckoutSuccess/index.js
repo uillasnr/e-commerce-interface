@@ -34,15 +34,21 @@ function CheckoutSuccess() {
 
             <ContainerItems>
               {lastOrder.products.map((product) => (
-
                 <div key={product.id}>
                   <img src={product.url_img1} alt={product.name} />
                   <h3>{product.name}</h3>
                   <p>Quantidade: {product.quantity}</p>
                   <p>{formatCurrency(product.price)}</p>
                 </div>
+
               ))}
+             
             </ContainerItems>
+            {lastOrder.address.freteData && (
+                <p className="PrazoEntrega">O produto chega em  {' '}
+                  <p className="dia"> até {lastOrder.address.freteData[0].PrazoEntrega} dias úteis no Seu Endereço.</p></p>
+
+              )}
 
             <h4>Valor total da compra: {formatCurrency(lastOrder.totalPrice)}</h4>
           </Container>
