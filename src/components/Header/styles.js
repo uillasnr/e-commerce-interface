@@ -68,6 +68,9 @@ span{
     justify-content: center;
     margin: -5px 18px 0px;
 }
+@media (max-width: 400px) {
+  margin-top: -1px;
+}
 `
 
 export const PageLink = styled.div`
@@ -305,7 +308,7 @@ img{
 }
 
 @media (max-width: 1170px) {
-    left: 400px;
+    left: 431px;
       } 
       @media (max-width: 1150px) {
     left: 385px;

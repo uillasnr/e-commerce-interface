@@ -18,13 +18,13 @@ export const UserProvider = ({ children }) => {
 
     //função de Deslogar o usuario
     const logout = async () => {
-        window.location.reload();
+        window.location.href = '/login';
         await localStorage.removeItem('e-commerce:userData');
         await localStorage.removeItem('e-commerce:cartInfo');
         cartContext.clearCart(); 
         setUserData({});
         
-        };
+    };
 
 
     //recomperar os dados

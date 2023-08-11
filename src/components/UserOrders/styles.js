@@ -25,7 +25,12 @@ export const Container = styled.div`
 
   
   @media (max-width: 400px) {
-
+   
+      h1{
+        padding-top: 25px;
+    font-size: 24px;
+    margin-bottom: 20px;
+      }
 
 }
 
@@ -77,10 +82,10 @@ export const Card = styled.div`
     margin-left: 5px;
   }
  @media (max-width: 750px) {
-margin: 20px 60px auto
+margin: 20px 60px ;
  }
   @media (max-width: 550px) {
-    margin: 20px 60px auto;
+    margin: 20px 60px 50px;
   h3{
     text-align: center;
   }
@@ -105,7 +110,7 @@ margin: 20px 60px auto
 
 }
   @media (max-width: 400px) {
-    margin: 20px 25px auto;
+    margin: 0px 60px 50px;
   }
 `;
 

@@ -14,9 +14,6 @@ import Checkout from "../containers/CartResume";
 import Admin from "../containers/Admin";
 import CheckoutSuccess from "../components/CheckoutSuccess";
 import CheckoutCancel from "../components/CheckoutCancel";
-//import FreteResult from "../components/FreteResult";
-
-import ProductRating from "../components/ProductRating";
 import UserOrders from "../components/UserOrders";
 
 
@@ -31,8 +28,6 @@ function Routes() {
                 <Route exact component={Home} path="/" />
                 <Route exact component={Products} path="/produtos" />
                 <Route exact component={ProductsId} path="/detalhes/:id" />
-
-              
 
                 <PrivateRoute exact component={Checkout} path="/carrinho" />
                 <PrivateRoute exact component={UserOrders} path="/compras" />

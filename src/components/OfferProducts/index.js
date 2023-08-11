@@ -1,16 +1,16 @@
-//produtos em offer
+
 import React, { useEffect, useState } from "react"
 import api from '../../services/api'
 import formatCurrency from '../../utils/formarCurrency'
 import useCountdown from "../../hooks/useCountdown"
 
 import { Container, ContainerCardOffer, H1, Img, ButtonOffers, ContainerItems, Stopwatch, } from './styles'
-import time from "../../assets/tempo.png"
+import AccessAlarmsIcon from '@mui/icons-material/AccessAlarms';
 import { Link } from "react-router-dom";
 
 function OfferProducts() {
     const [offers, setOffers] = useState([])
-    const [day, hour, minute, second] = useCountdown("Aug 22, 2023 00:00:00")
+    const [day, hour, minute, second] = useCountdown("Aug 13, 2023 00:00:00")
     const [isHovering, setIsHovering] = useState(false);
 
     useEffect(() => {
@@ -56,7 +56,7 @@ function OfferProducts() {
                                         onMouseEnter={() => setIsHovering(true)}
                                         onMouseLeave={() => setIsHovering(false)}
                                     >
-                                        <span style={{ display: isHovering ? 'none' : 'inline-block' }}>TERMINA EM:</span>
+                                        <span style={{ marginTop:'3px',display: isHovering ? 'none' : 'inline-block' }}>TERMINA EM:</span>
 
 
                                         {isHovering ?
@@ -65,9 +65,8 @@ function OfferProducts() {
                                             </Link>
                                             :
 
-
                                             <div className="time">
-                                                <img src={time} alt="time"></img>
+                                                <AccessAlarmsIcon style={{display: 'block'}}/>
                                                 <h4>D{day} {hour}:{minute}:{second}</h4>
                                             </div>
                                         }

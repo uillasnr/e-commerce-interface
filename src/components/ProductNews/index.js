@@ -11,8 +11,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 
-// ... (import statements)
-
 function ProductNews() {
     const [productNews, setProductNews] = useState([]);
 
@@ -56,7 +54,7 @@ function ProductNews() {
         <ContainerItems>
             <h1>Novidade</h1>
             <Swiper
-                spaceBetween={20} // Adjust spacing between slides
+                spaceBetween={20} 
                 centeredSlides={false}
                 breakpoints={breakpoints}
                 pagination={{
@@ -81,6 +79,6 @@ function ProductNews() {
     );
 }
 
-// ... (styled components)
+
 
 export default ProductNews;

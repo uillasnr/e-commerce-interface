@@ -361,12 +361,12 @@ cursor: pointer;
 
 h4{
   font-size: 15px;
- color: #fff;
-margin: 5px;
+ color: #121212;
+margin: 5px 5px 10px 10px;
 }
 span{
   font-size: 10px;
-  color: #fff;
+  color: #121212;
   text-align: center;
   display: inherit;
 }
