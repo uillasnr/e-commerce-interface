@@ -145,8 +145,6 @@ function CheckCep({ onFreightData, onCepData }) {
                                 )}
                             </>
 
-
-
                             <input className="neighborhood" type="text" placeholder="Bairro" {...register("neighborhood")} />
                             <input className="city" type="text" placeholder="Cidade" {...register("city")} />
                             <input className="uf" type="text" placeholder="uf" {...register("uf")} />
@@ -166,7 +164,6 @@ function CheckCep({ onFreightData, onCepData }) {
                             <h5>Prazo de entrega:</h5>
                             <span>até {cepData.freteData ? cepData.freteData[0].PrazoEntrega : "Aguardando consulta"} dias úteis*</span>
                             <h3 >Frete: R$ {cepData.freteData ? cepData.freteData[0].Valor : "Aguardando consulta"}</h3>
-
                         </div>
                     )}
                 </ConatinerFrete>

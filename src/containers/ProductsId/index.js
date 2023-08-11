@@ -5,18 +5,16 @@ import api from "../../services/api";
 import formatCurrency from '../../utils/formarCurrency'
 import { Link } from "react-router-dom";
 import Cart from "../../assets/-carrinho.png"
+
 import {
   Container, Img, ContainerImg, ImgOptions, ContainerItems,
-  Button, ButtonCart, ContainerOffers, ContainerTex, Description
+  Button, ContainerTex, Description
 } from './styles'
+
 import { useParams } from "react-router-dom";
 import ReactImageMagnify from 'react-image-magnify';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-//import 'swiper/swiper.min.css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+
 import { useCart } from "../../hooks/CartContext";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -59,8 +57,8 @@ function ProductsId() {
 
     fetchProductRatings();
 
-   /*  const interval = setInterval(fetchProductRatings, 1000); */
-  /*   return () => clearInterval(interval); */
+    /*   const interval = setInterval(fetchProductRatings, 1000); 
+      return () => clearInterval(interval);   */
   }, [id]);
 
 
@@ -78,7 +76,7 @@ function ProductsId() {
 
 
   function ImageClick(imgUrl) {
-    //  console.log(imgUrl)
+
     setCurrentImg(imgUrl)
     setSelectedImage(imgUrl)
   }
@@ -97,93 +95,14 @@ function ProductsId() {
     increaseProductQuantity(product.id);
   }
 
-  const breakpoints = {
-    390: {
-      slidesPerView: 3,
-      spaceBetween: -50
-    },
-    445: {
-      slidesPerView: 3,
-      spaceBetween: -80
-    },
-    450: {
-      slidesPerView: 3,
-      spaceBetween: -80
-    },
-    480: {
-      slidesPerView: 3,
-      spaceBetween: -100
-    },
-    500: {
-      slidesPerView: 2,
-      spaceBetween: -80
-    },
-    550: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    },
 
-    600: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    },
-    660: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    },
-    750: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    },
-    780: {
-      slidesPerView: 3,
-      spaceBetween: 20
-    },
-    800: {
-      slidesPerView: 4,
-      spaceBetween: 20
-    },
-    880: {
-      slidesPerView: 4,
-      spaceBetween: 20
-    },
-    900: {
-      slidesPerView: 4,
-      spaceBetween: 20
-    },
-    950: {
-      slidesPerView: 4,
-      spaceBetween: 20
-    },
-    1000: {
-      slidesPerView: 4,
-      spaceBetween: 20
-    },
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 20
-    },
-    1050: {
-      slidesPerView: 5,
-      spaceBetween: 20
-    },
-    1215: {
-      slidesPerView: 6,
-      spaceBetween: 20
-    }
-  }
 
-  const LimitDescription = (description, maxLength) => {
-    if (description.length > maxLength) {
-      return `${description.slice(0, maxLength)}...`;
-    }
-    return description;
-  }
+
 
   return (
     <Container>
       <Header />
-     
+
 
       <ContainerItems>
         <ContainerTex>
@@ -210,21 +129,16 @@ function ProductsId() {
             <button onClick={handleIncrease}>+</button>
           </div>
 
-
-         
-            < Button >
-              <div className="buttonProductId">
+          < Button >
+            <div className="buttonProductId">
               <Link style={{ textDecoration: 'none', }} to={`/carrinho`}>
                 <button onClick={() => putProductInCart(product)} >COMPRAR</button>
-                </Link>
-                <button className="carrinho" 
+              </Link>
+              <button className="carrinho"
                 onClick={() => putProductInCart(product)}
-                > <img src={Cart} alt="cart"></img></button>
-              </div>
-            </ Button>
-         
-
-          {/*  <ButtonCart >ADICIONAR AO CARINHO</ButtonCart> */}
+              > <img src={Cart} alt="cart"></img></button>
+            </div>
+          </ Button>
 
           <FreteResult />
         </ContainerTex>
@@ -276,46 +190,7 @@ function ProductsId() {
           </div>
 
         </ContainerImg>
-
-
-
       </ContainerItems>
-
-      {/*     <line />
-
-      <Swiper
-        spaceBetween={0}
-        centeredSlides={true}
-        breakpoints={breakpoints}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-      >
-        {offers &&
-          offers.map(product => (
-
-            <SwiperSlide key={product.id}  >
-              <ContainerOffers>
-                <h6><h4>OFF</h4></h6>
-                <div>
-                  <img src={product.url_img1} alt="foto do Produto" />
-                </div>
-                <h2>{product.name}</h2>
-                <h3>{LimitDescription(product.description, 50)}</h3>
-                <p>{formatCurrency(product.price)}</p>
-
-                <Link style={{ textDecoration: 'none', }} to={`/detalhes/${product.id}`}>
-                  <button>COMPRAR</button>
-                </Link>
-              </ContainerOffers>
-            </SwiperSlide>
-          ))}
-      </Swiper>
-
-      <line />
- */}
 
       <Description>Descrição do produto</Description>
 

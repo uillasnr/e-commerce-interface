@@ -23,6 +23,7 @@ import banner4 from "../../assets/banner_img 4.webp";
 import banner5 from "../../assets/banner_img 5.webp";
 import banner6 from "../../assets/banner_img 6.webp";
 import banner7 from "../../assets/banner_img 7.webp";
+import ProductNews from "../../components/ProductNews";
 
 function Home() {
 
@@ -55,7 +56,7 @@ function Home() {
           ))}
         </Swiper>
       </ Slider>
-
+      <ProductNews />
       <OfferProducts />
       <Footer />
     </Container>

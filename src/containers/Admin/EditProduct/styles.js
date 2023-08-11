@@ -158,11 +158,10 @@ p{
     text-align: center;
 }
 form{
-    margin-top: 300px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+    width: 183px;
+    position: absolute;
+    top: 434px;
+    left: 367px;
 }
 label{
     margin: 10px;
@@ -172,7 +171,7 @@ input{
     height: 15px;
     cursor: pointer;
     color: #36E73D;
-    
+    margin-bottom: 10px;
 }
 
 `

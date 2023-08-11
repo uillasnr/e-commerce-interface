@@ -4,13 +4,10 @@ import styled from "styled-components";
 
 export const Background = styled.div`
     background: #222222;
-    /* min-height: calc(100vh - 72px); */
-    /* padding-bottom: 30px; */
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 0px;
   h1{
     text-align: center;
     color: #fff;
@@ -30,7 +27,7 @@ export const Container = styled.div`
     border: 2px solid #d5d5d5;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 20px 0px 25px 0px;
-    margin-top: 100px;
+    margin-top:20px;
 
   @media (max-width: 768px) {
     width: auto;

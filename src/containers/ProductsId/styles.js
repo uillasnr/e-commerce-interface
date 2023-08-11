@@ -25,8 +25,10 @@ h5{
     -webkit-box-pack: center;
     justify-content: center;
     height: 300px;
+    line-height: 1.5rem;
     align-items: center;
     text-align: center;
+    color: rgb(213 213 213);
     margin: 0px 100px;
 }
 
@@ -51,6 +53,18 @@ button.rec-dot{
     display: none;
 
 }
+@media (max-width: 1090px){
+    h5{
+        display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    margin: 20px 20px;
+    }
+}
 @media (max-width: 800px){
     h5{
         display: flex;
@@ -67,115 +81,6 @@ button.rec-dot{
 
 
 `
-
-
-export const ContainerOffers = styled.div`
- 
- background: #464646;
-    border-radius: 10.6557px;
-    width: 200px;
-    height: 290px;
-    position: relative;
-
-    &:hover {
-    transform: scale(1.03); /* Aumenta o tamanho em 5% */
-    cursor: pointer;
-  }
-    
-h4{
-  position: absolute;
-    left: 160px;
-    font-size: 15px;
-    margin-top: 15px;
-    color: #FFFFFF;
-    z-index: 1;
-}
-
-
-   
-h6::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: 40px solid transparent;
-  border-top: 40px solid #44D62C;
-  border-right: 40px solid #44D62C;
-  border-radius: 0px 10px 0px 10px;
-  z-index: 1;
-}
-
-
-
-  div {
-    display: grid;
-    justify-content: center;
-    margin: 15px;
-  }
-
-  h2 {
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 700;
-    text-align: center;
-    line-height: 17px;
-    margin: 10px;
-    color: #ffffff;
-  }
-
-  h3 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 13px;
-    text-align: center;
-    margin: 15px;
-    color: #ffffff;
-  }
-
-  p {
-    font-size: 20px;
-    color: #44d62c;
-    font-weight: 800;
-    text-align: center;
-  }
-
-  img {
-    width: 100px;
-    background: none;
-  }
-
-  button {
-    width: 150px;
-    height: 30px;
-    background: #36e73d;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 24px;
-    text-align: center;
-    color: #2c2b2b;
-    margin-top: 20px;
-    margin-left: 25px;
-    margin-bottom: 0px;
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &:active {
-      opacity: 0.6;
-    }
-  }
-
-  
-  
-`
-
-
 
 
 export const ContainerTex = styled.div`
@@ -657,7 +562,7 @@ export const ContainerTex = styled.div`
     width: 80%;
 
   p {
-    margin-left: 220px;
+    margin-left: 206px;
     margin-top: 5px;
     font-size: 0.875rem;
   }
@@ -671,7 +576,7 @@ export const ContainerTex = styled.div`
 
   .star {
     width: 155px;
-    margin-left: 180px;
+    margin-left: 184px;
     font-size: 11px;
   }
 
@@ -730,7 +635,7 @@ export const ContainerTex = styled.div`
    width: 60%;
 
   p {
-    margin-left:195px;
+    margin-left:184px;
     margin-top: 5px;
     font-size: 0.875rem;
   }
@@ -743,7 +648,7 @@ export const ContainerTex = styled.div`
 
   .star {
     width: 155px;
-    margin-left: 156px;
+    margin-left: 164px;
     font-size: 11px;
   }
 
@@ -803,7 +708,7 @@ export const ContainerTex = styled.div`
    width: 60%;
 
   p {
-    margin-left: 168px;
+    margin-left: 156px;
     margin-top: 5px;
     font-size: 0.875rem;
   }
@@ -816,7 +721,7 @@ export const ContainerTex = styled.div`
 
   .star {
     width: 155px;
-    margin-left: 130px;
+    margin-left: 135px;
     font-size: 11px;
   }
 
@@ -876,7 +781,7 @@ export const ContainerTex = styled.div`
    width: 60%;
 
   p {
-    margin-left: 168px;
+    margin-left: 155px;
     margin-top: 5px;
     font-size: 0.875rem;
   }
@@ -949,7 +854,7 @@ export const ContainerTex = styled.div`
    width: 60%;
 
   p {
-    margin-left: 144px;
+    margin-left: 128px;
     margin-top: 5px;
     font-size: 0.875rem;
   }
@@ -1021,7 +926,7 @@ export const ContainerTex = styled.div`
    width: 60%;
 
   p {
-    margin-left: 102px;
+    margin-left: 88px;
     margin-top: 5px;
     font-size: 0.875rem;
   }
@@ -1034,7 +939,7 @@ export const ContainerTex = styled.div`
 
   .star {
     width: 155px;
-    margin-left: 58px;
+    margin-left: 69px;
     font-size: 11px;
   }
 
@@ -1241,14 +1146,14 @@ a{
 
 
 p {
-  margin-left: 64px;
+  margin-left: 58px;
     margin-top: 5px;
     font-size: 0.8rem;
 }
 
 .star {
   width: 155px;
-  margin-left: 22px;
+  margin-left: 29px;
     font-size: 11px;
 }
 
@@ -1257,7 +1162,7 @@ span {
 }
 
 h3 {
-  margin-left: 52px;
+  margin-left: 60px;
     font-size: 1rem;
     color: rgb(54, 231, 61);
     width: 125px;
@@ -1420,7 +1325,7 @@ div{
     height: 306px;
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////
+
     @media (max-width: 780px){
       margin-left: -560px;
     width: 380px;
@@ -1568,6 +1473,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 font-size: 2rem;
+font-weight: 600;
 margin-top: 30px;
 `
 export const Button = styled.button`

@@ -18,8 +18,7 @@ function Login() {
   const [emailInputValue, setEmailInputValue] = useState('');
   const [passwordInputValue, setPasswordInputValue] = useState('');
   const { putUserData } = useUser()
-  //const containerRef = useRef();
-
+ 
 
   /* Validação do formulario */
   const schema = yup.object().shape({
@@ -28,7 +27,7 @@ function Login() {
     password: yup.string().required('A senha e obrigatória')
       .min(6, 'A senha deve ter pelo 6 digitos')
   })
-  /* Configuração react-hook-form */
+
   const {
     register,
     handleSubmit,
@@ -87,7 +86,7 @@ function Login() {
   return (
     <Background>
       <Header />
-      <h1>Para finalizar a compra, Faça Login</h1>
+
       <Container>
 
 

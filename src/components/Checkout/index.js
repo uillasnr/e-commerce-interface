@@ -14,13 +14,11 @@ function Checkout({  freightData, cepData }) {
     const { cartProducts, clearCart } = useCart();
     const history = useHistory();
 
-console.log(cepData)
 
     const clearCartOnSuccess = () => {
-        // Deleta os itens do carrinho
         clearCart();
 
-        // Redireciona o usuário para a página de sucesso ou qualquer outra página desejada
+        // Redireciona o usuário para a página de sucesso 
         history.push("/sucesso");
     };
 
@@ -53,20 +51,20 @@ console.log(cepData)
       
             // Obtém a URL do checkout da resposta da API e redireciona o usuário
             if (response.data && response.data.url) {
-              // const checkoutUrl = response.data.url;
-console.log(response.data);
+               const checkoutUrl = response.data.url;
+
                 // Redireciona o usuário para a tela de checkout após um pequeno atraso
-            //    setTimeout(() => {
-              //      window.location.href = checkoutUrl;
-                    //              console.log(checkoutUrl)
-           //         clearCartOnSuccess(); // Chama a função para deletar os itens do carrinho
-           //     }, 2000)
+                setTimeout(() => {
+                    window.location.href = checkoutUrl;
+  
+                    clearCartOnSuccess(); // Chama a função para deletar os itens do carrinho
+                }, 2000)
 
             } else {
                 throw new Error("A resposta da API não possui uma URL de checkout válida.");
             }
         } catch (error) {
-            //    console.error(error);
+
             toast.error("Falha ao tentar realizar o seu pedido, tente novamente!");
         }
     };

@@ -1,11 +1,8 @@
-//produtos
 
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import PropTypes from "prop-types";
-
 import { Container, ProductsContainer, Line, CategoriMenu, ContainerButton } from './styles'
-
 import CardProduct from "../../components/CardProduct";
 import formatCurrency from "../../utils/formarCurrency";
 import Header from "../../components/Header";
@@ -69,8 +66,7 @@ function Products({ location: { state } }) {
     return (
         <Container>
             <Header />
-            
-         {/*    <Line /> */}
+
             <h5>Categorias</h5>
             <Line />
             <CategoriMenu>

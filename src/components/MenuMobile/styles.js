@@ -119,9 +119,10 @@ export const ContainerModal = styled.div`
 
 .Modal{
   border-bottom: 0.5px solid #d5d5d5;
-  color: #d5d5d5;
-  font-size: 12px;
-  text-align: center;
+    color: #d5d5d5;
+    font-size: 11px;
+    text-align: center;
+    padding: 5px;;
 }
 p:hover {
    

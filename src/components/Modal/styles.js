@@ -33,7 +33,7 @@ export const StyledMenu = styled(Menu)`
   &:after {
     content: '';
     position: absolute;
-    top: 47px;
+    top: 49px;
     right: 268px;
     margin-top: 12px;
     border-width: 8px;
@@ -84,8 +84,8 @@ export const StyledMenu = styled(Menu)`
     width: 123px;
   }
   &:after {
-    top: 39px;
-    right: 260px;
+    top:  49px;
+    right: 256px;
     margin-top: 12px;
   }
 }
@@ -98,6 +98,19 @@ export const StyledMenu = styled(Menu)`
   }
   &:after {
     top: 39px;
+    right: 255px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 1158px){
+  .MuiPaper-root {
+    background-color: #464646;
+    margin-left: -85px;
+    margin-top: 10px;
+    width: 123px;
+  }
+  &:after {
+    top: 49px;
     right: 255px;
     margin-top: 12px;
   }

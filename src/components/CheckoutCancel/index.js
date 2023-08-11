@@ -16,8 +16,6 @@ function CheckoutCancel() {
 
         <Container  >
           <h1>Compra não efetuada </h1>
-
-
           <ContainerItems>
 
           </ContainerItems>

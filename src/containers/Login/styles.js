@@ -7,7 +7,7 @@ export const Background = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: -61px;
+    margin-top: 0px;
   h1{
     text-align: center;
     color: #fff;
@@ -25,7 +25,7 @@ export const Container = styled.div`
   border-radius: 8px;
   border: 2px solid #d5d5d5;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px 0px 25px 0px;
+  margin: 30px 0px 30px 0px;
 
   @media (max-width: 768px) {
     width: auto;

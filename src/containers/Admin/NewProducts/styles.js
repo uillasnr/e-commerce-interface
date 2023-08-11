@@ -72,6 +72,8 @@ display: flex;
     justify-content: center;
     width: 100px;
     height: 100px;
+    text-align: center;
+    font-size: 12px;
 }
 
 .fileUpload2{

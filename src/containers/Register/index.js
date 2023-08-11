@@ -4,7 +4,6 @@ import * as yup from "yup";
 import { Link } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from "react-toastify";
-import { GoogleLogin } from "react-google-login";
 import api from "../../services/api";
 import ErrorMessage from "../../components/ErrorMessage";
 

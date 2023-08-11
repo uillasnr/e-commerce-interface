@@ -30,7 +30,7 @@ function Row({ row, setOrders, orders }) {
             const newOrders = orders.map(order => {
                 return order._id === id ? { ...order, status } : order
             })
-              /*    console.log(newOrders) */
+    
             setOrders(newOrders)
         } catch (err) {
             console.error(err)
